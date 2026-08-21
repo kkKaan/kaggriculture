@@ -125,12 +125,15 @@ def main():
     ap.add_argument("--rounds", type=int, default=8)
     ap.add_argument("--pop", type=int, default=8)
     ap.add_argument("--seeds", type=int, default=10)
-    ap.add_argument("--confirm", type=int, default=24)
+    ap.add_argument("--confirm", type=int, default=40)
+    ap.add_argument("--accept", type=float, default=0.60)
+    ap.add_argument("--anchor", type=float, default=0.55)
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--seed", type=int, default=None)
     a = ap.parse_args()
     rng = random.Random(a.seed)
     champ = json.load(open(CJ))
+    anchor = dict(champ)          # frozen baseline for the whole run
     log = open(LOG, "a")
 
     def say(msg):
@@ -159,10 +162,19 @@ def main():
                 wr2, mean2, wlt2 = evaluate(ex, top[2], champ, cseeds)
                 say("   confirm: {:.1f}% W{} L{} T{} mean=${:,.0f}".format(
                     100 * wr2, wlt2[0], wlt2[1], wlt2[2], mean2))
-                if wr2 >= 0.56:
-                    champ = top[2]
-                    json.dump(champ, open(CJ, "w"), indent=1, sort_keys=True)
-                    say("   PROMOTED -> %s" % {k: v[1] for k, v in top[3].items()})
+                if wr2 >= a.accept:
+                    # Individually-confirmed changes can still stack badly, so
+                    # re-check the whole candidate against the run's baseline.
+                    aseeds = [70000 + rd * 419 + i for i in range(a.confirm)]
+                    wr3, mean3, wlt3 = evaluate(ex, top[2], anchor, aseeds)
+                    say("   anchor:  {:.1f}% W{} L{} T{}".format(
+                        100 * wr3, wlt3[0], wlt3[1], wlt3[2]))
+                    if wr3 >= a.anchor:
+                        champ = top[2]
+                        json.dump(champ, open(CJ, "w"), indent=1, sort_keys=True)
+                        say("   PROMOTED -> %s" % {k: v[1] for k, v in top[3].items()})
+                    else:
+                        say("   rejected vs anchor (drift guard)")
                 else:
                     say("   rejected on confirmation")
     say("=== done ===")

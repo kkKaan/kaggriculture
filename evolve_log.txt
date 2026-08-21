@@ -32,3 +32,26 @@ round 0 (323s) best=50.0% {'plant_near': 0}
 round 1 (414s) best=70.8% {'animal_target': 11, 'wheat_reserve_days': 0.5, 'rush_window': 3}
    confirm: 56.2% W36 L28 T0 mean=$98,041
    PROMOTED -> {'animal_target': 11, 'wheat_reserve_days': 0.5, 'rush_window': 3}
+round 2 (239s) best=54.2% {'endgame_dump_day': 27, 'early_harvest': 1}
+round 3 (146s) best=54.2% {'long_frac_min': 0.7274, 'future_shop_weight': 1.2475}
+round 4 (142s) best=62.5% {'keep_frac_premium': 0.0516, 'future_shop_weight': 1.725}
+   confirm: 67.2% W43 L21 T0 mean=$98,455
+   PROMOTED -> {'keep_frac_premium': 0.0516, 'future_shop_weight': 1.725}
+round 5 (145s) best=54.2% {'keep_frac_premium': 0.0327, 'drop_threshold': 9, 'land_free_gate': 39}
+round 6 (148s) best=83.3% {'fetch_value': 92.7809}
+   confirm: 40.6% W26 L38 T0 mean=$96,564
+   rejected on confirmation
+round 7 (148s) best=54.2% {'rush_window': 2, 'cash_target': 2218.1559}
+round 8 (152s) best=58.3% {'cash_target': 1667.9607}
+round 9 (151s) best=75.0% {'value_scaled_care': 0}
+   confirm: 71.9% W46 L18 T0 mean=$97,561
+   PROMOTED -> {'value_scaled_care': 0}
+round 10 (159s) best=54.2% {'disc_poor': 0.926, 'rush_window': 2}
+round 11 (144s) best=50.0% {'cap_mu': 2.0766}
+round 12 (145s) best=79.2% {'long_frac_min': 0.7145, 'drop_threshold': 12}
+   confirm: 65.6% W42 L22 T0 mean=$97,966
+   PROMOTED -> {'long_frac_min': 0.7145, 'drop_threshold': 12}
+round 13 (145s) best=91.7% {'disc_poor': 0.9586}
+   confirm: 90.6% W58 L6 T0 mean=$103,808
+   PROMOTED -> {'disc_poor': 0.9586}
+round 14 (146s) best=62.5% {'endgame_dump_day': 24, 'disc_rich': 0.9611}

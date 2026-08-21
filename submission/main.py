@@ -1158,7 +1158,7 @@ class Brain:
         return ["PASS"]
 
 
-PARAMS = {'animal_target': 12, 'cap_lambda': 0.0, 'cap_mu': 2.1598, 'disc_poor': 0.9297, 'dist_decay': 1.2, 'endgame_dump_day': 25, 'fert_min_gain': 1000000000.0, 'final_run_slack': 6, 'hire_overhead': 3.5, 'hire_per_turn': 3, 'hold_bonus': 0.75, 'keep_frac': 0.24, 'keep_frac_premium': 0.15, 'land_buffer': 500, 'land_buffer_per_tile': 0.0, 'land_max': 2, 'long_frac_min': 0.7055, 'max_hands': 12, 'mirror': 0.45, 'operating_per_tile': 8.0, 'opp_weight': 1.0, 'sticky_bonus': 1.0, 'use_zones': 0, 'value_scaled_care': 1, 'wheat_reserve_days': 0.7885}
+PARAMS = {'animal_target': 11, 'cap_lambda': 0.0, 'cap_mu': 2.1598, 'disc_poor': 0.9586, 'dist_decay': 1.2, 'drop_threshold': 9, 'endgame_dump_day': 25, 'fert_min_gain': 1000000000.0, 'final_run_slack': 6, 'future_shop_weight': 1.725, 'hire_overhead': 3.5, 'hire_per_turn': 3, 'hold_bonus': 0.75, 'keep_frac': 0.24, 'keep_frac_premium': 0.0516, 'land_buffer': 500, 'land_buffer_per_tile': 0.0, 'land_max': 2, 'long_frac_min': 0.7055, 'max_hands': 12, 'mirror': 0.45, 'operating_per_tile': 8.0, 'opp_weight': 1.0, 'rush_window': 3, 'sticky_bonus': 1.0, 'use_zones': 0, 'value_scaled_care': 1, 'wheat_reserve_days': 0.5}
 
 
 _BRAIN = Brain(PARAMS)
