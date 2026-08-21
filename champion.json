@@ -1,5 +1,5 @@
 {
- "animal_target": 14,
+ "animal_target": 12,
  "cap_lambda": 0.0,
  "cap_mu": 2.1598,
  "disc_poor": 0.9297,
@@ -14,7 +14,7 @@
  "keep_frac_premium": 0.15,
  "land_buffer": 500,
  "land_buffer_per_tile": 0.0,
- "land_max": 1,
+ "land_max": 2,
  "long_frac_min": 0.7055,
  "max_hands": 12,
  "mirror": 0.45,

@@ -4,6 +4,15 @@ Agent for the Kaggle [Kaggriculture](https://www.kaggle.com/competitions/kaggric
 simulation competition: a two-player, 720-turn farming/market game where the
 winner is whoever has the most coins after 30 in-game days.
 
+## Timeline
+
+- 2026-09-23 — entry and team-merger deadline (rules must be accepted by then)
+- 2026-09-30 — final submission deadline
+- ~2026-10-15 — leaderboard freezes after a Bradley-Terry tournament
+
+5 submissions/day; only the **latest 2** are played and scored, so the last
+uploads before the deadline are the ones that count.
+
 ## Layout
 
 | Path | Purpose |
