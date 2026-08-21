@@ -53,6 +53,29 @@ def agent(obs, config=None):
     with open(OUT, "w") as f:
         f.write("\n".join(parts))
     print("wrote", OUT, os.path.getsize(OUT), "bytes")
+    _selftest()
+
+
+def _selftest():
+    """Run a full episode through the bundle and fail loudly on any error."""
+    import importlib.util, io, contextlib
+    spec = importlib.util.spec_from_file_location("kaggri_sub_test", OUT)
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    from kaggle_environments import make
+    buf = io.StringIO()
+    env = make("kaggriculture", configuration={"episodeSteps": 720, "seed": 11},
+               debug=True)
+    with contextlib.redirect_stderr(buf), contextlib.redirect_stdout(buf):
+        env.run([m.agent, "starter"])
+    out = buf.getvalue()
+    if "Traceback" in out or "Error" in out:
+        raise SystemExit("SELFTEST FAILED:\n" + out[:2000])
+    rewards = [float(s["reward"] or 0) for s in env.steps[-1]]
+    status = [s["status"] for s in env.steps[-1]]
+    if status[0] != "DONE" or rewards[0] < 20000:
+        raise SystemExit("SELFTEST FAILED: rewards=%s status=%s" % (rewards, status))
+    print("selftest OK: reward=${:,.0f}".format(rewards[0]))
 
 
 if __name__ == "__main__":

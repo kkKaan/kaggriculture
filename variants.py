@@ -24,7 +24,7 @@ CHAMP = {
     "long_frac_min": 0.80,
     "endgame_dump_day": 25,
     "disc_poor": 0.90,
-    "land_max": 2,
+    "land_max": 1,
 }
 
 def d(**kw):
@@ -45,8 +45,7 @@ def add(name, **kw):
 # hiring
 for v in (2.8, 3.2, 4.0, 4.6):
     add("ovh%d" % (v * 10), hire_overhead=v)
-for v in (8, 10, 11, 13, 14):
-    add("H%d" % v, max_hands=v)
+
 for v in (0.03, 0.09, 0.15):
     add("hcf%d" % (v * 100), hire_cap_frac=v)
 for v in (25.0, 150.0, 400.0):
@@ -114,8 +113,7 @@ for v in (0.0, 8.0, 25.0):
     add("pmv%d" % v, plant_min_value=v)
 for v in (20, 400, 900):
     add("scf%d" % v, seed_cash_floor=v)
-for v in (3.0, 3.2, 3.9, 4.3):
-    add("ovh%d" % (v * 10), hire_overhead=v)
+
 for v in (30, 200, 600):
     add("hca%d" % v, hire_cap_abs=v)
 for v in (25, 60, 90):
@@ -141,6 +139,14 @@ for v in (1000, 2200, 3500):
     add("lb%d" % v, land_buffer=v)
 for v in (18, 34, 50):
     add("gate%d" % v, land_free_gate=v)
+add("l0", land_max=0)
+add("l2", land_max=2)
+for v in (8, 10, 12, 16, 18):
+    add("aT%d" % v, animal_target=v)
+for v in (8, 10, 14, 16):
+    add("H%d" % v, max_hands=v)
+for v in (2.6, 3.0, 4.0, 4.6):
+    add("ovhx%d" % (v * 10), hire_overhead=v)
 for v in (0.1, 0.3, 0.55, 1.0):
     add("elf%d" % (v * 100), early_long_frac=v)
 for v in (4, 9, 13):

@@ -237,6 +237,7 @@ DEFAULTS = {
     "operating_base": 200.0,
     "plan_cache_turns": 3,
     "dist_decay": 0.55,
+    "plant_near": 0,
     "disc_rich": 0.97,
     "disc_poor": 0.75,
     "cash_target": 3000.0,
@@ -257,6 +258,9 @@ class Brain:
     def __init__(self, params=None):
         self.P = dict(DEFAULTS)
         if params:
+            unknown = set(params) - set(DEFAULTS)
+            if unknown:
+                raise KeyError("unknown Brain params: %s" % sorted(unknown))
             self.P.update(params)
         self.reset()
 
@@ -800,10 +804,12 @@ class Brain:
         # build structures near the shed, plant far from it
         empties = scan["empty"]
         near_first = sorted(empties, key=lambda p: manhattan(p, center))
+        reserved = set()
         if animal_gap > 0:
             todo = ["BUILD_COOP"] * need_coop + ["BUILD_PASTURE"] * need_past
             for (x, y), struct in zip(near_first[:animal_gap], todo):
                 tasks.append((100.0, x, y, struct, None))
+                reserved.add((x, y))
         held = {}
         for iv in invs:
             for a in ANIMALS:
@@ -831,12 +837,12 @@ class Brain:
                 order.append((r[0] if r else -1e9, c))
             order.sort(reverse=True)
             order = [c for v, c in order if v > -1e8]
-            far_first = sorted(empties, key=lambda p: -manhattan(p, center))
-            skip = animal_gap
-            for (x, y) in far_first:
-                if skip > 0:
-                    skip -= 1
-                    continue
+            free_tiles = [p for p in empties if p not in reserved]
+            if P["plant_near"]:
+                free_tiles.sort(key=lambda p: manhattan(p, center))
+            else:
+                free_tiles.sort(key=lambda p: -manhattan(p, center))
+            for (x, y) in free_tiles:
                 crop = None
                 for c in order:
                     if avail.get(c, 0) > 0:
@@ -1017,7 +1023,7 @@ class Brain:
         return ["PASS"]
 
 
-PARAMS = {'land_buffer_per_tile': 0.0, 'land_buffer': 500, 'hire_overhead': 3.5, 'max_hands': 12, 'sticky_bonus': 1.0, 'cap_lambda': 0.0, 'opp_weight': 1.0, 'cap_mu': 4.0, 'long_frac_min': 0.8, 'operating_per_tile': 8.0, 'use_zones': 0, 'dist_decay': 1.2, 'animal_target': 14, 'mirror': 0.45, 'wheat_reserve_days': 1.7, 'keep_frac': 0.24, 'fert_min_gain': 1000000000.0, 'endgame_dump_day': 25, 'disc_poor': 0.9, 'land_max': 2}
+PARAMS = {'land_buffer_per_tile': 0.0, 'land_buffer': 500, 'hire_overhead': 3.5, 'max_hands': 12, 'sticky_bonus': 1.0, 'cap_lambda': 0.0, 'opp_weight': 1.0, 'cap_mu': 4.0, 'long_frac_min': 0.8, 'operating_per_tile': 8.0, 'use_zones': 0, 'dist_decay': 1.2, 'animal_target': 14, 'mirror': 0.45, 'wheat_reserve_days': 1.7, 'keep_frac': 0.24, 'fert_min_gain': 1000000000.0, 'endgame_dump_day': 25, 'disc_poor': 0.9, 'land_max': 1}
 
 
 _BRAIN = Brain(PARAMS)

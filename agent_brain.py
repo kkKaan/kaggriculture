@@ -66,6 +66,7 @@ DEFAULTS = {
     "operating_base": 200.0,
     "plan_cache_turns": 3,
     "dist_decay": 0.55,
+    "plant_near": 0,
     "disc_rich": 0.97,
     "disc_poor": 0.75,
     "cash_target": 3000.0,
@@ -86,6 +87,9 @@ class Brain:
     def __init__(self, params=None):
         self.P = dict(DEFAULTS)
         if params:
+            unknown = set(params) - set(DEFAULTS)
+            if unknown:
+                raise KeyError("unknown Brain params: %s" % sorted(unknown))
             self.P.update(params)
         self.reset()
 
@@ -629,10 +633,12 @@ class Brain:
         # build structures near the shed, plant far from it
         empties = scan["empty"]
         near_first = sorted(empties, key=lambda p: manhattan(p, center))
+        reserved = set()
         if animal_gap > 0:
             todo = ["BUILD_COOP"] * need_coop + ["BUILD_PASTURE"] * need_past
             for (x, y), struct in zip(near_first[:animal_gap], todo):
                 tasks.append((100.0, x, y, struct, None))
+                reserved.add((x, y))
         held = {}
         for iv in invs:
             for a in ANIMALS:
@@ -660,12 +666,12 @@ class Brain:
                 order.append((r[0] if r else -1e9, c))
             order.sort(reverse=True)
             order = [c for v, c in order if v > -1e8]
-            far_first = sorted(empties, key=lambda p: -manhattan(p, center))
-            skip = animal_gap
-            for (x, y) in far_first:
-                if skip > 0:
-                    skip -= 1
-                    continue
+            free_tiles = [p for p in empties if p not in reserved]
+            if P["plant_near"]:
+                free_tiles.sort(key=lambda p: manhattan(p, center))
+            else:
+                free_tiles.sort(key=lambda p: -manhattan(p, center))
+            for (x, y) in free_tiles:
                 crop = None
                 for c in order:
                     if avail.get(c, 0) > 0:
