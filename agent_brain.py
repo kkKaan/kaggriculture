@@ -34,6 +34,7 @@ DEFAULTS = {
     "wheat_reserve_days": 2.5,
     "mirror": 0.0,
     "fetch_value": 130.0,
+    "fert_min_gain": 15.0,
     "drop_threshold": 9,
     "shed_soft_cap": 70,
     "plant_min_value": 3.0,
@@ -192,6 +193,7 @@ class Brain:
             scan, minv, drain, days_left, my_pipe, opp_pipe, day, hour, avail, shed)
         animal_gap = need_coop + need_past
 
+        self._fert_hold = 0
         orders = self._market(me, priv, shed, seeds, minv, drain, scan, day, hour,
                               money, days_left, my_pipe, opp_pipe, invs,
                               wheat_reserve, buys, animal_gap, alloc, n, land_cost)
@@ -432,6 +434,10 @@ class Brain:
                 have -= wheat_reserve
                 if have <= 0:
                     continue
+            if item == "FERTILIZER":
+                have -= getattr(self, "_fert_hold", 0)
+                if have <= 0:
+                    continue
             inv = minv.get(item, 10000)
             thresh = max(1.0, MARKET_PARAMS[item]["base"] * keep)
             if dumping or pressure:
@@ -490,12 +496,13 @@ class Brain:
             wdays = watering_days(crop)
             ws = water_window(crop)[0]
             yu = t.get("yield_units", 0)
+            fert = t.get("fertilized_until_day", -1) >= 0
             ready = False
             if yu > 0 and age >= cd["first_yield_day"]:
                 if cd["ongoing"]:
                     ready = yu >= cd["max_yield"] or age >= hd or days_left <= 1
                 else:
-                    ready = age >= hd or yu >= expected_units(crop)
+                    ready = age >= hd or yu >= expected_units(crop, fert)
             if days_left <= 0 and yu > 0 and age >= cd["first_yield_day"]:
                 ready = True
             if ready:
@@ -516,6 +523,28 @@ class Brain:
                     tasks.append((val, x, y, "WATER", None))
 
         fert_price = self._price_at("FERTILIZER", minv, drain, 0)
+        fert_targets = 0
+        for (x, y, t) in scan["plants"]:
+            crop = t["crop"]
+            cd = CROPS[crop]
+            if cd["ongoing"]:
+                continue
+            age = day - t["planted_day"]
+            ws, we = water_window(crop)
+            if age > ws or t.get("fertilized_until_day", -1) >= day:
+                continue
+            if days_left < (harvest_day(crop) - age):
+                continue
+            gain = expected_units(crop, True) - expected_units(crop, False)
+            if gain <= 0:
+                continue
+            price = self._price_at(crop, minv, drain, max(0, harvest_day(crop) - age))
+            net = gain * price - fert_price
+            if net < P["fert_min_gain"]:
+                continue
+            fert_targets += 1
+            tasks.append((min(150.0, net * 0.6), x, y, "FERTILIZE", None))
+
         for (x, y, t) in scan["animals"]:
             a = ANIMALS[t["animal"]]
             pprice = self._price_at(a["product"], minv, drain, 0)
@@ -597,6 +626,11 @@ class Brain:
             val = P["fetch_value"] * (1.6 if urgent else 1.0)
             for (sx, sy) in list(shed_set)[:nf]:
                 tasks.append((val, sx, sy, "FETCH_WHEAT", None))
+        carried_fert = sum(iv.get("FERTILIZER", 0) for iv in invs)
+        if fert_targets and shed.get("FERTILIZER", 0) > 0 and carried_fert < fert_targets:
+            nf = max(1, min(2, int(math.ceil((fert_targets - carried_fert) / 6.0))))
+            for (sx, sy) in list(shed_set)[:nf]:
+                tasks.append((100.0, sx, sy, "FETCH_FERT", None))
         pending_animals = sum(shed.get(a, 0) for a in ANIMALS)
         if pending_animals > 0 and len(scan["empty_struct"]) > 0:
             held_any = sum(iv.get(a, 0) for iv in invs for a in ANIMALS)
@@ -647,6 +681,10 @@ class Brain:
                     continue
                 if kind == "FETCH_WHEAT" and inv.get("WHEAT", 0) >= 8:
                     continue
+                if kind == "FERTILIZE" and inv.get("FERTILIZER", 0) <= 0:
+                    continue
+                if kind == "FETCH_FERT" and inv.get("FERTILIZER", 0) >= 6:
+                    continue
                 if kind == "FETCH_ANIMAL" and any(inv.get(a, 0) for a in ANIMALS):
                     continue
                 if kind.startswith("PLACE_") and inv.get(kind[6:], 0) <= 0:
@@ -685,6 +723,10 @@ class Brain:
                 if (upos[0], upos[1]) == (x, y):
                     if kind == "FETCH_WHEAT":
                         out.append(["PICKUP", "WHEAT", max(1, min(10, wheat_in_shed))])
+                        continue
+                    if kind == "FETCH_FERT":
+                        out.append(["PICKUP", "FERTILIZER",
+                                    max(1, min(6, shed.get("FERTILIZER", 0)))])
                         continue
                     if kind == "FETCH_ANIMAL":
                         got = None

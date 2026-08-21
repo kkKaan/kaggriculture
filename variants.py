@@ -21,12 +21,15 @@ CHAMP = {
     "mirror": 0.45,
     "wheat_reserve_days": 1.7,
     "keep_frac": 0.24,
+    "fert_min_gain": 1e9,
+    "long_frac_min": 0.80,
 }
 
 def d(**kw):
     p = dict(CHAMP); p.update(kw); return p
 
 VARIANTS = {"champ": d()}
+VARIANTS["prev"] = d(fert_min_gain=15.0, long_frac_min=0.45)
 
 def add(name, **kw):
     VARIANTS[name] = d(**kw)
@@ -88,6 +91,13 @@ for v in (0.5, 1.5, 2.0):
     add("wrd%d" % (v * 10), wheat_reserve_days=v)
 for v in (60.0, 250.0):
     add("fv%d" % v, fetch_value=v)
+add("nofert", fert_min_gain=1e9)
+for v in (0.0, 40.0, 90.0):
+    add("fmg%d" % v, fert_min_gain=v)
+for v in (0.25, 0.60, 0.80, 1.0):
+    add("lf%d" % (v * 100), long_frac_min=v)
+for v in (0.45, 0.6, 0.8):
+    add("mir%d" % (v * 100), mirror=v)
 for v in (0.05, 0.15, 0.55, 0.8):
     add("zp%d" % (v * 100), zone_penalty=v)
 for v in (0.9, 1.6, 2.2, 3.0, 5.0, 9.0):
