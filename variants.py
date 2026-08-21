@@ -13,6 +13,14 @@ CHAMP = {
     "cap_lambda": 0.0,
     "opp_weight": 1.0,
     "cap_mu": 4.0,
+    "long_frac_min": 0.45,
+    "operating_per_tile": 8.0,
+    "use_zones": 0,
+    "dist_decay": 1.2,
+    "animal_target": 14,
+    "mirror": 0.45,
+    "wheat_reserve_days": 1.7,
+    "keep_frac": 0.24,
 }
 
 def d(**kw):
@@ -51,9 +59,9 @@ for v in (3, 6, 14):
 for v in (0.3, 0.42, 0.7, 1.0):
     add("decay%d" % (v * 100), dist_decay=v)
 # farm composition
-for v in (10, 16, 30, 45):
+for v in (4, 7, 10, 12, 17, 20, 24):
     add("anim%d" % v, animal_target=v)
-for v in (300, 1200, 2000):
+for v in (0, 200, 1500, 2500):
     add("acf%d" % v, animal_cash_floor=v)
 for v in (4, 10, 12):
     add("lmd%d" % v, land_min_day_left=v)
@@ -63,6 +71,27 @@ for v in (2.0, 3.0, 6.0, 9.0, 14.0, 25.0):
     add("mu%d" % (v * 100), cap_mu=v)
 for v in (0.0, 0.3, 1.0, 1.5):
     add("ow%d" % (v * 10), opp_weight=v)
+for v in (0.10, 0.20, 0.45, 0.60, 1.0):
+    add("lf%d" % (v * 100), long_frac_min=v)
+for v in (4, 5, 8, 11, 99):
+    add("lh%d" % v, long_hd=v)
+for v in (0.0, 4.0, 16.0, 26.0):
+    add("opt%d" % v, operating_per_tile=v)
+for v in (18, 40, 60):
+    add("gate%d" % v, land_free_gate=v)
+for v in (6.0, 20.0):
+    add("lsp%d" % v, land_seed_per_tile=v)
+add("nozone", use_zones=0)
+for v in (0.0, 0.15, 0.22, 0.4, 0.5):
+    add("mir%d" % (v * 100), mirror=v)
+for v in (0.5, 1.5, 2.0):
+    add("wrd%d" % (v * 10), wheat_reserve_days=v)
+for v in (60.0, 250.0):
+    add("fv%d" % v, fetch_value=v)
+for v in (0.05, 0.15, 0.55, 0.8):
+    add("zp%d" % (v * 100), zone_penalty=v)
+for v in (0.9, 1.6, 2.2, 3.0, 5.0, 9.0):
+    add("dd%d" % (v * 100), dist_decay=v)
 
 
 def make_agent(name):
