@@ -39,6 +39,8 @@ DEFAULTS = {
     "keep_frac": 0.30,
     "keep_frac_premium": -1.0,
     "value_scaled_care": 0,
+    "crop_move_mult": 1.0,
+    "animal_move_mult": 1.0,
     "endgame_dump_day": 25,
     "drain_sell_mult": 0.0,
     "early_long_frac": -1.0,
@@ -76,6 +78,7 @@ DEFAULTS = {
     "rush_window": 3,
     "rush_sell": 1,
     "hire_per_turn": 7,
+    "sell_orders_head": 10,
     "disc_rich": 0.97,
     "disc_poor": 0.75,
     "cash_target": 3000.0,
@@ -166,7 +169,7 @@ class Brain:
         if hd > days_left:
             return None
         units = expected_units(crop)
-        actions = 2 + len(watering_days(crop))
+        actions = 2 + len(watering_days(crop)) * self.P["crop_move_mult"]
         supply = (pipe.get(crop, 0) * (1.0 + self.P["mirror"])
                   + self.P["opp_weight"] * opp_pipe.get(crop, 0))
         price = self._batch_price(crop, units, minv, drain, hd, supply)
@@ -191,7 +194,8 @@ class Brain:
         wheat_price = self._price_at("WHEAT", minv, drain, 0)
         rev = (units * price + fert_units * fert_price * 0.85
                - (days_left - 1) * wheat_price - a["cost"])
-        actions = (days_left - 1) * (3.0 + rate / a["max_held"] * a["interval"])
+        actions = ((days_left - 1) * (3.0 + rate / a["max_held"] * a["interval"])
+                   * self.P["animal_move_mult"])
         return rev / max(1.0, actions + 2.0), rev, units, actions
 
     # -------------------------------------------------------------- main entry
@@ -465,7 +469,10 @@ class Brain:
             for _ in range(min(todo, P["hire_per_turn"])):
                 head.append(["HIRE"])
 
-        head.extend(self._sell_orders(shed, minv, drain, day, wheat_reserve))
+        sells = self._sell_orders(shed, minv, drain, day, wheat_reserve)
+        nhead = P["sell_orders_head"]
+        head.extend(sells[:nhead])
+        spill = sells[nhead:]
 
         if land_cost:
             tail.append(["BUY_LAND"])
@@ -505,7 +512,7 @@ class Brain:
                 k = min(k, int(max(0.0, money - 150) // max(1, wprice)))
                 if k > 0:
                     tail.append(["BUY_PRODUCT", "WHEAT", k])
-        return head + tail
+        return head + tail + spill
 
     def _sell_orders(self, shed, minv, drain, day, wheat_reserve):
         return self._sell_orders_impl(shed, minv, drain, day, wheat_reserve)

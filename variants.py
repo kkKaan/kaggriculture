@@ -3,6 +3,8 @@ import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from agent_brain import Brain, DEFAULTS
 
+import json as _json
+_CJ = os.path.join(os.path.dirname(os.path.abspath(__file__)), "champion.json")
 CHAMP = {
     "land_buffer_per_tile": 0.0,
     "land_buffer": 500,
@@ -31,11 +33,18 @@ CHAMP = {
     "keep_frac_premium": 0.15,
 }
 
+if os.path.exists(_CJ):
+    try:
+        CHAMP = _json.load(open(_CJ))
+    except Exception:
+        pass
+
+
 def d(**kw):
     p = dict(CHAMP); p.update(kw); return p
 
 VARIANTS = {"champ": d()}
-VARIANTS["prev"] = d(fert_min_gain=15.0, long_frac_min=0.45)
+VARIANTS["prev"] = dict({'animal_target': 14, 'cap_lambda': 0.0, 'cap_mu': 4.0, 'disc_poor': 0.9, 'dist_decay': 1.2, 'endgame_dump_day': 25, 'fert_min_gain': 1000000000.0, 'hire_overhead': 3.5, 'hire_per_turn': 3, 'hold_bonus': 0.75, 'keep_frac': 0.24, 'keep_frac_premium': 0.15, 'land_buffer': 500, 'land_buffer_per_tile': 0.0, 'land_max': 1, 'long_frac_min': 0.8, 'max_hands': 12, 'mirror': 0.45, 'operating_per_tile': 8.0, 'opp_weight': 1.0, 'sticky_bonus': 1.0, 'use_zones': 0, 'value_scaled_care': 1, 'wheat_reserve_days': 1.7})
 VARIANTS["c_dl"]    = d(disc_poor=0.90, land_max=2)
 VARIANTS["c_dm"]    = d(disc_poor=0.90, cap_mu=2.5)
 VARIANTS["c_lm"]    = d(land_max=2, cap_mu=2.5)
@@ -146,6 +155,11 @@ for v in (18, 34, 50):
 add("l0", land_max=0)
 for v in (0.15, 0.35, 0.7, 1.2):
     add("cb%d" % (v * 100), cluster_bonus=v)
+for v in (1.3, 1.7, 2.2):
+    add("cmm%d" % round(v * 10), crop_move_mult=v)
+for v in (0.7, 0.85, 1.2):
+    add("amm%d" % round(v * 100), animal_move_mult=v)
+add("mm_both", crop_move_mult=1.7, animal_move_mult=0.85)
 add("hb75x", hold_bonus=0.75)
 add("C1", value_scaled_care=1, hold_bonus=0.75, keep_frac_premium=0.15)
 add("C2", value_scaled_care=1, hold_bonus=0.75, keep_frac_premium=0.10)

@@ -1,0 +1,14 @@
+=== evolve start 14:46:52 rounds=2 pop=4 ===
+round 0 (39s) best=81.2% {'disc_poor': 0.9297}
+   confirm: 65.6% W21 L11 T0 mean=$97,040.0f
+   PROMOTED -> {'disc_poor': 0.9297}
+round 1 (40s) best=68.8% {'opp_weight': 0.6319, 'long_hd': 8}
+   confirm: 43.8% W14 L18 T0 mean=$97,337.0f
+   rejected on confirmation
+=== done ===
+=== evolve start 14:49:04 rounds=26 pop=8 ===
+=== evolve start 14:50:04 rounds=30 pop=8 ===
+round 0 (1084s) best=80.0% {'cap_mu': 2.1598}
+   confirm: 66.7% W32 L16 T0 mean=$92,779
+   PROMOTED -> {'cap_mu': 2.1598}
+round 0 (3064s) best=70.0% {'dist_decay': 1.5148, 'hire_overhead': 3.6113, 'fetch_value': 163.333}

@@ -63,7 +63,21 @@ for _it, _p in MARKET_PARAMS.items():
     )
 
 
+_PRICE_CACHE = {}
+
+
 def market_price(item, inventory):
+    key = (item, inventory)
+    v = _PRICE_CACHE.get(key)
+    if v is not None:
+        return v
+    v = _market_price_uncached(item, inventory)
+    if len(_PRICE_CACHE) < 300000:
+        _PRICE_CACHE[key] = v
+    return v
+
+
+def _market_price_uncached(item, inventory):
     p = MARKET_PARAMS[item]
     base, I0, T = p["base"], p["I0"], p["T"]
     if inventory < I0:
@@ -73,7 +87,21 @@ def market_price(item, inventory):
     return max(PRICE_FLOOR, int(round(price)))
 
 
+_REV_CACHE = {}
+
+
 def sell_revenue(item, qty, inv):
+    key = (item, int(qty), inv)
+    v = _REV_CACHE.get(key)
+    if v is not None:
+        return v
+    v = _sell_revenue_uncached(item, qty, inv)
+    if len(_REV_CACHE) < 200000:
+        _REV_CACHE[key] = v
+    return v
+
+
+def _sell_revenue_uncached(item, qty, inv):
     """Total revenue from selling `qty` units starting at market inventory `inv`.
     Units sold at the $1 floor do not raise inventory, matching the engine."""
     if qty <= 0:
@@ -210,6 +238,8 @@ DEFAULTS = {
     "keep_frac": 0.30,
     "keep_frac_premium": -1.0,
     "value_scaled_care": 0,
+    "crop_move_mult": 1.0,
+    "animal_move_mult": 1.0,
     "endgame_dump_day": 25,
     "drain_sell_mult": 0.0,
     "early_long_frac": -1.0,
@@ -247,6 +277,7 @@ DEFAULTS = {
     "rush_window": 3,
     "rush_sell": 1,
     "hire_per_turn": 7,
+    "sell_orders_head": 10,
     "disc_rich": 0.97,
     "disc_poor": 0.75,
     "cash_target": 3000.0,
@@ -337,7 +368,7 @@ class Brain:
         if hd > days_left:
             return None
         units = expected_units(crop)
-        actions = 2 + len(watering_days(crop))
+        actions = 2 + len(watering_days(crop)) * self.P["crop_move_mult"]
         supply = (pipe.get(crop, 0) * (1.0 + self.P["mirror"])
                   + self.P["opp_weight"] * opp_pipe.get(crop, 0))
         price = self._batch_price(crop, units, minv, drain, hd, supply)
@@ -362,7 +393,8 @@ class Brain:
         wheat_price = self._price_at("WHEAT", minv, drain, 0)
         rev = (units * price + fert_units * fert_price * 0.85
                - (days_left - 1) * wheat_price - a["cost"])
-        actions = (days_left - 1) * (3.0 + rate / a["max_held"] * a["interval"])
+        actions = ((days_left - 1) * (3.0 + rate / a["max_held"] * a["interval"])
+                   * self.P["animal_move_mult"])
         return rev / max(1.0, actions + 2.0), rev, units, actions
 
     # -------------------------------------------------------------- main entry
@@ -636,7 +668,10 @@ class Brain:
             for _ in range(min(todo, P["hire_per_turn"])):
                 head.append(["HIRE"])
 
-        head.extend(self._sell_orders(shed, minv, drain, day, wheat_reserve))
+        sells = self._sell_orders(shed, minv, drain, day, wheat_reserve)
+        nhead = P["sell_orders_head"]
+        head.extend(sells[:nhead])
+        spill = sells[nhead:]
 
         if land_cost:
             tail.append(["BUY_LAND"])
@@ -676,7 +711,7 @@ class Brain:
                 k = min(k, int(max(0.0, money - 150) // max(1, wprice)))
                 if k > 0:
                     tail.append(["BUY_PRODUCT", "WHEAT", k])
-        return head + tail
+        return head + tail + spill
 
     def _sell_orders(self, shed, minv, drain, day, wheat_reserve):
         return self._sell_orders_impl(shed, minv, drain, day, wheat_reserve)
@@ -1103,7 +1138,7 @@ class Brain:
         return ["PASS"]
 
 
-PARAMS = {'land_buffer_per_tile': 0.0, 'land_buffer': 500, 'hire_overhead': 3.5, 'max_hands': 12, 'sticky_bonus': 1.0, 'cap_lambda': 0.0, 'opp_weight': 1.0, 'cap_mu': 4.0, 'long_frac_min': 0.8, 'operating_per_tile': 8.0, 'use_zones': 0, 'dist_decay': 1.2, 'animal_target': 14, 'mirror': 0.45, 'wheat_reserve_days': 1.7, 'keep_frac': 0.24, 'fert_min_gain': 1000000000.0, 'endgame_dump_day': 25, 'disc_poor': 0.9, 'land_max': 1, 'hire_per_turn': 3, 'value_scaled_care': 1, 'hold_bonus': 0.75, 'keep_frac_premium': 0.15}
+PARAMS = {'animal_target': 14, 'cap_lambda': 0.0, 'cap_mu': 2.1598, 'disc_poor': 0.9297, 'dist_decay': 1.2, 'endgame_dump_day': 25, 'fert_min_gain': 1000000000.0, 'hire_overhead': 3.5, 'hire_per_turn': 3, 'hold_bonus': 0.75, 'keep_frac': 0.24, 'keep_frac_premium': 0.15, 'land_buffer': 500, 'land_buffer_per_tile': 0.0, 'land_max': 1, 'long_frac_min': 0.8, 'max_hands': 12, 'mirror': 0.45, 'operating_per_tile': 8.0, 'opp_weight': 1.0, 'sticky_bonus': 1.0, 'use_zones': 0, 'value_scaled_care': 1, 'wheat_reserve_days': 1.7}
 
 
 _BRAIN = Brain(PARAMS)
