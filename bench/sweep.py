@@ -1,8 +1,18 @@
 """Run many challengers against a champion; report winrates."""
-import os, sys, argparse, time
+import gc, os, sys, argparse, time
 from concurrent.futures import ProcessPoolExecutor
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
+
+
+def _free_env(env):
+    try:
+        env.steps = None
+        env.state = None
+    except Exception:
+        pass
+    del env
+    gc.collect()
 
 
 def _one(job):
@@ -19,6 +29,7 @@ def _one(job):
     except Exception as e:
         return (a, None, None, str(e))
     r = [float(s["reward"] or 0) for s in env.steps[-1]]
+    _free_env(env)
     if flip:
         r = r[::-1]
     return (a, r[0], r[1], None)
@@ -29,7 +40,7 @@ def main():
     p.add_argument("champ")
     p.add_argument("challengers", nargs="+")
     p.add_argument("-n", "--seeds", type=int, default=8)
-    p.add_argument("-w", "--workers", type=int, default=10)
+    p.add_argument("-w", "--workers", type=int, default=4)
     a = p.parse_args()
     jobs = []
     for c in a.challengers:

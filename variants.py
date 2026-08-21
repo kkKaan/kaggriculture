@@ -160,6 +160,12 @@ for v in (1.3, 1.7, 2.2):
 for v in (0.7, 0.85, 1.2):
     add("amm%d" % round(v * 100), animal_move_mult=v)
 add("mm_both", crop_move_mult=1.7, animal_move_mult=0.85)
+add("L2", land_max=2)
+add("L2h", land_max=2, max_hands=16)
+add("aT10", animal_target=10)
+add("aT18", animal_target=18)
+add("lfm85", long_frac_min=0.85)
+add("lfm55", long_frac_min=0.55)
 add("fertA", fert_min_gain=10.0, fert_fetch=0)
 add("fertB", fert_min_gain=30.0, fert_fetch=0)
 add("fertC", fert_min_gain=10.0, fert_fetch=1)

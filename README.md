@@ -54,26 +54,44 @@ task by greedy assignment on `value / (1 + dist_decay * distance)`:
 
 ## Strategy findings
 
-Things that measurably mattered, in rough order:
+Measured by head-to-head winrate over 24-64 seeded games, both sides.
 
-1. **Hire aggressively.** Hand cost is Fibonacci (1, 1, 2, 3, 5, …) and resets
-   daily, so ~12 hands costs ~$376/day against tens of thousands in output.
-2. **Don't buy all the land.** 50 tiles (NW + NE) beat 75 and 100 decisively —
-   labour, not land, is the constraint, and $2000/$4000 buys far more as animals
-   and seeds.
-3. **Forecast future town demand.** Shops that unlock later dominate total
-   demand; pricing off currently-unlocked shops badly undervalues premium crops.
-4. **Assume the opponent mirrors you.** Without a `mirror` term both players
-   flood melon and crater the price; with it, winrate went from 0% to even.
-5. **Premium goods carry the game.** Wool, milk, strawberry and melon are ~75%
-   of revenue; wheat is a feed input and cash-flow bridge, not a money-maker.
-6. **Sell fast, invest long.** Pacing sales into town demand lost badly; so did
-   biasing the opening toward fast crops.
+**What won:**
+
+1. **Hire hard.** Hand cost is Fibonacci (1, 1, 2, 3, 5, …) and resets daily, so
+   a dozen hands costs a few hundred a day against tens of thousands of output.
+   Under-hiring was the single largest early loss.
+2. **Don't buy all the land.** 50 tiles (NW + NE) beat 75 (84%) and 100 (94%).
+   Labour binds, not land, and $2000/$4000 buys far more as animals and seeds.
+3. **Forecast shops that have not unlocked yet.** Shops unlock every 3 days up
+   to 8 instances; pricing off only the currently-unlocked ones makes premium
+   crops look like they will crash, so the agent refuses to plant them.
+4. **Assume the opponent mirrors you.** Without a `mirror` supply term both
+   players flood melon and crater it — 0% winrate against a version that has it.
+5. **Water before harvesting on the final bonus day.** The last watering is what
+   lifts yield to maximum; harvesting first silently forfeited one unit per
+   wheat/carrot/melon tile.
+6. **Shed errands must be real tasks.** As an idle-unit fallback they never fire
+   on a busy farm, and every animal starves.
+7. **Sell fast, invest long.** Strawberry alone is ~40% of revenue at ~$275/unit.
+
+**What lost, despite looking promising:**
+
+- Pacing sales into town demand instead of selling immediately (8-38%).
+- Spending fertiliser on crops rather than selling it, in any configuration.
+- Hard spatial zoning of units (25%); a strong distance preference in the
+  assignment score does the same job better.
+- Compact planting near the shed (6%) — crops belong far from it, animals near.
+- Biasing the opening toward fast cash crops (17-29%).
 
 ## Benchmarking
 
 ```bash
 python bench/tournament.py champ starter -n 20
+```
+
+```bash
+python bench/test_model.py
 ```
 
 ```bash

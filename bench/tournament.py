@@ -1,9 +1,19 @@
 """Head-to-head benchmark: run A vs B over N seeds on both sides, in parallel."""
-import os, sys, argparse, time, json
+import gc, os, sys, argparse, time, json
 from concurrent.futures import ProcessPoolExecutor
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
+
+
+def _free_env(env):
+    try:
+        env.steps = None
+        env.state = None
+    except Exception:
+        pass
+    del env
+    gc.collect()
 
 
 def _one(job):
@@ -58,6 +68,6 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("a"); p.add_argument("b")
     p.add_argument("-n", "--seeds", type=int, default=12)
-    p.add_argument("-w", "--workers", type=int, default=8)
+    p.add_argument("-w", "--workers", type=int, default=4)
     args = p.parse_args()
     tournament(args.a, args.b, args.seeds, args.workers)

@@ -1,5 +1,5 @@
 """Hill-climbing parameter search: mutate the champion, keep what beats it."""
-import os, sys, json, time, random, argparse, copy
+import gc, os, sys, json, time, random, argparse, copy
 from concurrent.futures import ProcessPoolExecutor
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
@@ -65,6 +65,16 @@ def mutate(base, rng, n=None):
     return p
 
 
+def _free_env(env):
+    try:
+        env.steps = None
+        env.state = None
+    except Exception:
+        pass
+    del env
+    gc.collect()
+
+
 def _one(job):
     cand, champ, seed, flip = job
     sys.path.insert(0, ROOT)
@@ -91,6 +101,7 @@ def _one(job):
     except Exception:
         return (0.0, 0.0)
     r = [float(s["reward"] or 0) for s in env.steps[-1]]
+    _free_env(env)
     if flip:
         r = r[::-1]
     return (r[0], r[1])
@@ -115,7 +126,7 @@ def main():
     ap.add_argument("--pop", type=int, default=8)
     ap.add_argument("--seeds", type=int, default=10)
     ap.add_argument("--confirm", type=int, default=24)
-    ap.add_argument("--workers", type=int, default=10)
+    ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--seed", type=int, default=None)
     a = ap.parse_args()
     rng = random.Random(a.seed)

@@ -1,8 +1,18 @@
 """Robustness: many seeds vs several opponents, checking for errors, zeros, slow turns."""
-import os, sys, time, argparse
+import gc, os, sys, time, argparse
 from concurrent.futures import ProcessPoolExecutor
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
+
+
+def _free_env(env):
+    try:
+        env.steps = None
+        env.state = None
+    except Exception:
+        pass
+    del env
+    gc.collect()
 
 
 def _one(job):
@@ -34,6 +44,7 @@ def _one(job):
     last = env.steps[-1]
     r = [float(s["reward"] or 0) for s in last]
     st = [s["status"] for s in last]
+    _free_env(env)
     if flip:
         r = r[::-1]; st = st[::-1]
     if st[0] != "DONE":
@@ -44,7 +55,7 @@ def _one(job):
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("-n", "--seeds", type=int, default=25)
-    p.add_argument("-w", "--workers", type=int, default=10)
+    p.add_argument("-w", "--workers", type=int, default=4)
     p.add_argument("--opps", nargs="+", default=["champ", "starter", "random", "pass"])
     a = p.parse_args()
     jobs = [(o, 7000 + s, f) for o in a.opps for s in range(a.seeds) for f in (False, True)]
