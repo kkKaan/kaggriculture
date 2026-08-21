@@ -63,6 +63,12 @@ for _it, _p in MARKET_PARAMS.items():
 
 
 _PRICE_CACHE = {}
+_REV_CACHE = {}
+
+
+def clear_caches():
+    _PRICE_CACHE.clear()
+    _REV_CACHE.clear()
 
 
 def market_price(item, inventory):
@@ -71,7 +77,7 @@ def market_price(item, inventory):
     if v is not None:
         return v
     v = _market_price_uncached(item, inventory)
-    if len(_PRICE_CACHE) < 300000:
+    if len(_PRICE_CACHE) < 60000:
         _PRICE_CACHE[key] = v
     return v
 
@@ -86,16 +92,13 @@ def _market_price_uncached(item, inventory):
     return max(PRICE_FLOOR, int(round(price)))
 
 
-_REV_CACHE = {}
-
-
 def sell_revenue(item, qty, inv):
     key = (item, int(qty), inv)
     v = _REV_CACHE.get(key)
     if v is not None:
         return v
     v = _sell_revenue_uncached(item, qty, inv)
-    if len(_REV_CACHE) < 200000:
+    if len(_REV_CACHE) < 40000:
         _REV_CACHE[key] = v
     return v
 

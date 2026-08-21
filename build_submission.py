@@ -9,6 +9,7 @@ def strip_local_imports(src):
     src = re.sub(r"^from agent_core import \([^)]*\)\n", "", src, flags=re.M)
     src = re.sub(r"^from agent_core import .*\n", "", src, flags=re.M)
     src = re.sub(r"^from agent_brain import .*\n", "", src, flags=re.M)
+    src = re.sub(r"^\s+expected_units, harvest_day, watering_days, water_window, clear_caches,\n\)\n", "", src, flags=re.M)
     return src
 
 

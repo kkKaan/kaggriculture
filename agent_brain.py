@@ -4,7 +4,7 @@ from agent_core import (
     CROPS, ANIMALS, PRODUCTS, MARKET_PARAMS, LAND_PRICES, MOVES,
     market_price, sell_revenue, avg_sell_price,
     quadrant_of, shed_tiles, manhattan, step_toward,
-    expected_units, harvest_day, watering_days, water_window,
+    expected_units, harvest_day, watering_days, water_window, clear_caches,
 )
 
 SHOPS = {
@@ -106,6 +106,7 @@ class Brain:
         self.reset()
 
     def reset(self):
+        clear_caches()
         self.day_seen = -1
         self._plan_key = None
         self._plan = []

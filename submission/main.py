@@ -64,6 +64,12 @@ for _it, _p in MARKET_PARAMS.items():
 
 
 _PRICE_CACHE = {}
+_REV_CACHE = {}
+
+
+def clear_caches():
+    _PRICE_CACHE.clear()
+    _REV_CACHE.clear()
 
 
 def market_price(item, inventory):
@@ -72,7 +78,7 @@ def market_price(item, inventory):
     if v is not None:
         return v
     v = _market_price_uncached(item, inventory)
-    if len(_PRICE_CACHE) < 300000:
+    if len(_PRICE_CACHE) < 60000:
         _PRICE_CACHE[key] = v
     return v
 
@@ -87,16 +93,13 @@ def _market_price_uncached(item, inventory):
     return max(PRICE_FLOOR, int(round(price)))
 
 
-_REV_CACHE = {}
-
-
 def sell_revenue(item, qty, inv):
     key = (item, int(qty), inv)
     v = _REV_CACHE.get(key)
     if v is not None:
         return v
     v = _sell_revenue_uncached(item, qty, inv)
-    if len(_REV_CACHE) < 200000:
+    if len(_REV_CACHE) < 40000:
         _REV_CACHE[key] = v
     return v
 
@@ -305,6 +308,7 @@ class Brain:
         self.reset()
 
     def reset(self):
+        clear_caches()
         self.day_seen = -1
         self._plan_key = None
         self._plan = []
@@ -822,7 +826,11 @@ class Brain:
                 if cd["ongoing"]:
                     ready = yu >= cd["max_yield"] or age >= hd or days_left <= 1
                 else:
-                    ready = age >= hd or yu >= expected_units(crop, fert)
+                    # On the last bonus-window day, water first: the watering is
+                    # what lifts yield to its maximum.
+                    full = expected_units(crop, fert)
+                    ready = (yu >= full or age > hd
+                             or (age >= hd and t["watered_today"]))
             if (P["early_harvest"] and not ready and yu > 0
                     and age >= cd["first_yield_day"] and not cd["ongoing"]):
                 left = max(0, hd - age)
