@@ -198,20 +198,22 @@ for v in (0.9, 1.6, 2.2, 3.0, 5.0, 9.0):
     add("dd%d" % (v * 100), dist_decay=v)
 
 
+_SUB = None
+
+
 def make_agent(name):
     if name in ("pass", "random", "starter"):
         return name
     if name == "sub":
-        import importlib, os
-        sub = os.path.join(os.path.dirname(os.path.abspath(__file__)), "submission")
-        if sub not in sys.path:
-            sys.path.insert(0, sub)
-        import importlib.util
-        path = os.path.join(sub, "main.py")
-        spec = importlib.util.spec_from_file_location("kaggri_submission", path)
-        m = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(m)
-        return m.agent
+        global _SUB
+        if _SUB is None:
+            import importlib.util
+            path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                "submission", "main.py")
+            spec = importlib.util.spec_from_file_location("kaggri_submission", path)
+            _SUB = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(_SUB)
+        return _SUB.agent
     params = VARIANTS.get(name)
     if params is None:
         raise KeyError(name)
