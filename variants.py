@@ -9,7 +9,6 @@ CHAMP = {
     "hire_overhead": 3.5,
     "max_hands": 12,
     "sticky_bonus": 1.0,
-    "disc_poor": 0.94,
     "cap_lambda": 0.0,
     "opp_weight": 1.0,
     "cap_mu": 4.0,
@@ -24,6 +23,8 @@ CHAMP = {
     "fert_min_gain": 1e9,
     "long_frac_min": 0.80,
     "endgame_dump_day": 25,
+    "disc_poor": 0.90,
+    "land_max": 2,
 }
 
 def d(**kw):
@@ -31,6 +32,12 @@ def d(**kw):
 
 VARIANTS = {"champ": d()}
 VARIANTS["prev"] = d(fert_min_gain=15.0, long_frac_min=0.45)
+VARIANTS["c_dl"]    = d(disc_poor=0.90, land_max=2)
+VARIANTS["c_dm"]    = d(disc_poor=0.90, cap_mu=2.5)
+VARIANTS["c_lm"]    = d(land_max=2, cap_mu=2.5)
+VARIANTS["c_all"]   = d(disc_poor=0.90, land_max=2, cap_mu=2.5)
+VARIANTS["c_all1"]  = d(disc_poor=0.90, land_max=1, cap_mu=2.5)
+VARIANTS["c_allf"]  = d(disc_poor=0.90, land_max=2, cap_mu=2.5, future_shop_weight=1.25)
 
 def add(name, **kw):
     VARIANTS[name] = d(**kw)
@@ -113,8 +120,27 @@ for v in (30, 200, 600):
     add("hca%d" % v, hire_cap_abs=v)
 for v in (25, 60, 90):
     add("wbm%d" % v, wheat_buy_max=v)
-for v in (1.1, 1.25, 1.5, 1.8, 2.4):
+for v in (1.25,):
     add("fsw%d" % (v * 100), future_shop_weight=v)
+for v in (1, 2):
+    add("land%d" % v, land_max=v)
+for _dd in (8, 14):
+    for _hh in (14, 16, 18):
+        add("late%d_%d" % (_dd, _hh), late_hands_day=_dd, late_hands=_hh)
+for v in (2.5, 3.2, 5.5, 7.5):
+    add("mu%d" % (v * 100), cap_mu=v)
+for v in (0.84, 0.87, 0.92, 0.95):
+    add("dp%d" % (v * 100), disc_poor=v)
+for v in (0.90, 0.93, 0.999):
+    add("dr%d" % (v * 1000), disc_rich=v)
+for v in (0.35, 0.55, 0.65, 1.0):
+    add("lfm%d" % (v * 100), long_frac_min=v)
+for v in (10, 16, 18):
+    add("anT%d" % v, animal_target=v)
+for v in (1000, 2200, 3500):
+    add("lb%d" % v, land_buffer=v)
+for v in (18, 34, 50):
+    add("gate%d" % v, land_free_gate=v)
 for v in (0.1, 0.3, 0.55, 1.0):
     add("elf%d" % (v * 100), early_long_frac=v)
 for v in (4, 9, 13):

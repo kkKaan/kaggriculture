@@ -216,6 +216,9 @@ DEFAULTS = {
     "land_buffer": 500,
     "land_min_day_left": 7,
     "land_free_gate": 26,
+    "land_max": 3,
+    "late_hands_day": 99,
+    "late_hands": 0,
     "land_seed_per_tile": 12.0,
     "wheat_buy_max": 60,
     "wheat_reserve_days": 2.5,
@@ -394,7 +397,7 @@ class Brain:
         free = len(scan["empty"])
         bought = len(me["unlocked_quadrants"]) - 1
         land_cost = 0
-        if (not self._final_day and bought < 3
+        if (not self._final_day and bought < P["land_max"]
                 and days_left >= P["land_min_day_left"] + 3 * bought):
             c = LAND_PRICES[bought]
             est = P["land_seed_per_tile"] * min(free + 25, 50)
@@ -696,7 +699,10 @@ class Brain:
         need = int(math.ceil(work * P["hire_overhead"] / 24.0)) - 1
         if work <= 0 and (scan["empty"] or scan["weeds"]):
             need = max(need, 2)
-        need = max(0, min(P["max_hands"], need))
+        cap_hands = P["max_hands"]
+        if P["late_hands"] and self.day_seen >= P["late_hands_day"]:
+            cap_hands = P["late_hands"]
+        need = max(0, min(cap_hands, need))
         cap = max(P["hire_cap_abs"], money * P["hire_cap_frac"])
         a, b, tot, k = 1, 1, 0, 0
         while k < need and tot + a <= cap:
@@ -1011,7 +1017,7 @@ class Brain:
         return ["PASS"]
 
 
-PARAMS = {'land_buffer_per_tile': 0.0, 'land_buffer': 500, 'hire_overhead': 3.5, 'max_hands': 12, 'sticky_bonus': 1.0, 'disc_poor': 0.94, 'cap_lambda': 0.0, 'opp_weight': 1.0, 'cap_mu': 4.0, 'long_frac_min': 0.8, 'operating_per_tile': 8.0, 'use_zones': 0, 'dist_decay': 1.2, 'animal_target': 14, 'mirror': 0.45, 'wheat_reserve_days': 1.7, 'keep_frac': 0.24, 'fert_min_gain': 1000000000.0, 'endgame_dump_day': 25}
+PARAMS = {'land_buffer_per_tile': 0.0, 'land_buffer': 500, 'hire_overhead': 3.5, 'max_hands': 12, 'sticky_bonus': 1.0, 'cap_lambda': 0.0, 'opp_weight': 1.0, 'cap_mu': 4.0, 'long_frac_min': 0.8, 'operating_per_tile': 8.0, 'use_zones': 0, 'dist_decay': 1.2, 'animal_target': 14, 'mirror': 0.45, 'wheat_reserve_days': 1.7, 'keep_frac': 0.24, 'fert_min_gain': 1000000000.0, 'endgame_dump_day': 25, 'disc_poor': 0.9, 'land_max': 2}
 
 
 _BRAIN = Brain(PARAMS)

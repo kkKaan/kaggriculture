@@ -45,6 +45,9 @@ DEFAULTS = {
     "land_buffer": 500,
     "land_min_day_left": 7,
     "land_free_gate": 26,
+    "land_max": 3,
+    "late_hands_day": 99,
+    "late_hands": 0,
     "land_seed_per_tile": 12.0,
     "wheat_buy_max": 60,
     "wheat_reserve_days": 2.5,
@@ -223,7 +226,7 @@ class Brain:
         free = len(scan["empty"])
         bought = len(me["unlocked_quadrants"]) - 1
         land_cost = 0
-        if (not self._final_day and bought < 3
+        if (not self._final_day and bought < P["land_max"]
                 and days_left >= P["land_min_day_left"] + 3 * bought):
             c = LAND_PRICES[bought]
             est = P["land_seed_per_tile"] * min(free + 25, 50)
@@ -525,7 +528,10 @@ class Brain:
         need = int(math.ceil(work * P["hire_overhead"] / 24.0)) - 1
         if work <= 0 and (scan["empty"] or scan["weeds"]):
             need = max(need, 2)
-        need = max(0, min(P["max_hands"], need))
+        cap_hands = P["max_hands"]
+        if P["late_hands"] and self.day_seen >= P["late_hands_day"]:
+            cap_hands = P["late_hands"]
+        need = max(0, min(cap_hands, need))
         cap = max(P["hire_cap_abs"], money * P["hire_cap_frac"])
         a, b, tot, k = 1, 1, 0, 0
         while k < need and tot + a <= cap:
