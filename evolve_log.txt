@@ -12,3 +12,7 @@ round 0 (1084s) best=80.0% {'cap_mu': 2.1598}
    confirm: 66.7% W32 L16 T0 mean=$92,779
    PROMOTED -> {'cap_mu': 2.1598}
 round 0 (3064s) best=70.0% {'dist_decay': 1.5148, 'hire_overhead': 3.6113, 'fetch_value': 163.333}
+=== evolve start 15:57:55 rounds=34 pop=6 ===
+round 0 (2012s) best=68.8% {'value_scaled_care': 0, 'shed_soft_cap': 54}
+   confirm: 43.8% W17 L22 T1 mean=$93,241
+   rejected on confirmation

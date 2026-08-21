@@ -623,7 +623,11 @@ class Brain:
                 if cd["ongoing"]:
                     ready = yu >= cd["max_yield"] or age >= hd or days_left <= 1
                 else:
-                    ready = age >= hd or yu >= expected_units(crop, fert)
+                    # On the last bonus-window day, water first: the watering is
+                    # what lifts yield to its maximum.
+                    full = expected_units(crop, fert)
+                    ready = (yu >= full or age > hd
+                             or (age >= hd and t["watered_today"]))
             if (P["early_harvest"] and not ready and yu > 0
                     and age >= cd["first_yield_day"] and not cd["ongoing"]):
                 left = max(0, hd - age)
