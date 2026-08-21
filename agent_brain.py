@@ -74,6 +74,8 @@ DEFAULTS = {
     "max_tile_dist": 99,
     "cluster_bonus": 0.0,
     "hold_bonus": 1.0,
+    "final_run_slack": 3,
+    "fert_fetch": 1,
     "early_harvest": 1,
     "rush_window": 3,
     "rush_sell": 1,
@@ -661,7 +663,7 @@ class Brain:
 
         fert_price = self._price_at("FERTILIZER", minv, drain, 0)
         fert_targets = 0
-        for (x, y, t) in scan["plants"]:
+        for (x, y, t) in (scan["plants"] if P["fert_min_gain"] < 1e6 else ()):
             crop = t["crop"]
             cd = CROPS[crop]
             if cd["ongoing"]:
@@ -723,13 +725,18 @@ class Brain:
                     held[a] = held.get(a, 0) + iv[a]
         idle_struct = 0
         for (x, y, kind) in scan["empty_struct"]:
-            placed = False
+            best = None
             for aname, ad in ANIMALS.items():
-                if ad["structure"] == kind and (held.get(aname, 0) or shed.get(aname, 0)):
-                    tasks.append((220.0, x, y, "PLACE_" + aname, None))
-                    placed = True
-            if not placed:
+                if ad["structure"] != kind:
+                    continue
+                if not (held.get(aname, 0) or shed.get(aname, 0)):
+                    continue
+                if best is None or ad["cost"] > ANIMALS[best]["cost"]:
+                    best = aname
+            if best is None:
                 idle_struct += 1
+            else:
+                tasks.append((220.0, x, y, "PLACE_" + best, None))
         # structures nobody will ever fill are just dead land
         if idle_struct and len(scan["empty"]) < 4 and days_left > 4 and not buy_pending:
             for (x, y, kind) in scan["empty_struct"]:
@@ -771,7 +778,8 @@ class Brain:
             for (sx, sy) in list(shed_set)[:nf]:
                 tasks.append((val, sx, sy, "FETCH_WHEAT", None))
         carried_fert = sum(iv.get("FERTILIZER", 0) for iv in invs)
-        if fert_targets and shed.get("FERTILIZER", 0) > 0 and carried_fert < fert_targets:
+        if (P["fert_fetch"] and fert_targets and shed.get("FERTILIZER", 0) > 0
+                and carried_fert < fert_targets):
             nf = max(1, min(2, int(math.ceil((fert_targets - carried_fert) / 6.0))))
             for (sx, sy) in list(shed_set)[:nf]:
                 tasks.append((100.0, sx, sy, "FETCH_FERT", None))
@@ -877,6 +885,10 @@ class Brain:
             inv = invs[ui] if ui < len(invs) else {}
             carry = sum(inv.values())
             ti = assigned[ui]
+            if self._final_day and carry > 0:
+                dsh = min(manhattan(upos, sp) for sp in shed_set)
+                if turns_left <= dsh + P["final_run_slack"]:
+                    ti = None
             if ti is not None:
                 val, x, y, kind, payload = tasks[ti]
                 if (upos[0], upos[1]) == (x, y):

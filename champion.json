@@ -6,6 +6,7 @@
  "dist_decay": 1.2,
  "endgame_dump_day": 25,
  "fert_min_gain": 1000000000.0,
+ "final_run_slack": 6,
  "hire_overhead": 3.5,
  "hire_per_turn": 3,
  "hold_bonus": 0.75,
@@ -14,7 +15,7 @@
  "land_buffer": 500,
  "land_buffer_per_tile": 0.0,
  "land_max": 1,
- "long_frac_min": 0.8,
+ "long_frac_min": 0.7055,
  "max_hands": 12,
  "mirror": 0.45,
  "operating_per_tile": 8.0,
@@ -22,5 +23,5 @@
  "sticky_bonus": 1.0,
  "use_zones": 0,
  "value_scaled_care": 1,
- "wheat_reserve_days": 1.7
+ "wheat_reserve_days": 0.7885
 }

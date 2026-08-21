@@ -16,3 +16,14 @@ round 0 (3064s) best=70.0% {'dist_decay': 1.5148, 'hire_overhead': 3.6113, 'fetc
 round 0 (2012s) best=68.8% {'value_scaled_care': 0, 'shed_soft_cap': 54}
    confirm: 43.8% W17 L22 T1 mean=$93,241
    rejected on confirmation
+=== evolve start 17:52:34 rounds=22 pop=6 ===
+round 0 (1226s) best=75.0% {'fetch_value': 91.9484, 'cash_target': 3426.7272}
+   confirm: 17.5% W7 L33 T0 mean=$96,085
+   rejected on confirmation
+round 1 (1010s) best=87.5% {'long_frac_min': 0.7055, 'wheat_reserve_days': 0.7885}
+   confirm: 75.0% W30 L10 T0 mean=$104,456
+   PROMOTED -> {'long_frac_min': 0.7055, 'wheat_reserve_days': 0.7885}
+round 2 (273s) best=56.2% {'cap_mu': 3.6441, 'future_shop_weight': 1.1149, 'wheat_buy_max': 47.0887}
+round 3 (1030s) best=68.8% {'hire_per_turn': 2, 'plant_near': 0}
+   confirm: 25.0% W10 L30 T0 mean=$96,440
+   rejected on confirmation
