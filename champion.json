@@ -1,5 +1,5 @@
 {
- "animal_target": 12,
+ "animal_target": 11,
  "cap_lambda": 0.0,
  "cap_mu": 2.1598,
  "disc_poor": 0.9297,
@@ -20,8 +20,9 @@
  "mirror": 0.45,
  "operating_per_tile": 8.0,
  "opp_weight": 1.0,
+ "rush_window": 3,
  "sticky_bonus": 1.0,
  "use_zones": 0,
  "value_scaled_care": 1,
- "wheat_reserve_days": 0.7885
+ "wheat_reserve_days": 0.5
 }

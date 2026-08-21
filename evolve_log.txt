@@ -30,3 +30,5 @@ round 3 (1030s) best=68.8% {'hire_per_turn': 2, 'plant_near': 0}
 === evolve start 01:44:48 rounds=40 pop=6 ===
 round 0 (323s) best=50.0% {'plant_near': 0}
 round 1 (414s) best=70.8% {'animal_target': 11, 'wheat_reserve_days': 0.5, 'rush_window': 3}
+   confirm: 56.2% W36 L28 T0 mean=$98,041
+   PROMOTED -> {'animal_target': 11, 'wheat_reserve_days': 0.5, 'rush_window': 3}

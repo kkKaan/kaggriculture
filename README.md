@@ -141,3 +141,40 @@ the competition rules on the website, then:
 ```bash
 kaggle competitions submit kaggriculture -f submission/main.py -m "v1"
 ```
+
+## Iterating from here
+
+The champion parameter vector lives in `champion.json` and is read by both
+`variants.py` and `build_submission.py`, so tuning never requires editing code.
+
+**Hand-testing one idea:** add a named variant in `variants.py`, then
+
+```bash
+python bench/sweep.py champ myvariant -n 40
+```
+
+40 seeds = 80 games = about 1 sigma of 5.6% on winrate. Anything under 60% at
+that sample size is noise; re-run at `-n 80` before believing it.
+
+**Unattended search:** `bench/evolve.py` mutates 1-3 parameters at a time,
+screens candidates on one seed set, then re-confirms the leader on a fresh set
+before promoting it to `champion.json`. The two-stage design is what keeps it
+from chasing noise.
+
+```bash
+python bench/evolve.py --rounds 40 --pop 6 --seeds 12 --confirm 32 --workers 4
+```
+
+**Do not exceed 4 workers on this machine.** It has 4 performance cores and
+little free RAM; each `env` retains 720 deep-copied steps, and over-subscribing
+sends the whole run into swap (a 20-game sweep went from 25 s to 1100 s).
+
+**When the engine changes:** re-run `python bench/test_model.py`. It plants one
+of every crop, follows the agent's own watering schedule, and asserts the
+harvest matches `expected_units`. That test is what caught the agent harvesting
+a turn early and silently forfeiting a unit per tile.
+
+**With Kaggle credentials**, the highest-value next step is the competition's
+"Daily Top Episodes" dataset — replays of the current leaders. `analyze_replay.py`
+parses a downloaded replay into a money curve, action mix, and end-of-game market
+state, which is far better signal than self-play alone.
