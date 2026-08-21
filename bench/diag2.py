@@ -35,6 +35,12 @@ def diag(a, b, seed=3):
             for t in r:
                 if isinstance(t, dict) and t.get("kind")=="PLANT": mix[t["crop"]] += 1
     print("crop tile-days:", dict(mix))
+    amix = collections.Counter()
+    for i in range(0, len(S), 24):
+        for r in S[i][0]["observation"]["farms"][0]["tiles"]:
+            for t in r:
+                if isinstance(t, dict) and "animal" in t: amix[t["animal"]] += 1
+    print("animal tile-days:", dict(amix))
     # action utilisation
     acts = collections.Counter()
     for st in S[1:]:

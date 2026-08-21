@@ -23,6 +23,7 @@ CHAMP = {
     "keep_frac": 0.24,
     "fert_min_gain": 1e9,
     "long_frac_min": 0.80,
+    "endgame_dump_day": 25,
 }
 
 def d(**kw):
@@ -62,7 +63,7 @@ for v in (3, 6, 14):
 for v in (0.3, 0.42, 0.7, 1.0):
     add("decay%d" % (v * 100), dist_decay=v)
 # farm composition
-for v in (4, 7, 10, 12, 17, 20, 24):
+for v in (10, 12, 18, 22, 28, 36, 50):
     add("anim%d" % v, animal_target=v)
 for v in (0, 200, 1500, 2500):
     add("acf%d" % v, animal_cash_floor=v)
@@ -96,8 +97,28 @@ for v in (0.0, 40.0, 90.0):
     add("fmg%d" % v, fert_min_gain=v)
 for v in (0.25, 0.60, 0.80, 1.0):
     add("lf%d" % (v * 100), long_frac_min=v)
-for v in (0.45, 0.6, 0.8):
+for v in (0.35, 0.55):
     add("mir%d" % (v * 100), mirror=v)
+for v in (23, 25, 28, 29, 30):
+    add("edd%d" % v, endgame_dump_day=v)
+for v in (40, 55, 90, 99):
+    add("ssc%d" % v, shed_soft_cap=v)
+for v in (0.0, 8.0, 25.0):
+    add("pmv%d" % v, plant_min_value=v)
+for v in (20, 400, 900):
+    add("scf%d" % v, seed_cash_floor=v)
+for v in (3.0, 3.2, 3.9, 4.3):
+    add("ovh%d" % (v * 10), hire_overhead=v)
+for v in (30, 200, 600):
+    add("hca%d" % v, hire_cap_abs=v)
+for v in (25, 60, 90):
+    add("wbm%d" % v, wheat_buy_max=v)
+for v in (1.1, 1.25, 1.5, 1.8, 2.4):
+    add("fsw%d" % (v * 100), future_shop_weight=v)
+for v in (0.1, 0.3, 0.55, 1.0):
+    add("elf%d" % (v * 100), early_long_frac=v)
+for v in (4, 9, 13):
+    add("eld%d" % v, early_long_day=v, early_long_frac=0.3)
 for v in (0.05, 0.15, 0.55, 0.8):
     add("zp%d" % (v * 100), zone_penalty=v)
 for v in (0.9, 1.6, 2.2, 3.0, 5.0, 9.0):
@@ -107,6 +128,17 @@ for v in (0.9, 1.6, 2.2, 3.0, 5.0, 9.0):
 def make_agent(name):
     if name in ("pass", "random", "starter"):
         return name
+    if name == "sub":
+        import importlib, os
+        sub = os.path.join(os.path.dirname(os.path.abspath(__file__)), "submission")
+        if sub not in sys.path:
+            sys.path.insert(0, sub)
+        import importlib.util
+        path = os.path.join(sub, "main.py")
+        spec = importlib.util.spec_from_file_location("kaggri_submission", path)
+        m = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(m)
+        return m.agent
     params = VARIANTS.get(name)
     if params is None:
         raise KeyError(name)
