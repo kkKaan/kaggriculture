@@ -37,6 +37,8 @@ DEFAULTS = {
     "hire_cap_abs": 60.0,        # always affordable floor for hire spend
     "hire_cap_frac": 0.05,
     "keep_frac": 0.30,
+    "keep_frac_premium": -1.0,
+    "value_scaled_care": 0,
     "endgame_dump_day": 25,
     "drain_sell_mult": 0.0,
     "early_long_frac": -1.0,
@@ -67,6 +69,13 @@ DEFAULTS = {
     "plan_cache_turns": 3,
     "dist_decay": 0.55,
     "plant_near": 0,
+    "max_tile_dist": 99,
+    "cluster_bonus": 0.0,
+    "hold_bonus": 1.0,
+    "early_harvest": 1,
+    "rush_window": 3,
+    "rush_sell": 1,
+    "hire_per_turn": 7,
     "disc_rich": 0.97,
     "disc_poor": 0.75,
     "cash_target": 3000.0,
@@ -101,6 +110,8 @@ class Brain:
         self.targets = {}
         self._final_day = False
         self._n_shops = 0
+        self._opp_arr = {}
+        self._my_arr = {}
         self.sold_today = {}
         self._sold_day = -1
 
@@ -223,6 +234,8 @@ class Brain:
         scan = self._scan(tiles, n)
         opp_pipe = self._pipeline(opp["tiles"]) if opp else {}
         my_pipe = self._pipeline(tiles)
+        self._opp_arr = self.arriving(opp["tiles"], day) if opp else {}
+        self._my_arr = self.arriving(tiles, day)
 
         n_animals = scan["n_animals"]
         wheat_reserve = int(math.ceil(n_animals * P["wheat_reserve_days"]))
@@ -256,12 +269,15 @@ class Brain:
     def _scan(self, tiles, n):
         s = {"plants": [], "animals": [], "empty": [], "weeds": [],
              "empty_struct": [], "crop_counts": {}, "n_animals": 0, "locked": 0}
+        lim = self.P["max_tile_dist"]
+        cx = cy = n // 2
         for y in range(n):
             row = tiles[y]
             for x in range(n):
                 t = row[x]
                 if t is None:
-                    s["empty"].append((x, y))
+                    if abs(x - cx) + abs(y - cy) <= lim:
+                        s["empty"].append((x, y))
                 elif t == "LOCKED":
                     s["locked"] += 1
                 elif isinstance(t, dict):
@@ -277,6 +293,29 @@ class Brain:
                     else:
                         s["empty_struct"].append((x, y, k))
         return s
+
+    def arriving(self, tiles, day):
+        """{product: [(days_until_ready, units), ...]} for plants on a farm."""
+        out = {}
+        for row in tiles:
+            for t in row:
+                if not isinstance(t, dict):
+                    continue
+                if t.get("kind") == "PLANT":
+                    c = t["crop"]
+                    hd = harvest_day(c)
+                    age = day - t["planted_day"]
+                    left = max(0, hd - age)
+                    out.setdefault(c, []).append((left, expected_units(c)))
+                elif "animal" in t:
+                    a = ANIMALS[t["animal"]]
+                    rate = (1.0 + a["interval"]) / a["interval"]
+                    left = max(0, a["first_yield_day"] - (day - t["placed_day"])) 
+                    out.setdefault(a["product"], []).append((left, rate * 3.0))
+        return out
+
+    def soon(self, arr, item, window):
+        return sum(u for (dd, u) in arr.get(item, []) if dd <= window)
 
     def _pipeline(self, tiles):
         pipe = {}
@@ -418,12 +457,12 @@ class Brain:
         P = self.P
         head, tail = [], []
 
-        if hour <= 1:
+        if hour <= 3:
             held = sum(seeds.values())
             plantable = held + min(len(alloc), int(max(0.0, money - P["seed_cash_floor"]) // 12))
             want = self._hands_wanted(scan, money, n, plantable)
             todo = max(0, want - me["hires_today"])
-            for _ in range(min(todo, 7 if hour == 0 else 10)):
+            for _ in range(min(todo, P["hire_per_turn"])):
                 head.append(["HIRE"])
 
         head.extend(self._sell_orders(shed, minv, drain, day, wheat_reserve))
@@ -493,7 +532,17 @@ class Brain:
                 if have <= 0:
                     continue
             inv = minv.get(item, 10000)
-            thresh = max(1.0, MARKET_PARAMS[item]["base"] * keep)
+            kf = keep
+            if P["keep_frac_premium"] >= 0 and MARKET_PARAMS[item]["above_func"] in ("linear", "sq"):
+                kf = P["keep_frac_premium"]
+                if day >= P["endgame_dump_day"] - 2:
+                    kf *= 0.5
+            thresh = max(1.0, MARKET_PARAMS[item]["base"] * kf)
+            if P["rush_sell"]:
+                inbound = (self.soon(self._opp_arr, item, P["rush_window"])
+                           + self.soon(self._my_arr, item, P["rush_window"]))
+                if inbound > 0.4 * MARKET_PARAMS[item]["T"]:
+                    thresh = 1.0
             if dumping or pressure:
                 qty = have
             else:
@@ -568,6 +617,17 @@ class Brain:
                     ready = yu >= cd["max_yield"] or age >= hd or days_left <= 1
                 else:
                     ready = age >= hd or yu >= expected_units(crop, fert)
+            if (P["early_harvest"] and not ready and yu > 0
+                    and age >= cd["first_yield_day"] and not cd["ongoing"]):
+                left = max(0, hd - age)
+                if left > 0:
+                    fut_units = expected_units(crop, fert)
+                    inbound = (self.soon(self._opp_arr, crop, left)
+                               + self.soon(self._my_arr, crop, left))
+                    p_now = self._price_at(crop, minv, drain, 0)
+                    p_fut = self._price_at(crop, minv, drain, left, inbound)
+                    if yu * p_now >= fut_units * p_fut * P["hold_bonus"]:
+                        ready = True
             if days_left <= 0 and yu > 0 and age >= cd["first_yield_day"]:
                 ready = True
             if ready:
@@ -614,11 +674,16 @@ class Brain:
             a = ANIMALS[t["animal"]]
             pprice = self._price_at(a["product"], minv, drain, 0)
             gain = 1 + t.get("pending_care_bonus", 0)
+            scale = 1.0
+            if P["value_scaled_care"]:
+                rate = (1.0 + a["interval"]) / a["interval"]
+                daily = rate * pprice + fert_price * 0.5
+                scale = max(0.25, min(1.6, daily / 120.0))
             if not t["fed_today"] and days_left >= 1:
-                tasks.append((140.0 if t["consecutive_unfed"] >= 1 else 88.0,
+                tasks.append(((140.0 if t["consecutive_unfed"] >= 1 else 88.0) * scale,
                               x, y, "FEED", None))
             if not t["cared_today"] and days_left >= 2:
-                tasks.append((min(75.0, pprice * 0.85), x, y, "CARE", None))
+                tasks.append((min(75.0, pprice * 0.85) * scale, x, y, "CARE", None))
             if t.get("fertilizer_available"):
                 tasks.append((min(90.0, fert_price * 0.8), x, y, "COLLECT_FERTILIZER", None))
             yu = t.get("yield_units", 0)
@@ -738,6 +803,19 @@ class Brain:
                 for i in chunks[ci]:
                     zone_of.setdefault(i, ui)
 
+        dens = None
+        if P["cluster_bonus"] > 0 and tasks:
+            cnt = {}
+            for (v, tx, ty, k, pl) in tasks:
+                cnt[(tx, ty)] = cnt.get((tx, ty), 0) + 1
+            dens = []
+            for (v, tx, ty, k, pl) in tasks:
+                c = 0
+                for dx in range(-2, 3):
+                    for dy in range(-2 + abs(dx), 3 - abs(dx)):
+                        c += cnt.get((tx + dx, ty + dy), 0)
+                dens.append(c)
+
         assigned = [None] * len(units)
         used, taken = set(), set()
         pairs = []
@@ -760,6 +838,8 @@ class Brain:
                 if d > turns_left:
                     continue
                 sc = val / (1.0 + P["dist_decay"] * d)
+                if dens is not None:
+                    sc *= (1.0 + P["cluster_bonus"] * min(dens[ti], 8) / 8.0)
                 z = zone_of.get(ti)
                 if z is not None and z != ui:
                     sc *= P["zone_penalty"]

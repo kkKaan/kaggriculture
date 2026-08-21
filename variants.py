@@ -25,6 +25,10 @@ CHAMP = {
     "endgame_dump_day": 25,
     "disc_poor": 0.90,
     "land_max": 1,
+    "hire_per_turn": 3,
+    "value_scaled_care": 1,
+    "hold_bonus": 0.75,
+    "keep_frac_premium": 0.15,
 }
 
 def d(**kw):
@@ -140,6 +144,29 @@ for v in (1000, 2200, 3500):
 for v in (18, 34, 50):
     add("gate%d" % v, land_free_gate=v)
 add("l0", land_max=0)
+for v in (0.15, 0.35, 0.7, 1.2):
+    add("cb%d" % (v * 100), cluster_bonus=v)
+add("hb75x", hold_bonus=0.75)
+add("C1", value_scaled_care=1, hold_bonus=0.75, keep_frac_premium=0.15)
+add("C2", value_scaled_care=1, hold_bonus=0.75, keep_frac_premium=0.10)
+add("C3", hold_bonus=0.75, keep_frac_premium=0.15)
+add("C4", value_scaled_care=1, hold_bonus=0.6)
+add("C5", value_scaled_care=1, hold_bonus=0.85)
+add("vsc", value_scaled_care=1)
+add("vsc_hb", value_scaled_care=1, hold_bonus=0.75)
+for v in (0.15, 0.3, 0.45, 0.6):
+    add("kfp%d" % round(v * 100), keep_frac_premium=v)
+add("no_eh", early_harvest=0)
+add("no_rush", rush_sell=0)
+add("no_both", early_harvest=0, rush_sell=0)
+for v in (0.75, 0.9, 1.15, 1.4):
+    add("hb%d" % round(v * 100), hold_bonus=v)
+for v in (2, 5, 8):
+    add("rw%d" % v, rush_window=v)
+for lb in (2500, 5000, 9000):
+    add("l2b%d" % lb, land_max=2, land_buffer=lb)
+for g in (10, 16):
+    add("l2g%d" % g, land_max=2, land_free_gate=g)
 add("l2", land_max=2)
 for v in (8, 10, 12, 16, 18):
     add("aT%d" % v, animal_target=v)
