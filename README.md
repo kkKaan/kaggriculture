@@ -93,6 +93,20 @@ Measured by head-to-head winrate over 24-64 seeded games, both sides.
 - Compact planting near the shed (6%) — crops belong far from it, animals near.
 - Biasing the opening toward fast cash crops (17-29%).
 
+## Measured results
+
+Head-to-head, both sides, vs the tuned champion (`bench/sweep.py`):
+
+| Opponent style | Winrate for champion |
+|---|---|
+| `flooder` — dumps every product immediately, ignores opponent supply | 100% |
+| `premium` — long crops only, no market modelling | 100% |
+| `animalrush` — 30 animals, short crops | 97.5% |
+| `bigfarm` — all four quadrants, 16 hands | 92.5% |
+
+Against the built-in baselines (`bench/robust.py`), 100% winrate with mean bank
+around $125-133k versus ~$3.5k.
+
 ## Benchmarking
 
 ```bash

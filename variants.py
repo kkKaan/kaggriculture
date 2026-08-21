@@ -161,6 +161,11 @@ for v in (0.7, 0.85, 1.2):
     add("amm%d" % round(v * 100), animal_move_mult=v)
 add("mm_both", crop_move_mult=1.7, animal_move_mult=0.85)
 add("L2", land_max=2)
+add("flooder", keep_frac=0.0, keep_frac_premium=0.0, mirror=0.0, opp_weight=0.0,
+    endgame_dump_day=1)
+add("premium", long_frac_min=1.0, mirror=0.0, opp_weight=0.0, animal_target=4)
+add("animalrush", animal_target=30, long_frac_min=0.3)
+add("bigfarm", land_max=3, max_hands=16, hire_overhead=2.6)
 add("M1", max_hands=16)
 add("M2", max_hands=14)
 add("M3", hire_overhead=3.0)
