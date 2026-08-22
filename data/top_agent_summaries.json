@@ -1,0 +1,7287 @@
+[
+ {
+  "episode": "94436066",
+  "seed": 916448190,
+  "rewards": [
+   137984.0,
+   157930.0
+  ],
+  "agents": [
+   "NCK",
+   "Ryo Hasegawa"
+  ],
+  "players": [
+   {
+    "name": "NCK",
+    "days": [
+     {
+      "day": 0,
+      "money": 21.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 4,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 1,
+      "money": 176.0,
+      "q": 1,
+      "hands": 0,
+      "animals": 4,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 2,
+      "money": 49.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 4,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 3,
+      "money": 8.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 5,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 3
+      }
+     },
+     {
+      "day": 4,
+      "money": 124.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 5,
+      "plants": 15,
+      "mix": {
+       "MELON": 12,
+       "WHEAT": 3,
+       "SHEEP": 2,
+       "COW": 3
+      }
+     },
+     {
+      "day": 5,
+      "money": 27.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 6,
+      "plants": 19,
+      "mix": {
+       "STRAWBERRY": 4,
+       "MELON": 12,
+       "WHEAT": 3,
+       "COW": 4,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 6,
+      "money": 959.0,
+      "q": 2,
+      "hands": 4,
+      "animals": 6,
+      "plants": 21,
+      "mix": {
+       "STRAWBERRY": 4,
+       "MELON": 14,
+       "WHEAT": 3,
+       "COW": 4,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 7,
+      "money": 21.0,
+      "q": 2,
+      "hands": 8,
+      "animals": 9,
+      "plants": 30,
+      "mix": {
+       "STRAWBERRY": 7,
+       "MELON": 20,
+       "WHEAT": 3,
+       "COW": 6,
+       "SHEEP": 3
+      }
+     },
+     {
+      "day": 8,
+      "money": 1526.0,
+      "q": 2,
+      "hands": 11,
+      "animals": 10,
+      "plants": 36,
+      "mix": {
+       "STRAWBERRY": 11,
+       "MELON": 20,
+       "WHEAT": 5,
+       "COW": 6,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 9,
+      "money": 2487.0,
+      "q": 2,
+      "hands": 12,
+      "animals": 12,
+      "plants": 36,
+      "mix": {
+       "STRAWBERRY": 11,
+       "MELON": 20,
+       "WHEAT": 5,
+       "COW": 8,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 10,
+      "money": 14893.0,
+      "q": 2,
+      "hands": 11,
+      "animals": 12,
+      "plants": 28,
+      "mix": {
+       "STRAWBERRY": 11,
+       "WHEAT": 9,
+       "MELON": 8,
+       "COW": 8,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 11,
+      "money": 11445.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 52,
+      "mix": {
+       "STRAWBERRY": 27,
+       "WHEAT": 17,
+       "MELON": 8,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 12,
+      "money": 13564.0,
+      "q": 3,
+      "hands": 10,
+      "animals": 14,
+      "plants": 57,
+      "mix": {
+       "STRAWBERRY": 34,
+       "WHEAT": 15,
+       "MELON": 8,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 13,
+      "money": 15734.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 59,
+      "mix": {
+       "STRAWBERRY": 34,
+       "WHEAT": 17,
+       "MELON": 8,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 14,
+      "money": 20463.0,
+      "q": 3,
+      "hands": 8,
+      "animals": 14,
+      "plants": 58,
+      "mix": {
+       "STRAWBERRY": 34,
+       "WHEAT": 16,
+       "MELON": 8,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 15,
+      "money": 26381.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 57,
+      "mix": {
+       "STRAWBERRY": 33,
+       "WHEAT": 16,
+       "MELON": 8,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 16,
+      "money": 30152.0,
+      "q": 3,
+      "hands": 9,
+      "animals": 14,
+      "plants": 57,
+      "mix": {
+       "STRAWBERRY": 33,
+       "WHEAT": 18,
+       "MELON": 6,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 17,
+      "money": 35377.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 57,
+      "mix": {
+       "STRAWBERRY": 33,
+       "WHEAT": 24,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 18,
+      "money": 43895.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 60,
+      "mix": {
+       "STRAWBERRY": 33,
+       "WHEAT": 27,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 19,
+      "money": 48104.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 59,
+      "mix": {
+       "STRAWBERRY": 33,
+       "WHEAT": 26,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 20,
+      "money": 57368.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 57,
+      "mix": {
+       "STRAWBERRY": 33,
+       "WHEAT": 24,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 21,
+      "money": 66508.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 51,
+      "mix": {
+       "CARROT": 2,
+       "WHEAT": 18,
+       "STRAWBERRY": 31,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 22,
+      "money": 78069.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 55,
+      "mix": {
+       "CARROT": 3,
+       "WHEAT": 23,
+       "STRAWBERRY": 29,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 23,
+      "money": 87959.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 53,
+      "mix": {
+       "CARROT": 3,
+       "WHEAT": 24,
+       "STRAWBERRY": 26,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 24,
+      "money": 97084.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 56,
+      "mix": {
+       "CARROT": 3,
+       "WHEAT": 27,
+       "STRAWBERRY": 26,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 25,
+      "money": 106798.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 58,
+      "mix": {
+       "CARROT": 3,
+       "WHEAT": 33,
+       "STRAWBERRY": 22,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 26,
+      "money": 113929.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 55,
+      "mix": {
+       "CARROT": 3,
+       "WHEAT": 30,
+       "STRAWBERRY": 22,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 27,
+      "money": 120843.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 54,
+      "mix": {
+       "WHEAT": 35,
+       "STRAWBERRY": 18,
+       "COW": 10,
+       "CARROT": 1,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 28,
+      "money": 128909.0,
+      "q": 3,
+      "hands": 10,
+      "animals": 14,
+      "plants": 17,
+      "mix": {
+       "WHEAT": 11,
+       "COW": 10,
+       "STRAWBERRY": 6,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 29,
+      "money": 137984.0,
+      "q": 3,
+      "hands": 8,
+      "animals": 14,
+      "plants": 1,
+      "mix": {
+       "WHEAT": 1,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     }
+    ]
+   },
+   {
+    "name": "Ryo Hasegawa",
+    "days": [
+     {
+      "day": 0,
+      "money": 141.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 4,
+      "plants": 17,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 6,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 1,
+      "money": 35.0,
+      "q": 1,
+      "hands": 1,
+      "animals": 4,
+      "plants": 19,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 8,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 2,
+      "money": 357.0,
+      "q": 1,
+      "hands": 3,
+      "animals": 4,
+      "plants": 21,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 10,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 3,
+      "money": 907.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 4,
+      "plants": 21,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 10,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 4,
+      "money": 573.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 4,
+      "plants": 17,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 4,
+       "STRAWBERRY": 2,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 5,
+      "money": 157.0,
+      "q": 2,
+      "hands": 3,
+      "animals": 4,
+      "plants": 26,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 12,
+       "STRAWBERRY": 3,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 6,
+      "money": 1273.0,
+      "q": 2,
+      "hands": 7,
+      "animals": 4,
+      "plants": 34,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 13,
+       "STRAWBERRY": 10,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 7,
+      "money": 370.0,
+      "q": 2,
+      "hands": 7,
+      "animals": 7,
+      "plants": 40,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 12,
+       "STRAWBERRY": 17,
+       "SHEEP": 2,
+       "COW": 5
+      }
+     },
+     {
+      "day": 8,
+      "money": 2459.0,
+      "q": 2,
+      "hands": 11,
+      "animals": 8,
+      "plants": 40,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 12,
+       "STRAWBERRY": 17,
+       "SHEEP": 2,
+       "COW": 6
+      }
+     },
+     {
+      "day": 9,
+      "money": 2507.0,
+      "q": 2,
+      "hands": 10,
+      "animals": 11,
+      "plants": 36,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 6,
+       "STRAWBERRY": 19,
+       "COW": 9,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 10,
+      "money": 12472.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 12,
+      "plants": 27,
+      "mix": {
+       "WHEAT": 5,
+       "STRAWBERRY": 22,
+       "COW": 10,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 11,
+      "money": 13187.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 13,
+      "plants": 61,
+      "mix": {
+       "WHEAT": 19,
+       "STRAWBERRY": 42,
+       "COW": 11,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 12,
+      "money": 16157.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 61,
+      "mix": {
+       "WHEAT": 19,
+       "STRAWBERRY": 42,
+       "COW": 12,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 13,
+      "money": 15918.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 59,
+      "mix": {
+       "WHEAT": 17,
+       "STRAWBERRY": 42,
+       "COW": 12,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 14,
+      "money": 17302.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 59,
+      "mix": {
+       "WHEAT": 17,
+       "STRAWBERRY": 42,
+       "COW": 14,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 15,
+      "money": 22346.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 56,
+      "mix": {
+       "WHEAT": 14,
+       "STRAWBERRY": 42,
+       "COW": 14,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 16,
+      "money": 28372.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 59,
+      "mix": {
+       "WHEAT": 17,
+       "STRAWBERRY": 42,
+       "COW": 14,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 17,
+      "money": 38711.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 59,
+      "mix": {
+       "WHEAT": 17,
+       "STRAWBERRY": 42,
+       "COW": 14,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 18,
+      "money": 42902.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 59,
+      "mix": {
+       "WHEAT": 17,
+       "STRAWBERRY": 42,
+       "COW": 14,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 19,
+      "money": 53130.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 55,
+      "mix": {
+       "WHEAT": 13,
+       "STRAWBERRY": 42,
+       "COW": 14,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 20,
+      "money": 64645.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 55,
+      "mix": {
+       "WHEAT": 15,
+       "STRAWBERRY": 40,
+       "COW": 14,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 21,
+      "money": 73066.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 56,
+      "mix": {
+       "WHEAT": 17,
+       "STRAWBERRY": 39,
+       "COW": 14,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 22,
+      "money": 89824.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 57,
+      "mix": {
+       "WHEAT": 24,
+       "STRAWBERRY": 33,
+       "COW": 14,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 23,
+      "money": 99749.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 51,
+      "mix": {
+       "WHEAT": 25,
+       "STRAWBERRY": 26,
+       "COW": 14,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 24,
+      "money": 115070.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 53,
+      "mix": {
+       "CARROT": 5,
+       "WHEAT": 23,
+       "STRAWBERRY": 25,
+       "COW": 14,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 25,
+      "money": 121277.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 55,
+      "mix": {
+       "CARROT": 9,
+       "WHEAT": 23,
+       "STRAWBERRY": 23,
+       "COW": 14,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 26,
+      "money": 131826.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 53,
+      "mix": {
+       "CARROT": 9,
+       "WHEAT": 24,
+       "STRAWBERRY": 20,
+       "COW": 14,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 27,
+      "money": 138591.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 15,
+       "CARROT": 4,
+       "COW": 14,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 28,
+      "money": 152269.0,
+      "q": 3,
+      "hands": 10,
+      "animals": 16,
+      "plants": 14,
+      "mix": {
+       "WHEAT": 14,
+       "COW": 14,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 29,
+      "money": 157930.0,
+      "q": 3,
+      "hands": 8,
+      "animals": 16,
+      "plants": 2,
+      "mix": {
+       "COW": 14,
+       "SHEEP": 2,
+       "WHEAT": 2
+      }
+     }
+    ]
+   }
+  ],
+  "end_prices": {
+   "CARROT": 48,
+   "EGG": 62,
+   "FERTILIZER": 3,
+   "MELON": 34,
+   "MILK": 91,
+   "STRAWBERRY": 199,
+   "TOMATO": 64,
+   "WHEAT": 38,
+   "WOOL": 1
+  },
+  "shops": {
+   "SMOOTHIE_SHOP": 3,
+   "ICE_CREAM_SHOP": 1,
+   "BRUNCH_SPOT": 1,
+   "BAKERY": 1,
+   "PET_CAFE": 2
+  }
+ },
+ {
+  "episode": "94437841",
+  "seed": 2134790432,
+  "rewards": [
+   125180.0,
+   118548.0
+  ],
+  "agents": [
+   "Ryo Hasegawa",
+   "DeeperNet"
+  ],
+  "players": [
+   {
+    "name": "Ryo Hasegawa",
+    "days": [
+     {
+      "day": 0,
+      "money": 139.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 4,
+      "plants": 17,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 6,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 1,
+      "money": 14.0,
+      "q": 1,
+      "hands": 1,
+      "animals": 4,
+      "plants": 18,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 7,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 2,
+      "money": 355.0,
+      "q": 1,
+      "hands": 3,
+      "animals": 4,
+      "plants": 21,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 10,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 3,
+      "money": 905.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 4,
+      "plants": 21,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 10,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 4,
+      "money": 570.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 4,
+      "plants": 17,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 4,
+       "STRAWBERRY": 2,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 5,
+      "money": 173.0,
+      "q": 2,
+      "hands": 3,
+      "animals": 4,
+      "plants": 27,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 13,
+       "STRAWBERRY": 3,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 6,
+      "money": 1368.0,
+      "q": 2,
+      "hands": 7,
+      "animals": 4,
+      "plants": 38,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 14,
+       "STRAWBERRY": 13,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 7,
+      "money": 413.0,
+      "q": 2,
+      "hands": 7,
+      "animals": 7,
+      "plants": 40,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 13,
+       "STRAWBERRY": 16,
+       "SHEEP": 2,
+       "COW": 5
+      }
+     },
+     {
+      "day": 8,
+      "money": 2175.0,
+      "q": 2,
+      "hands": 11,
+      "animals": 9,
+      "plants": 40,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 13,
+       "STRAWBERRY": 16,
+       "COW": 7,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 9,
+      "money": 2170.0,
+      "q": 2,
+      "hands": 10,
+      "animals": 12,
+      "plants": 36,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 7,
+       "STRAWBERRY": 18,
+       "COW": 10,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 10,
+      "money": 11814.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 13,
+      "plants": 27,
+      "mix": {
+       "STRAWBERRY": 22,
+       "WHEAT": 5,
+       "COW": 11,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 11,
+      "money": 13055.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 60,
+      "mix": {
+       "WHEAT": 18,
+       "STRAWBERRY": 42,
+       "COW": 12,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 12,
+      "money": 16398.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 59,
+      "mix": {
+       "WHEAT": 17,
+       "STRAWBERRY": 42,
+       "COW": 12,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 13,
+      "money": 15213.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 57,
+      "mix": {
+       "WHEAT": 15,
+       "STRAWBERRY": 42,
+       "SHEEP": 4,
+       "COW": 12
+      }
+     },
+     {
+      "day": 14,
+      "money": 15812.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 18,
+      "plants": 57,
+      "mix": {
+       "WHEAT": 15,
+       "STRAWBERRY": 42,
+       "SHEEP": 6,
+       "COW": 12
+      }
+     },
+     {
+      "day": 15,
+      "money": 21365.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 18,
+      "plants": 54,
+      "mix": {
+       "WHEAT": 8,
+       "STRAWBERRY": 42,
+       "CARROT": 4,
+       "SHEEP": 6,
+       "COW": 12
+      }
+     },
+     {
+      "day": 16,
+      "money": 27248.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 18,
+      "plants": 56,
+      "mix": {
+       "WHEAT": 8,
+       "STRAWBERRY": 42,
+       "CARROT": 6,
+       "SHEEP": 6,
+       "COW": 12
+      }
+     },
+     {
+      "day": 17,
+      "money": 36023.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 18,
+      "plants": 57,
+      "mix": {
+       "WHEAT": 8,
+       "STRAWBERRY": 42,
+       "CARROT": 7,
+       "SHEEP": 6,
+       "COW": 12
+      }
+     },
+     {
+      "day": 18,
+      "money": 41732.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 18,
+      "plants": 56,
+      "mix": {
+       "WHEAT": 8,
+       "STRAWBERRY": 42,
+       "CARROT": 6,
+       "SHEEP": 6,
+       "COW": 12
+      }
+     },
+     {
+      "day": 19,
+      "money": 50032.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 18,
+      "plants": 56,
+      "mix": {
+       "WHEAT": 8,
+       "STRAWBERRY": 42,
+       "CARROT": 6,
+       "SHEEP": 6,
+       "COW": 12
+      }
+     },
+     {
+      "day": 20,
+      "money": 56607.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 18,
+      "plants": 53,
+      "mix": {
+       "WHEAT": 8,
+       "STRAWBERRY": 40,
+       "CARROT": 5,
+       "SHEEP": 6,
+       "COW": 12
+      }
+     },
+     {
+      "day": 21,
+      "money": 68642.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 18,
+      "plants": 56,
+      "mix": {
+       "WHEAT": 11,
+       "STRAWBERRY": 39,
+       "CARROT": 6,
+       "SHEEP": 6,
+       "COW": 12
+      }
+     },
+     {
+      "day": 22,
+      "money": 80238.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 18,
+      "plants": 51,
+      "mix": {
+       "WHEAT": 16,
+       "STRAWBERRY": 29,
+       "CARROT": 6,
+       "SHEEP": 6,
+       "COW": 12
+      }
+     },
+     {
+      "day": 23,
+      "money": 88758.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 18,
+      "plants": 51,
+      "mix": {
+       "WHEAT": 19,
+       "STRAWBERRY": 26,
+       "CARROT": 6,
+       "SHEEP": 6,
+       "COW": 12
+      }
+     },
+     {
+      "day": 24,
+      "money": 98130.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 18,
+      "plants": 53,
+      "mix": {
+       "WHEAT": 21,
+       "STRAWBERRY": 26,
+       "CARROT": 6,
+       "SHEEP": 6,
+       "COW": 12
+      }
+     },
+     {
+      "day": 25,
+      "money": 100707.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 18,
+      "plants": 57,
+      "mix": {
+       "WHEAT": 27,
+       "STRAWBERRY": 24,
+       "CARROT": 6,
+       "SHEEP": 6,
+       "COW": 12
+      }
+     },
+     {
+      "day": 26,
+      "money": 107453.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 18,
+      "plants": 55,
+      "mix": {
+       "WHEAT": 29,
+       "STRAWBERRY": 20,
+       "CARROT": 6,
+       "SHEEP": 6,
+       "COW": 12
+      }
+     },
+     {
+      "day": 27,
+      "money": 113795.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 18,
+      "plants": 24,
+      "mix": {
+       "WHEAT": 21,
+       "CARROT": 3,
+       "SHEEP": 6,
+       "COW": 12
+      }
+     },
+     {
+      "day": 28,
+      "money": 119715.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 18,
+      "plants": 17,
+      "mix": {
+       "WHEAT": 17,
+       "SHEEP": 6,
+       "COW": 12
+      }
+     },
+     {
+      "day": 29,
+      "money": 125180.0,
+      "q": 3,
+      "hands": 8,
+      "animals": 18,
+      "plants": 2,
+      "mix": {
+       "WHEAT": 2,
+       "SHEEP": 6,
+       "COW": 12
+      }
+     }
+    ]
+   },
+   {
+    "name": "DeeperNet",
+    "days": [
+     {
+      "day": 0,
+      "money": 23.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 4,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 1,
+      "money": 178.0,
+      "q": 1,
+      "hands": 0,
+      "animals": 4,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 2,
+      "money": 51.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 4,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 3,
+      "money": 30.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 5,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 3
+      }
+     },
+     {
+      "day": 4,
+      "money": 142.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 5,
+      "plants": 15,
+      "mix": {
+       "MELON": 12,
+       "WHEAT": 3,
+       "SHEEP": 2,
+       "COW": 3
+      }
+     },
+     {
+      "day": 5,
+      "money": 310.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 6,
+      "plants": 19,
+      "mix": {
+       "STRAWBERRY": 4,
+       "MELON": 12,
+       "WHEAT": 3,
+       "COW": 4,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 6,
+      "money": 1607.0,
+      "q": 2,
+      "hands": 4,
+      "animals": 6,
+      "plants": 21,
+      "mix": {
+       "STRAWBERRY": 6,
+       "MELON": 12,
+       "WHEAT": 3,
+       "COW": 4,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 7,
+      "money": 63.0,
+      "q": 2,
+      "hands": 8,
+      "animals": 9,
+      "plants": 23,
+      "mix": {
+       "STRAWBERRY": 8,
+       "MELON": 12,
+       "WHEAT": 3,
+       "COW": 6,
+       "SHEEP": 3
+      }
+     },
+     {
+      "day": 8,
+      "money": 1296.0,
+      "q": 2,
+      "hands": 11,
+      "animals": 10,
+      "plants": 34,
+      "mix": {
+       "STRAWBERRY": 19,
+       "MELON": 12,
+       "WHEAT": 3,
+       "COW": 6,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 9,
+      "money": 2283.0,
+      "q": 2,
+      "hands": 12,
+      "animals": 12,
+      "plants": 36,
+      "mix": {
+       "STRAWBERRY": 19,
+       "MELON": 12,
+       "WHEAT": 5,
+       "COW": 8,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 10,
+      "money": 15172.0,
+      "q": 2,
+      "hands": 11,
+      "animals": 12,
+      "plants": 28,
+      "mix": {
+       "STRAWBERRY": 19,
+       "WHEAT": 9,
+       "COW": 8,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 11,
+      "money": 10946.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 54,
+      "mix": {
+       "STRAWBERRY": 37,
+       "WHEAT": 17,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 12,
+      "money": 13016.0,
+      "q": 3,
+      "hands": 10,
+      "animals": 14,
+      "plants": 56,
+      "mix": {
+       "STRAWBERRY": 39,
+       "WHEAT": 17,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 13,
+      "money": 16260.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 61,
+      "mix": {
+       "STRAWBERRY": 42,
+       "WHEAT": 19,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 14,
+      "money": 19933.0,
+      "q": 3,
+      "hands": 8,
+      "animals": 14,
+      "plants": 60,
+      "mix": {
+       "STRAWBERRY": 42,
+       "WHEAT": 18,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 15,
+      "money": 25450.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 50,
+      "mix": {
+       "STRAWBERRY": 38,
+       "WHEAT": 12,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 16,
+      "money": 30438.0,
+      "q": 3,
+      "hands": 9,
+      "animals": 14,
+      "plants": 55,
+      "mix": {
+       "STRAWBERRY": 38,
+       "WHEAT": 17,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 17,
+      "money": 36227.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 54,
+      "mix": {
+       "STRAWBERRY": 38,
+       "WHEAT": 16,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 18,
+      "money": 42246.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 58,
+      "mix": {
+       "STRAWBERRY": 38,
+       "WHEAT": 20,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 19,
+      "money": 51171.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 61,
+      "mix": {
+       "STRAWBERRY": 38,
+       "WHEAT": 23,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 20,
+      "money": 59841.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 59,
+      "mix": {
+       "STRAWBERRY": 38,
+       "WHEAT": 21,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 21,
+      "money": 70618.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 56,
+      "mix": {
+       "WHEAT": 19,
+       "STRAWBERRY": 37,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 22,
+      "money": 76512.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 56,
+      "mix": {
+       "WHEAT": 23,
+       "STRAWBERRY": 32,
+       "CARROT": 1,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 23,
+      "money": 87100.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 53,
+      "mix": {
+       "CARROT": 2,
+       "WHEAT": 21,
+       "STRAWBERRY": 30,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 24,
+      "money": 93291.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 57,
+      "mix": {
+       "CARROT": 2,
+       "WHEAT": 25,
+       "STRAWBERRY": 30,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 25,
+      "money": 100306.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 57,
+      "mix": {
+       "CARROT": 2,
+       "WHEAT": 37,
+       "STRAWBERRY": 18,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 26,
+      "money": 101677.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 57,
+      "mix": {
+       "CARROT": 3,
+       "WHEAT": 36,
+       "STRAWBERRY": 18,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 27,
+      "money": 108516.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 58,
+      "mix": {
+       "CARROT": 3,
+       "WHEAT": 41,
+       "COW": 10,
+       "SHEEP": 4,
+       "STRAWBERRY": 14
+      }
+     },
+     {
+      "day": 28,
+      "money": 111287.0,
+      "q": 3,
+      "hands": 10,
+      "animals": 14,
+      "plants": 14,
+      "mix": {
+       "WHEAT": 11,
+       "COW": 10,
+       "SHEEP": 4,
+       "STRAWBERRY": 3
+      }
+     },
+     {
+      "day": 29,
+      "money": 118548.0,
+      "q": 3,
+      "hands": 8,
+      "animals": 14,
+      "plants": 4,
+      "mix": {
+       "WHEAT": 1,
+       "COW": 10,
+       "SHEEP": 4,
+       "STRAWBERRY": 3
+      }
+     }
+    ]
+   }
+  ],
+  "end_prices": {
+   "CARROT": 55,
+   "EGG": 54,
+   "FERTILIZER": 1,
+   "MELON": 133,
+   "MILK": 1,
+   "STRAWBERRY": 160,
+   "TOMATO": 79,
+   "WHEAT": 46,
+   "WOOL": 198
+  },
+  "shops": {
+   "ICE_CREAM_SHOP": 3,
+   "SMOOTHIE_SHOP": 1,
+   "FARMERS_MARKET": 1,
+   "YARN_STORE": 1,
+   "PET_CAFE": 1,
+   "BRUNCH_SPOT": 1
+  }
+ },
+ {
+  "episode": "94438725",
+  "seed": 1636485253,
+  "rewards": [
+   97662.0,
+   85314.0
+  ],
+  "agents": [
+   "Ryo Hasegawa",
+   "Efe Can Celiksoy"
+  ],
+  "players": [
+   {
+    "name": "Ryo Hasegawa",
+    "days": [
+     {
+      "day": 0,
+      "money": 139.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 4,
+      "plants": 17,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 6,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 1,
+      "money": 14.0,
+      "q": 1,
+      "hands": 1,
+      "animals": 4,
+      "plants": 18,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 7,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 2,
+      "money": 355.0,
+      "q": 1,
+      "hands": 3,
+      "animals": 4,
+      "plants": 21,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 10,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 3,
+      "money": 905.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 4,
+      "plants": 21,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 10,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 4,
+      "money": 571.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 4,
+      "plants": 17,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 4,
+       "STRAWBERRY": 2,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 5,
+      "money": 160.0,
+      "q": 2,
+      "hands": 3,
+      "animals": 4,
+      "plants": 27,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 13,
+       "STRAWBERRY": 3,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 6,
+      "money": 1353.0,
+      "q": 2,
+      "hands": 7,
+      "animals": 4,
+      "plants": 37,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 14,
+       "STRAWBERRY": 12,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 7,
+      "money": 480.0,
+      "q": 2,
+      "hands": 7,
+      "animals": 7,
+      "plants": 41,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 14,
+       "STRAWBERRY": 16,
+       "SHEEP": 2,
+       "COW": 5
+      }
+     },
+     {
+      "day": 8,
+      "money": 1922.0,
+      "q": 2,
+      "hands": 11,
+      "animals": 9,
+      "plants": 41,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 14,
+       "STRAWBERRY": 16,
+       "SHEEP": 2,
+       "COW": 7
+      }
+     },
+     {
+      "day": 9,
+      "money": 2413.0,
+      "q": 2,
+      "hands": 10,
+      "animals": 11,
+      "plants": 38,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 8,
+       "STRAWBERRY": 19,
+       "COW": 9,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 10,
+      "money": 13885.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 12,
+      "plants": 29,
+      "mix": {
+       "STRAWBERRY": 21,
+       "WHEAT": 8,
+       "COW": 10,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 11,
+      "money": 15545.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 12,
+      "plants": 56,
+      "mix": {
+       "WHEAT": 32,
+       "STRAWBERRY": 24,
+       "COW": 10,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 12,
+      "money": 17634.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 12,
+      "plants": 63,
+      "mix": {
+       "WHEAT": 32,
+       "STRAWBERRY": 31,
+       "COW": 10,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 13,
+      "money": 17098.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 12,
+      "plants": 62,
+      "mix": {
+       "WHEAT": 30,
+       "STRAWBERRY": 32,
+       "COW": 10,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 14,
+      "money": 19277.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 12,
+      "plants": 63,
+      "mix": {
+       "WHEAT": 31,
+       "STRAWBERRY": 32,
+       "COW": 10,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 15,
+      "money": 21731.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 13,
+      "plants": 51,
+      "mix": {
+       "WHEAT": 19,
+       "STRAWBERRY": 32,
+       "COW": 11,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 16,
+      "money": 29842.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 13,
+      "plants": 61,
+      "mix": {
+       "WHEAT": 29,
+       "STRAWBERRY": 32,
+       "COW": 11,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 17,
+      "money": 36826.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 13,
+      "plants": 61,
+      "mix": {
+       "WHEAT": 29,
+       "STRAWBERRY": 32,
+       "COW": 11,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 18,
+      "money": 40960.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 60,
+      "mix": {
+       "WHEAT": 28,
+       "STRAWBERRY": 32,
+       "COW": 12,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 19,
+      "money": 47024.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 58,
+      "mix": {
+       "WHEAT": 22,
+       "STRAWBERRY": 32,
+       "TOMATO": 4,
+       "COW": 12,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 20,
+      "money": 53705.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 56,
+      "mix": {
+       "WHEAT": 22,
+       "STRAWBERRY": 30,
+       "TOMATO": 4,
+       "COW": 12,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 21,
+      "money": 61544.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 60,
+      "mix": {
+       "WHEAT": 27,
+       "STRAWBERRY": 29,
+       "TOMATO": 4,
+       "COW": 12,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 22,
+      "money": 66027.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 56,
+      "mix": {
+       "WHEAT": 32,
+       "STRAWBERRY": 20,
+       "TOMATO": 4,
+       "COW": 12,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 23,
+      "money": 74349.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 55,
+      "mix": {
+       "WHEAT": 35,
+       "TOMATO": 4,
+       "STRAWBERRY": 16,
+       "COW": 12,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 24,
+      "money": 77537.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 57,
+      "mix": {
+       "WHEAT": 37,
+       "TOMATO": 4,
+       "STRAWBERRY": 16,
+       "COW": 12,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 25,
+      "money": 80197.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 60,
+      "mix": {
+       "WHEAT": 43,
+       "TOMATO": 4,
+       "COW": 12,
+       "STRAWBERRY": 13,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 26,
+      "money": 83545.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 58,
+      "mix": {
+       "WHEAT": 43,
+       "TOMATO": 4,
+       "COW": 12,
+       "STRAWBERRY": 11,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 27,
+      "money": 85557.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 45,
+      "mix": {
+       "WHEAT": 33,
+       "TOMATO": 4,
+       "COW": 12,
+       "STRAWBERRY": 8,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 28,
+      "money": 92047.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 31,
+      "mix": {
+       "WHEAT": 19,
+       "TOMATO": 4,
+       "COW": 12,
+       "STRAWBERRY": 8,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 29,
+      "money": 97662.0,
+      "q": 3,
+      "hands": 8,
+      "animals": 14,
+      "plants": 7,
+      "mix": {
+       "WHEAT": 2,
+       "TOMATO": 4,
+       "COW": 12,
+       "STRAWBERRY": 1,
+       "SHEEP": 2
+      }
+     }
+    ]
+   },
+   {
+    "name": "Efe Can Celiksoy",
+    "days": [
+     {
+      "day": 0,
+      "money": 23.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 4,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 1,
+      "money": 178.0,
+      "q": 1,
+      "hands": 0,
+      "animals": 4,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 2,
+      "money": 51.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 4,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 3,
+      "money": 10.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 5,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 3
+      }
+     },
+     {
+      "day": 4,
+      "money": 126.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 5,
+      "plants": 15,
+      "mix": {
+       "MELON": 12,
+       "WHEAT": 3,
+       "SHEEP": 2,
+       "COW": 3
+      }
+     },
+     {
+      "day": 5,
+      "money": 117.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 6,
+      "plants": 19,
+      "mix": {
+       "STRAWBERRY": 4,
+       "MELON": 12,
+       "WHEAT": 3,
+       "COW": 4,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 6,
+      "money": 964.0,
+      "q": 2,
+      "hands": 4,
+      "animals": 6,
+      "plants": 21,
+      "mix": {
+       "STRAWBERRY": 4,
+       "MELON": 14,
+       "WHEAT": 3,
+       "COW": 4,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 7,
+      "money": 54.0,
+      "q": 2,
+      "hands": 8,
+      "animals": 9,
+      "plants": 30,
+      "mix": {
+       "STRAWBERRY": 7,
+       "MELON": 20,
+       "WHEAT": 3,
+       "COW": 6,
+       "SHEEP": 3
+      }
+     },
+     {
+      "day": 8,
+      "money": 1488.0,
+      "q": 2,
+      "hands": 11,
+      "animals": 10,
+      "plants": 36,
+      "mix": {
+       "STRAWBERRY": 11,
+       "MELON": 20,
+       "WHEAT": 5,
+       "COW": 6,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 9,
+      "money": 2300.0,
+      "q": 2,
+      "hands": 12,
+      "animals": 12,
+      "plants": 36,
+      "mix": {
+       "STRAWBERRY": 11,
+       "MELON": 20,
+       "WHEAT": 5,
+       "COW": 8,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 10,
+      "money": 14928.0,
+      "q": 2,
+      "hands": 11,
+      "animals": 12,
+      "plants": 30,
+      "mix": {
+       "STRAWBERRY": 11,
+       "WHEAT": 11,
+       "MELON": 8,
+       "COW": 8,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 11,
+      "money": 11302.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 55,
+      "mix": {
+       "STRAWBERRY": 30,
+       "WHEAT": 17,
+       "MELON": 8,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 12,
+      "money": 13354.0,
+      "q": 3,
+      "hands": 10,
+      "animals": 14,
+      "plants": 55,
+      "mix": {
+       "STRAWBERRY": 32,
+       "WHEAT": 15,
+       "MELON": 8,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 13,
+      "money": 16100.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 59,
+      "mix": {
+       "STRAWBERRY": 34,
+       "WHEAT": 17,
+       "MELON": 8,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 14,
+      "money": 19303.0,
+      "q": 3,
+      "hands": 8,
+      "animals": 14,
+      "plants": 55,
+      "mix": {
+       "STRAWBERRY": 34,
+       "WHEAT": 13,
+       "MELON": 8,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 15,
+      "money": 25701.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 58,
+      "mix": {
+       "STRAWBERRY": 34,
+       "WHEAT": 16,
+       "MELON": 8,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 16,
+      "money": 28718.0,
+      "q": 3,
+      "hands": 9,
+      "animals": 14,
+      "plants": 60,
+      "mix": {
+       "STRAWBERRY": 34,
+       "WHEAT": 20,
+       "MELON": 6,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 17,
+      "money": 33786.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 57,
+      "mix": {
+       "STRAWBERRY": 34,
+       "WHEAT": 23,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 18,
+      "money": 39378.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 61,
+      "mix": {
+       "STRAWBERRY": 34,
+       "WHEAT": 27,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 19,
+      "money": 43666.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 58,
+      "mix": {
+       "STRAWBERRY": 34,
+       "WHEAT": 24,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 20,
+      "money": 50158.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 54,
+      "mix": {
+       "STRAWBERRY": 34,
+       "WHEAT": 20,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 21,
+      "money": 55669.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 58,
+      "mix": {
+       "CARROT": 1,
+       "WHEAT": 25,
+       "STRAWBERRY": 32,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 22,
+      "money": 61668.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 59,
+      "mix": {
+       "CARROT": 4,
+       "WHEAT": 26,
+       "STRAWBERRY": 29,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 23,
+      "money": 69525.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 59,
+      "mix": {
+       "CARROT": 4,
+       "WHEAT": 28,
+       "STRAWBERRY": 27,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 24,
+      "money": 72337.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 57,
+      "mix": {
+       "CARROT": 4,
+       "WHEAT": 28,
+       "STRAWBERRY": 25,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 25,
+      "money": 73920.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 51,
+      "mix": {
+       "CARROT": 4,
+       "WHEAT": 25,
+       "STRAWBERRY": 22,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 26,
+      "money": 76834.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 55,
+      "mix": {
+       "CARROT": 4,
+       "WHEAT": 29,
+       "STRAWBERRY": 22,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 27,
+      "money": 79257.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 57,
+      "mix": {
+       "WHEAT": 37,
+       "CARROT": 3,
+       "STRAWBERRY": 17,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 28,
+      "money": 80649.0,
+      "q": 3,
+      "hands": 10,
+      "animals": 14,
+      "plants": 18,
+      "mix": {
+       "WHEAT": 15,
+       "STRAWBERRY": 3,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 29,
+      "money": 85314.0,
+      "q": 3,
+      "hands": 8,
+      "animals": 14,
+      "plants": 3,
+      "mix": {
+       "WHEAT": 2,
+       "COW": 10,
+       "SHEEP": 4,
+       "STRAWBERRY": 1
+      }
+     }
+    ]
+   }
+  ],
+  "end_prices": {
+   "CARROT": 44,
+   "EGG": 67,
+   "FERTILIZER": 8,
+   "MELON": 37,
+   "MILK": 1,
+   "STRAWBERRY": 66,
+   "TOMATO": 189,
+   "WHEAT": 42,
+   "WOOL": 1
+  },
+  "shops": {
+   "SMOOTHIE_SHOP": 1,
+   "BAKERY": 1,
+   "PIZZA_SHOP": 2,
+   "BRUNCH_SPOT": 1,
+   "FARMERS_MARKET": 2,
+   "ICE_CREAM_SHOP": 1
+  }
+ },
+ {
+  "episode": "94439616",
+  "seed": 569427773,
+  "rewards": [
+   119992.0,
+   96888.0
+  ],
+  "agents": [
+   "Ryo Hasegawa",
+   "Gekkotron"
+  ],
+  "players": [
+   {
+    "name": "Ryo Hasegawa",
+    "days": [
+     {
+      "day": 0,
+      "money": 139.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 4,
+      "plants": 17,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 6,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 1,
+      "money": 14.0,
+      "q": 1,
+      "hands": 1,
+      "animals": 4,
+      "plants": 18,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 7,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 2,
+      "money": 355.0,
+      "q": 1,
+      "hands": 3,
+      "animals": 4,
+      "plants": 21,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 10,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 3,
+      "money": 905.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 4,
+      "plants": 21,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 10,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 4,
+      "money": 398.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 4,
+      "plants": 15,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 4,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 5,
+      "money": 803.0,
+      "q": 1,
+      "hands": 3,
+      "animals": 6,
+      "plants": 14,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 3,
+       "COW": 3,
+       "SHEEP": 3
+      }
+     },
+     {
+      "day": 6,
+      "money": 425.0,
+      "q": 2,
+      "hands": 7,
+      "animals": 7,
+      "plants": 22,
+      "mix": {
+       "MELON": 11,
+       "STRAWBERRY": 11,
+       "COW": 4,
+       "SHEEP": 3
+      }
+     },
+     {
+      "day": 7,
+      "money": 654.0,
+      "q": 2,
+      "hands": 7,
+      "animals": 7,
+      "plants": 32,
+      "mix": {
+       "MELON": 11,
+       "STRAWBERRY": 18,
+       "WHEAT": 3,
+       "COW": 4,
+       "SHEEP": 3
+      }
+     },
+     {
+      "day": 8,
+      "money": 2103.0,
+      "q": 2,
+      "hands": 10,
+      "animals": 9,
+      "plants": 35,
+      "mix": {
+       "MELON": 11,
+       "STRAWBERRY": 21,
+       "WHEAT": 3,
+       "COW": 6,
+       "SHEEP": 3
+      }
+     },
+     {
+      "day": 9,
+      "money": 2557.0,
+      "q": 2,
+      "hands": 10,
+      "animals": 12,
+      "plants": 35,
+      "mix": {
+       "MELON": 11,
+       "STRAWBERRY": 21,
+       "WHEAT": 3,
+       "SHEEP": 5,
+       "COW": 7
+      }
+     },
+     {
+      "day": 10,
+      "money": 14022.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 13,
+      "plants": 25,
+      "mix": {
+       "STRAWBERRY": 22,
+       "WHEAT": 3,
+       "SHEEP": 6,
+       "COW": 7
+      }
+     },
+     {
+      "day": 11,
+      "money": 15227.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 46,
+      "mix": {
+       "WHEAT": 22,
+       "STRAWBERRY": 24,
+       "SHEEP": 9,
+       "COW": 7
+      }
+     },
+     {
+      "day": 12,
+      "money": 16646.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 18,
+      "plants": 54,
+      "mix": {
+       "WHEAT": 24,
+       "STRAWBERRY": 30,
+       "SHEEP": 9,
+       "COW": 9
+      }
+     },
+     {
+      "day": 13,
+      "money": 17112.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 20,
+      "plants": 54,
+      "mix": {
+       "WHEAT": 24,
+       "STRAWBERRY": 30,
+       "SHEEP": 9,
+       "COW": 11
+      }
+     },
+     {
+      "day": 14,
+      "money": 19773.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 21,
+      "plants": 54,
+      "mix": {
+       "WHEAT": 24,
+       "STRAWBERRY": 30,
+       "SHEEP": 9,
+       "COW": 12
+      }
+     },
+     {
+      "day": 15,
+      "money": 22144.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 21,
+      "plants": 47,
+      "mix": {
+       "WHEAT": 17,
+       "STRAWBERRY": 30,
+       "SHEEP": 9,
+       "COW": 12
+      }
+     },
+     {
+      "day": 16,
+      "money": 31858.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 22,
+      "plants": 48,
+      "mix": {
+       "WHEAT": 18,
+       "STRAWBERRY": 30,
+       "SHEEP": 9,
+       "COW": 13
+      }
+     },
+     {
+      "day": 17,
+      "money": 38672.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 23,
+      "plants": 50,
+      "mix": {
+       "WHEAT": 20,
+       "STRAWBERRY": 30,
+       "SHEEP": 9,
+       "COW": 14
+      }
+     },
+     {
+      "day": 18,
+      "money": 49336.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 23,
+      "plants": 51,
+      "mix": {
+       "WHEAT": 21,
+       "STRAWBERRY": 30,
+       "SHEEP": 9,
+       "COW": 14
+      }
+     },
+     {
+      "day": 19,
+      "money": 54481.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 23,
+      "plants": 49,
+      "mix": {
+       "WHEAT": 19,
+       "STRAWBERRY": 30,
+       "SHEEP": 9,
+       "COW": 14
+      }
+     },
+     {
+      "day": 20,
+      "money": 63015.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 23,
+      "plants": 41,
+      "mix": {
+       "WHEAT": 11,
+       "STRAWBERRY": 30,
+       "SHEEP": 9,
+       "COW": 14
+      }
+     },
+     {
+      "day": 21,
+      "money": 72994.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 23,
+      "plants": 43,
+      "mix": {
+       "WHEAT": 10,
+       "STRAWBERRY": 30,
+       "SHEEP": 9,
+       "CARROT": 3,
+       "COW": 14
+      }
+     },
+     {
+      "day": 22,
+      "money": 79471.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 23,
+      "plants": 41,
+      "mix": {
+       "WHEAT": 18,
+       "CARROT": 4,
+       "STRAWBERRY": 19,
+       "SHEEP": 9,
+       "COW": 14
+      }
+     },
+     {
+      "day": 23,
+      "money": 83380.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 23,
+      "plants": 43,
+      "mix": {
+       "WHEAT": 19,
+       "CARROT": 12,
+       "STRAWBERRY": 12,
+       "SHEEP": 9,
+       "COW": 14
+      }
+     },
+     {
+      "day": 24,
+      "money": 89686.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 23,
+      "plants": 47,
+      "mix": {
+       "WHEAT": 25,
+       "CARROT": 13,
+       "SHEEP": 9,
+       "COW": 14,
+       "STRAWBERRY": 9
+      }
+     },
+     {
+      "day": 25,
+      "money": 92327.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 23,
+      "plants": 48,
+      "mix": {
+       "CARROT": 14,
+       "WHEAT": 25,
+       "SHEEP": 9,
+       "COW": 14,
+       "STRAWBERRY": 9
+      }
+     },
+     {
+      "day": 26,
+      "money": 100906.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 23,
+      "plants": 44,
+      "mix": {
+       "WHEAT": 29,
+       "CARROT": 7,
+       "SHEEP": 9,
+       "COW": 14,
+       "STRAWBERRY": 8
+      }
+     },
+     {
+      "day": 27,
+      "money": 104186.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 23,
+      "plants": 32,
+      "mix": {
+       "WHEAT": 24,
+       "CARROT": 2,
+       "SHEEP": 9,
+       "COW": 14,
+       "STRAWBERRY": 6
+      }
+     },
+     {
+      "day": 28,
+      "money": 113034.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 23,
+      "plants": 22,
+      "mix": {
+       "WHEAT": 16,
+       "SHEEP": 9,
+       "COW": 14,
+       "STRAWBERRY": 6
+      }
+     },
+     {
+      "day": 29,
+      "money": 119992.0,
+      "q": 3,
+      "hands": 8,
+      "animals": 23,
+      "plants": 3,
+      "mix": {
+       "WHEAT": 3,
+       "SHEEP": 9,
+       "COW": 14
+      }
+     }
+    ]
+   },
+   {
+    "name": "Gekkotron",
+    "days": [
+     {
+      "day": 0,
+      "money": 23.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 4,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 1,
+      "money": 178.0,
+      "q": 1,
+      "hands": 0,
+      "animals": 4,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 2,
+      "money": 51.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 4,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 3,
+      "money": 30.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 5,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 3
+      }
+     },
+     {
+      "day": 4,
+      "money": 146.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 5,
+      "plants": 15,
+      "mix": {
+       "MELON": 12,
+       "WHEAT": 3,
+       "SHEEP": 2,
+       "COW": 3
+      }
+     },
+     {
+      "day": 5,
+      "money": 293.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 6,
+      "plants": 19,
+      "mix": {
+       "STRAWBERRY": 4,
+       "MELON": 12,
+       "WHEAT": 3,
+       "COW": 4,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 6,
+      "money": 1893.0,
+      "q": 2,
+      "hands": 4,
+      "animals": 6,
+      "plants": 21,
+      "mix": {
+       "STRAWBERRY": 6,
+       "MELON": 12,
+       "WHEAT": 3,
+       "COW": 4,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 7,
+      "money": 47.0,
+      "q": 2,
+      "hands": 8,
+      "animals": 9,
+      "plants": 26,
+      "mix": {
+       "STRAWBERRY": 11,
+       "MELON": 12,
+       "WHEAT": 3,
+       "COW": 6,
+       "SHEEP": 3
+      }
+     },
+     {
+      "day": 8,
+      "money": 1323.0,
+      "q": 2,
+      "hands": 11,
+      "animals": 10,
+      "plants": 34,
+      "mix": {
+       "STRAWBERRY": 19,
+       "MELON": 12,
+       "WHEAT": 3,
+       "COW": 6,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 9,
+      "money": 2463.0,
+      "q": 2,
+      "hands": 12,
+      "animals": 12,
+      "plants": 36,
+      "mix": {
+       "STRAWBERRY": 19,
+       "MELON": 12,
+       "WHEAT": 5,
+       "COW": 6,
+       "SHEEP": 6
+      }
+     },
+     {
+      "day": 10,
+      "money": 14020.0,
+      "q": 2,
+      "hands": 11,
+      "animals": 12,
+      "plants": 29,
+      "mix": {
+       "STRAWBERRY": 19,
+       "WHEAT": 10,
+       "COW": 6,
+       "SHEEP": 6
+      }
+     },
+     {
+      "day": 11,
+      "money": 10142.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 57,
+      "mix": {
+       "STRAWBERRY": 42,
+       "WHEAT": 15,
+       "COW": 6,
+       "SHEEP": 8
+      }
+     },
+     {
+      "day": 12,
+      "money": 6924.0,
+      "q": 4,
+      "hands": 10,
+      "animals": 15,
+      "plants": 68,
+      "mix": {
+       "STRAWBERRY": 42,
+       "WHEAT": 26,
+       "COW": 6,
+       "SHEEP": 9
+      }
+     },
+     {
+      "day": 13,
+      "money": 9683.0,
+      "q": 4,
+      "hands": 11,
+      "animals": 16,
+      "plants": 71,
+      "mix": {
+       "STRAWBERRY": 42,
+       "WHEAT": 29,
+       "COW": 6,
+       "SHEEP": 10
+      }
+     },
+     {
+      "day": 14,
+      "money": 13260.0,
+      "q": 4,
+      "hands": 8,
+      "animals": 16,
+      "plants": 69,
+      "mix": {
+       "STRAWBERRY": 42,
+       "WHEAT": 27,
+       "COW": 6,
+       "SHEEP": 10
+      }
+     },
+     {
+      "day": 15,
+      "money": 18304.0,
+      "q": 4,
+      "hands": 12,
+      "animals": 16,
+      "plants": 68,
+      "mix": {
+       "STRAWBERRY": 42,
+       "WHEAT": 26,
+       "COW": 6,
+       "SHEEP": 10
+      }
+     },
+     {
+      "day": 16,
+      "money": 27136.0,
+      "q": 4,
+      "hands": 9,
+      "animals": 16,
+      "plants": 60,
+      "mix": {
+       "STRAWBERRY": 42,
+       "WHEAT": 18,
+       "COW": 6,
+       "SHEEP": 10
+      }
+     },
+     {
+      "day": 17,
+      "money": 34208.0,
+      "q": 4,
+      "hands": 12,
+      "animals": 17,
+      "plants": 60,
+      "mix": {
+       "STRAWBERRY": 42,
+       "WHEAT": 18,
+       "COW": 6,
+       "SHEEP": 11
+      }
+     },
+     {
+      "day": 18,
+      "money": 41586.0,
+      "q": 4,
+      "hands": 12,
+      "animals": 18,
+      "plants": 69,
+      "mix": {
+       "STRAWBERRY": 42,
+       "WHEAT": 27,
+       "COW": 6,
+       "SHEEP": 12
+      }
+     },
+     {
+      "day": 19,
+      "money": 50754.0,
+      "q": 4,
+      "hands": 12,
+      "animals": 18,
+      "plants": 68,
+      "mix": {
+       "STRAWBERRY": 42,
+       "WHEAT": 26,
+       "COW": 6,
+       "SHEEP": 12
+      }
+     },
+     {
+      "day": 20,
+      "money": 58123.0,
+      "q": 4,
+      "hands": 12,
+      "animals": 18,
+      "plants": 69,
+      "mix": {
+       "STRAWBERRY": 42,
+       "WHEAT": 27,
+       "COW": 6,
+       "SHEEP": 12
+      }
+     },
+     {
+      "day": 21,
+      "money": 65148.0,
+      "q": 4,
+      "hands": 12,
+      "animals": 18,
+      "plants": 67,
+      "mix": {
+       "STRAWBERRY": 42,
+       "WHEAT": 25,
+       "COW": 6,
+       "SHEEP": 12
+      }
+     },
+     {
+      "day": 22,
+      "money": 70947.0,
+      "q": 4,
+      "hands": 12,
+      "animals": 18,
+      "plants": 58,
+      "mix": {
+       "CARROT": 1,
+       "WHEAT": 21,
+       "STRAWBERRY": 36,
+       "COW": 6,
+       "SHEEP": 12
+      }
+     },
+     {
+      "day": 23,
+      "money": 74919.0,
+      "q": 4,
+      "hands": 12,
+      "animals": 18,
+      "plants": 54,
+      "mix": {
+       "CARROT": 1,
+       "WHEAT": 19,
+       "STRAWBERRY": 34,
+       "COW": 6,
+       "SHEEP": 12
+      }
+     },
+     {
+      "day": 24,
+      "money": 79700.0,
+      "q": 4,
+      "hands": 11,
+      "animals": 18,
+      "plants": 48,
+      "mix": {
+       "CARROT": 1,
+       "WHEAT": 19,
+       "STRAWBERRY": 28,
+       "COW": 6,
+       "SHEEP": 12
+      }
+     },
+     {
+      "day": 25,
+      "money": 83003.0,
+      "q": 4,
+      "hands": 11,
+      "animals": 18,
+      "plants": 41,
+      "mix": {
+       "WHEAT": 20,
+       "STRAWBERRY": 21,
+       "COW": 6,
+       "SHEEP": 12
+      }
+     },
+     {
+      "day": 26,
+      "money": 86454.0,
+      "q": 4,
+      "hands": 11,
+      "animals": 18,
+      "plants": 42,
+      "mix": {
+       "WHEAT": 21,
+       "STRAWBERRY": 21,
+       "COW": 6,
+       "SHEEP": 12
+      }
+     },
+     {
+      "day": 27,
+      "money": 86618.0,
+      "q": 4,
+      "hands": 11,
+      "animals": 18,
+      "plants": 50,
+      "mix": {
+       "WHEAT": 34,
+       "STRAWBERRY": 16,
+       "COW": 6,
+       "SHEEP": 12
+      }
+     },
+     {
+      "day": 28,
+      "money": 89067.0,
+      "q": 4,
+      "hands": 10,
+      "animals": 18,
+      "plants": 17,
+      "mix": {
+       "WHEAT": 17,
+       "COW": 6,
+       "SHEEP": 12
+      }
+     },
+     {
+      "day": 29,
+      "money": 96888.0,
+      "q": 4,
+      "hands": 8,
+      "animals": 15,
+      "plants": 2,
+      "mix": {
+       "WHEAT": 2,
+       "COW": 6,
+       "SHEEP": 9
+      }
+     }
+    ]
+   }
+  ],
+  "end_prices": {
+   "CARROT": 53,
+   "EGG": 54,
+   "FERTILIZER": 1,
+   "MELON": 133,
+   "MILK": 194,
+   "STRAWBERRY": 47,
+   "TOMATO": 111,
+   "WHEAT": 45,
+   "WOOL": 1
+  },
+  "shops": {
+   "YARN_STORE": 1,
+   "PIZZA_SHOP": 2,
+   "SMOOTHIE_SHOP": 2,
+   "PET_CAFE": 2,
+   "BRUNCH_SPOT": 1
+  }
+ },
+ {
+  "episode": "94450242",
+  "seed": 876491961,
+  "rewards": [
+   49114.0,
+   59913.0
+  ],
+  "agents": [
+   "peikopon",
+   "Ryo Hasegawa"
+  ],
+  "players": [
+   {
+    "name": "peikopon",
+    "days": [
+     {
+      "day": 0,
+      "money": 23.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 4,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 1,
+      "money": 178.0,
+      "q": 1,
+      "hands": 0,
+      "animals": 4,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 2,
+      "money": 51.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 4,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 3,
+      "money": 10.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 5,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 3
+      }
+     },
+     {
+      "day": 4,
+      "money": 122.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 5,
+      "plants": 15,
+      "mix": {
+       "MELON": 12,
+       "WHEAT": 3,
+       "SHEEP": 2,
+       "COW": 3
+      }
+     },
+     {
+      "day": 5,
+      "money": 50.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 6,
+      "plants": 19,
+      "mix": {
+       "STRAWBERRY": 4,
+       "MELON": 12,
+       "WHEAT": 3,
+       "COW": 4,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 6,
+      "money": 1006.0,
+      "q": 2,
+      "hands": 4,
+      "animals": 6,
+      "plants": 21,
+      "mix": {
+       "STRAWBERRY": 4,
+       "MELON": 14,
+       "WHEAT": 3,
+       "COW": 4,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 7,
+      "money": 60.0,
+      "q": 2,
+      "hands": 8,
+      "animals": 9,
+      "plants": 30,
+      "mix": {
+       "STRAWBERRY": 7,
+       "MELON": 20,
+       "WHEAT": 3,
+       "COW": 6,
+       "SHEEP": 3
+      }
+     },
+     {
+      "day": 8,
+      "money": 801.0,
+      "q": 2,
+      "hands": 11,
+      "animals": 10,
+      "plants": 36,
+      "mix": {
+       "STRAWBERRY": 11,
+       "MELON": 20,
+       "WHEAT": 5,
+       "COW": 6,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 9,
+      "money": 1754.0,
+      "q": 2,
+      "hands": 12,
+      "animals": 12,
+      "plants": 36,
+      "mix": {
+       "STRAWBERRY": 11,
+       "MELON": 20,
+       "WHEAT": 5,
+       "COW": 8,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 10,
+      "money": 14047.0,
+      "q": 2,
+      "hands": 11,
+      "animals": 12,
+      "plants": 28,
+      "mix": {
+       "STRAWBERRY": 11,
+       "WHEAT": 9,
+       "MELON": 8,
+       "COW": 8,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 11,
+      "money": 10812.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 52,
+      "mix": {
+       "STRAWBERRY": 27,
+       "WHEAT": 17,
+       "MELON": 8,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 12,
+      "money": 11219.0,
+      "q": 3,
+      "hands": 10,
+      "animals": 14,
+      "plants": 57,
+      "mix": {
+       "STRAWBERRY": 34,
+       "WHEAT": 15,
+       "MELON": 8,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 13,
+      "money": 12461.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 59,
+      "mix": {
+       "STRAWBERRY": 34,
+       "WHEAT": 17,
+       "MELON": 8,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 14,
+      "money": 15719.0,
+      "q": 3,
+      "hands": 8,
+      "animals": 14,
+      "plants": 58,
+      "mix": {
+       "STRAWBERRY": 34,
+       "WHEAT": 16,
+       "MELON": 8,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 15,
+      "money": 17937.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 58,
+      "mix": {
+       "STRAWBERRY": 33,
+       "WHEAT": 17,
+       "MELON": 8,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 16,
+      "money": 20257.0,
+      "q": 3,
+      "hands": 9,
+      "animals": 14,
+      "plants": 57,
+      "mix": {
+       "STRAWBERRY": 33,
+       "WHEAT": 18,
+       "MELON": 6,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 17,
+      "money": 23945.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 57,
+      "mix": {
+       "STRAWBERRY": 33,
+       "WHEAT": 24,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 18,
+      "money": 25709.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 60,
+      "mix": {
+       "STRAWBERRY": 33,
+       "WHEAT": 27,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 19,
+      "money": 28725.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 59,
+      "mix": {
+       "STRAWBERRY": 33,
+       "WHEAT": 26,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 20,
+      "money": 30192.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 57,
+      "mix": {
+       "STRAWBERRY": 33,
+       "WHEAT": 24,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 21,
+      "money": 35012.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 51,
+      "mix": {
+       "CARROT": 2,
+       "WHEAT": 18,
+       "STRAWBERRY": 31,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 22,
+      "money": 37640.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 55,
+      "mix": {
+       "CARROT": 3,
+       "WHEAT": 23,
+       "STRAWBERRY": 29,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 23,
+      "money": 40128.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 53,
+      "mix": {
+       "CARROT": 3,
+       "WHEAT": 24,
+       "STRAWBERRY": 26,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 24,
+      "money": 40372.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 56,
+      "mix": {
+       "CARROT": 3,
+       "WHEAT": 27,
+       "STRAWBERRY": 26,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 25,
+      "money": 40791.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 58,
+      "mix": {
+       "CARROT": 3,
+       "WHEAT": 33,
+       "STRAWBERRY": 22,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 26,
+      "money": 41514.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 57,
+      "mix": {
+       "CARROT": 11,
+       "WHEAT": 24,
+       "STRAWBERRY": 22,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 27,
+      "money": 43235.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 54,
+      "mix": {
+       "WHEAT": 17,
+       "CARROT": 19,
+       "STRAWBERRY": 18,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 28,
+      "money": 44368.0,
+      "q": 3,
+      "hands": 10,
+      "animals": 14,
+      "plants": 17,
+      "mix": {
+       "WHEAT": 1,
+       "CARROT": 10,
+       "COW": 10,
+       "STRAWBERRY": 6,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 29,
+      "money": 49114.0,
+      "q": 3,
+      "hands": 8,
+      "animals": 11,
+      "plants": 0,
+      "mix": {
+       "COW": 9,
+       "SHEEP": 2
+      }
+     }
+    ]
+   },
+   {
+    "name": "Ryo Hasegawa",
+    "days": [
+     {
+      "day": 0,
+      "money": 139.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 4,
+      "plants": 17,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 6,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 1,
+      "money": 14.0,
+      "q": 1,
+      "hands": 1,
+      "animals": 4,
+      "plants": 18,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 7,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 2,
+      "money": 355.0,
+      "q": 1,
+      "hands": 3,
+      "animals": 4,
+      "plants": 21,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 10,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 3,
+      "money": 905.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 4,
+      "plants": 21,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 10,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 4,
+      "money": 570.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 4,
+      "plants": 17,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 4,
+       "STRAWBERRY": 2,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 5,
+      "money": 173.0,
+      "q": 2,
+      "hands": 3,
+      "animals": 4,
+      "plants": 27,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 13,
+       "STRAWBERRY": 3,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 6,
+      "money": 1368.0,
+      "q": 2,
+      "hands": 7,
+      "animals": 4,
+      "plants": 38,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 14,
+       "STRAWBERRY": 13,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 7,
+      "money": 416.0,
+      "q": 2,
+      "hands": 7,
+      "animals": 7,
+      "plants": 41,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 14,
+       "STRAWBERRY": 16,
+       "SHEEP": 2,
+       "COW": 5
+      }
+     },
+     {
+      "day": 8,
+      "money": 1787.0,
+      "q": 2,
+      "hands": 11,
+      "animals": 8,
+      "plants": 41,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 14,
+       "STRAWBERRY": 16,
+       "SHEEP": 2,
+       "COW": 6
+      }
+     },
+     {
+      "day": 9,
+      "money": 445.0,
+      "q": 3,
+      "hands": 10,
+      "animals": 8,
+      "plants": 47,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 13,
+       "STRAWBERRY": 23,
+       "SHEEP": 2,
+       "COW": 6
+      }
+     },
+     {
+      "day": 10,
+      "money": 16234.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 8,
+      "plants": 35,
+      "mix": {
+       "STRAWBERRY": 24,
+       "WHEAT": 11,
+       "SHEEP": 2,
+       "COW": 6
+      }
+     },
+     {
+      "day": 11,
+      "money": 16830.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 8,
+      "plants": 63,
+      "mix": {
+       "WHEAT": 39,
+       "STRAWBERRY": 24,
+       "SHEEP": 2,
+       "COW": 6
+      }
+     },
+     {
+      "day": 12,
+      "money": 18585.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 8,
+      "plants": 63,
+      "mix": {
+       "WHEAT": 39,
+       "STRAWBERRY": 24,
+       "SHEEP": 2,
+       "COW": 6
+      }
+     },
+     {
+      "day": 13,
+      "money": 17711.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 8,
+      "plants": 62,
+      "mix": {
+       "WHEAT": 32,
+       "STRAWBERRY": 30,
+       "SHEEP": 2,
+       "COW": 6
+      }
+     },
+     {
+      "day": 14,
+      "money": 19076.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 8,
+      "plants": 63,
+      "mix": {
+       "WHEAT": 33,
+       "STRAWBERRY": 30,
+       "SHEEP": 2,
+       "COW": 6
+      }
+     },
+     {
+      "day": 15,
+      "money": 19496.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 8,
+      "plants": 50,
+      "mix": {
+       "WHEAT": 20,
+       "STRAWBERRY": 30,
+       "SHEEP": 2,
+       "COW": 6
+      }
+     },
+     {
+      "day": 16,
+      "money": 22636.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 8,
+      "plants": 63,
+      "mix": {
+       "WHEAT": 33,
+       "STRAWBERRY": 30,
+       "SHEEP": 2,
+       "COW": 6
+      }
+     },
+     {
+      "day": 17,
+      "money": 26006.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 8,
+      "plants": 63,
+      "mix": {
+       "WHEAT": 33,
+       "STRAWBERRY": 30,
+       "SHEEP": 2,
+       "COW": 6
+      }
+     },
+     {
+      "day": 18,
+      "money": 27165.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 8,
+      "plants": 66,
+      "mix": {
+       "WHEAT": 36,
+       "STRAWBERRY": 30,
+       "SHEEP": 2,
+       "COW": 6
+      }
+     },
+     {
+      "day": 19,
+      "money": 31836.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 8,
+      "plants": 64,
+      "mix": {
+       "WHEAT": 34,
+       "STRAWBERRY": 30,
+       "SHEEP": 2,
+       "COW": 6
+      }
+     },
+     {
+      "day": 20,
+      "money": 37469.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 8,
+      "plants": 61,
+      "mix": {
+       "WHEAT": 33,
+       "STRAWBERRY": 28,
+       "SHEEP": 2,
+       "COW": 6
+      }
+     },
+     {
+      "day": 21,
+      "money": 43206.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 8,
+      "plants": 66,
+      "mix": {
+       "WHEAT": 39,
+       "STRAWBERRY": 27,
+       "SHEEP": 2,
+       "COW": 6
+      }
+     },
+     {
+      "day": 22,
+      "money": 44060.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 8,
+      "plants": 60,
+      "mix": {
+       "WHEAT": 43,
+       "STRAWBERRY": 17,
+       "SHEEP": 2,
+       "COW": 6
+      }
+     },
+     {
+      "day": 23,
+      "money": 45632.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 8,
+      "plants": 63,
+      "mix": {
+       "WHEAT": 49,
+       "STRAWBERRY": 14,
+       "SHEEP": 2,
+       "COW": 6
+      }
+     },
+     {
+      "day": 24,
+      "money": 47169.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 8,
+      "plants": 64,
+      "mix": {
+       "WHEAT": 50,
+       "STRAWBERRY": 14,
+       "SHEEP": 2,
+       "COW": 6
+      }
+     },
+     {
+      "day": 25,
+      "money": 48429.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 8,
+      "plants": 64,
+      "mix": {
+       "WHEAT": 57,
+       "STRAWBERRY": 7,
+       "SHEEP": 2,
+       "COW": 6
+      }
+     },
+     {
+      "day": 26,
+      "money": 49538.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 8,
+      "plants": 65,
+      "mix": {
+       "WHEAT": 59,
+       "STRAWBERRY": 6,
+       "SHEEP": 2,
+       "COW": 6
+      }
+     },
+     {
+      "day": 27,
+      "money": 51951.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 8,
+      "plants": 48,
+      "mix": {
+       "WHEAT": 42,
+       "STRAWBERRY": 6,
+       "SHEEP": 2,
+       "COW": 6
+      }
+     },
+     {
+      "day": 28,
+      "money": 55270.0,
+      "q": 3,
+      "hands": 10,
+      "animals": 8,
+      "plants": 32,
+      "mix": {
+       "WHEAT": 26,
+       "STRAWBERRY": 6,
+       "SHEEP": 2,
+       "COW": 6
+      }
+     },
+     {
+      "day": 29,
+      "money": 59913.0,
+      "q": 3,
+      "hands": 8,
+      "animals": 8,
+      "plants": 8,
+      "mix": {
+       "WHEAT": 2,
+       "STRAWBERRY": 6,
+       "SHEEP": 2,
+       "COW": 6
+      }
+     }
+    ]
+   }
+  ],
+  "end_prices": {
+   "CARROT": 53,
+   "EGG": 246,
+   "FERTILIZER": 25,
+   "MELON": 34,
+   "MILK": 1,
+   "STRAWBERRY": 36,
+   "TOMATO": 64,
+   "WHEAT": 23,
+   "WOOL": 1
+  },
+  "shops": {
+   "BAKERY": 3,
+   "BRUNCH_SPOT": 3,
+   "PET_CAFE": 1,
+   "ICE_CREAM_SHOP": 1
+  }
+ },
+ {
+  "episode": "94457314",
+  "seed": 737269720,
+  "rewards": [
+   82306.0,
+   88232.0
+  ],
+  "agents": [
+   "Xiaowenhao404",
+   "Ryo Hasegawa"
+  ],
+  "players": [
+   {
+    "name": "Xiaowenhao404",
+    "days": [
+     {
+      "day": 0,
+      "money": 23.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 4,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 1,
+      "money": 178.0,
+      "q": 1,
+      "hands": 0,
+      "animals": 4,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 2,
+      "money": 51.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 4,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 3,
+      "money": 30.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 5,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 3
+      }
+     },
+     {
+      "day": 4,
+      "money": 146.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 5,
+      "plants": 15,
+      "mix": {
+       "MELON": 12,
+       "WHEAT": 3,
+       "SHEEP": 2,
+       "COW": 3
+      }
+     },
+     {
+      "day": 5,
+      "money": 289.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 6,
+      "plants": 19,
+      "mix": {
+       "STRAWBERRY": 4,
+       "MELON": 12,
+       "WHEAT": 3,
+       "COW": 4,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 6,
+      "money": 1616.0,
+      "q": 2,
+      "hands": 4,
+      "animals": 6,
+      "plants": 21,
+      "mix": {
+       "STRAWBERRY": 6,
+       "MELON": 12,
+       "WHEAT": 3,
+       "COW": 4,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 7,
+      "money": 106.0,
+      "q": 2,
+      "hands": 8,
+      "animals": 10,
+      "plants": 23,
+      "mix": {
+       "STRAWBERRY": 8,
+       "MELON": 12,
+       "WHEAT": 3,
+       "COW": 6,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 8,
+      "money": 1114.0,
+      "q": 2,
+      "hands": 11,
+      "animals": 10,
+      "plants": 34,
+      "mix": {
+       "STRAWBERRY": 19,
+       "MELON": 12,
+       "WHEAT": 3,
+       "COW": 6,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 9,
+      "money": 2045.0,
+      "q": 2,
+      "hands": 12,
+      "animals": 12,
+      "plants": 36,
+      "mix": {
+       "STRAWBERRY": 19,
+       "MELON": 12,
+       "WHEAT": 5,
+       "COW": 8,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 10,
+      "money": 12955.0,
+      "q": 2,
+      "hands": 11,
+      "animals": 12,
+      "plants": 28,
+      "mix": {
+       "STRAWBERRY": 19,
+       "WHEAT": 9,
+       "COW": 8,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 11,
+      "money": 11313.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 54,
+      "mix": {
+       "STRAWBERRY": 37,
+       "WHEAT": 17,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 12,
+      "money": 12428.0,
+      "q": 3,
+      "hands": 10,
+      "animals": 14,
+      "plants": 56,
+      "mix": {
+       "STRAWBERRY": 39,
+       "WHEAT": 17,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 13,
+      "money": 15623.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 59,
+      "mix": {
+       "STRAWBERRY": 42,
+       "WHEAT": 17,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 14,
+      "money": 17922.0,
+      "q": 3,
+      "hands": 8,
+      "animals": 14,
+      "plants": 58,
+      "mix": {
+       "STRAWBERRY": 42,
+       "WHEAT": 16,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 15,
+      "money": 24438.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 55,
+      "mix": {
+       "STRAWBERRY": 40,
+       "WHEAT": 15,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 16,
+      "money": 28374.0,
+      "q": 3,
+      "hands": 9,
+      "animals": 14,
+      "plants": 59,
+      "mix": {
+       "STRAWBERRY": 40,
+       "WHEAT": 19,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 17,
+      "money": 33202.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 59,
+      "mix": {
+       "STRAWBERRY": 40,
+       "WHEAT": 19,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 18,
+      "money": 37461.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 61,
+      "mix": {
+       "STRAWBERRY": 40,
+       "WHEAT": 21,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 19,
+      "money": 45532.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 60,
+      "mix": {
+       "STRAWBERRY": 40,
+       "WHEAT": 20,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 20,
+      "money": 51708.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 56,
+      "mix": {
+       "STRAWBERRY": 40,
+       "WHEAT": 16,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 21,
+      "money": 58207.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 54,
+      "mix": {
+       "CARROT": 2,
+       "WHEAT": 14,
+       "STRAWBERRY": 38,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 22,
+      "money": 66266.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 52,
+      "mix": {
+       "CARROT": 3,
+       "WHEAT": 15,
+       "STRAWBERRY": 34,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 23,
+      "money": 68236.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 52,
+      "mix": {
+       "CARROT": 3,
+       "WHEAT": 19,
+       "STRAWBERRY": 30,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 24,
+      "money": 70247.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 55,
+      "mix": {
+       "WHEAT": 22,
+       "STRAWBERRY": 30,
+       "CARROT": 3,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 25,
+      "money": 71271.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 53,
+      "mix": {
+       "CARROT": 4,
+       "WHEAT": 30,
+       "STRAWBERRY": 19,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 26,
+      "money": 71973.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 61,
+      "mix": {
+       "CARROT": 4,
+       "WHEAT": 38,
+       "STRAWBERRY": 19,
+       "COW": 10,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 27,
+      "money": 72539.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 14,
+      "plants": 58,
+      "mix": {
+       "CARROT": 2,
+       "WHEAT": 40,
+       "COW": 10,
+       "SHEEP": 4,
+       "STRAWBERRY": 16
+      }
+     },
+     {
+      "day": 28,
+      "money": 76413.0,
+      "q": 3,
+      "hands": 10,
+      "animals": 14,
+      "plants": 16,
+      "mix": {
+       "WHEAT": 12,
+       "COW": 10,
+       "SHEEP": 4,
+       "STRAWBERRY": 4
+      }
+     },
+     {
+      "day": 29,
+      "money": 82306.0,
+      "q": 3,
+      "hands": 8,
+      "animals": 12,
+      "plants": 4,
+      "mix": {
+       "WHEAT": 2,
+       "COW": 10,
+       "SHEEP": 2,
+       "STRAWBERRY": 2
+      }
+     }
+    ]
+   },
+   {
+    "name": "Ryo Hasegawa",
+    "days": [
+     {
+      "day": 0,
+      "money": 139.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 4,
+      "plants": 17,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 6,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 1,
+      "money": 14.0,
+      "q": 1,
+      "hands": 1,
+      "animals": 4,
+      "plants": 18,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 7,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 2,
+      "money": 355.0,
+      "q": 1,
+      "hands": 3,
+      "animals": 4,
+      "plants": 21,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 10,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 3,
+      "money": 905.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 4,
+      "plants": 21,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 10,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 4,
+      "money": 571.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 4,
+      "plants": 17,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 4,
+       "STRAWBERRY": 2,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 5,
+      "money": 165.0,
+      "q": 2,
+      "hands": 3,
+      "animals": 4,
+      "plants": 27,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 13,
+       "STRAWBERRY": 3,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 6,
+      "money": 1358.0,
+      "q": 2,
+      "hands": 7,
+      "animals": 4,
+      "plants": 38,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 14,
+       "STRAWBERRY": 13,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 7,
+      "money": 395.0,
+      "q": 2,
+      "hands": 7,
+      "animals": 7,
+      "plants": 40,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 13,
+       "STRAWBERRY": 16,
+       "SHEEP": 2,
+       "COW": 5
+      }
+     },
+     {
+      "day": 8,
+      "money": 2145.0,
+      "q": 2,
+      "hands": 11,
+      "animals": 9,
+      "plants": 40,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 13,
+       "STRAWBERRY": 16,
+       "COW": 7,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 9,
+      "money": 2144.0,
+      "q": 2,
+      "hands": 10,
+      "animals": 12,
+      "plants": 36,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 7,
+       "STRAWBERRY": 18,
+       "COW": 10,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 10,
+      "money": 12793.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 13,
+      "plants": 27,
+      "mix": {
+       "STRAWBERRY": 22,
+       "WHEAT": 5,
+       "COW": 11,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 11,
+      "money": 14032.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 58,
+      "mix": {
+       "WHEAT": 20,
+       "TOMATO": 8,
+       "STRAWBERRY": 30,
+       "COW": 12,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 12,
+      "money": 17145.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 61,
+      "mix": {
+       "WHEAT": 23,
+       "TOMATO": 8,
+       "STRAWBERRY": 30,
+       "COW": 12,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 13,
+      "money": 16898.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 59,
+      "mix": {
+       "WHEAT": 21,
+       "TOMATO": 8,
+       "STRAWBERRY": 30,
+       "COW": 12,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 14,
+      "money": 19199.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 61,
+      "mix": {
+       "WHEAT": 23,
+       "TOMATO": 8,
+       "STRAWBERRY": 30,
+       "COW": 12,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 15,
+      "money": 23109.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 51,
+      "mix": {
+       "WHEAT": 13,
+       "TOMATO": 8,
+       "STRAWBERRY": 30,
+       "COW": 12,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 16,
+      "money": 30092.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 61,
+      "mix": {
+       "WHEAT": 23,
+       "TOMATO": 8,
+       "STRAWBERRY": 30,
+       "COW": 12,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 17,
+      "money": 38592.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 61,
+      "mix": {
+       "WHEAT": 23,
+       "TOMATO": 8,
+       "STRAWBERRY": 30,
+       "COW": 12,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 18,
+      "money": 42128.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 59,
+      "mix": {
+       "WHEAT": 21,
+       "TOMATO": 8,
+       "STRAWBERRY": 30,
+       "COW": 12,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 19,
+      "money": 49451.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 57,
+      "mix": {
+       "WHEAT": 19,
+       "TOMATO": 8,
+       "STRAWBERRY": 30,
+       "COW": 12,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 20,
+      "money": 53506.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 15,
+      "plants": 53,
+      "mix": {
+       "WHEAT": 16,
+       "TOMATO": 8,
+       "STRAWBERRY": 29,
+       "SHEEP": 3,
+       "COW": 12
+      }
+     },
+     {
+      "day": 21,
+      "money": 61926.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 58,
+      "mix": {
+       "WHEAT": 18,
+       "CARROT": 5,
+       "TOMATO": 8,
+       "STRAWBERRY": 27,
+       "SHEEP": 4,
+       "COW": 12
+      }
+     },
+     {
+      "day": 22,
+      "money": 68095.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 53,
+      "mix": {
+       "WHEAT": 23,
+       "CARROT": 5,
+       "TOMATO": 8,
+       "STRAWBERRY": 17,
+       "SHEEP": 4,
+       "COW": 12
+      }
+     },
+     {
+      "day": 23,
+      "money": 71844.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 54,
+      "mix": {
+       "WHEAT": 35,
+       "CARROT": 5,
+       "STRAWBERRY": 14,
+       "SHEEP": 4,
+       "COW": 12
+      }
+     },
+     {
+      "day": 24,
+      "money": 73788.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 52,
+      "mix": {
+       "WHEAT": 34,
+       "CARROT": 4,
+       "STRAWBERRY": 14,
+       "SHEEP": 4,
+       "COW": 12
+      }
+     },
+     {
+      "day": 25,
+      "money": 75793.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 58,
+      "mix": {
+       "WHEAT": 40,
+       "CARROT": 6,
+       "STRAWBERRY": 12,
+       "SHEEP": 4,
+       "COW": 12
+      }
+     },
+     {
+      "day": 26,
+      "money": 75941.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 55,
+      "mix": {
+       "WHEAT": 41,
+       "CARROT": 6,
+       "SHEEP": 4,
+       "COW": 12,
+       "STRAWBERRY": 8
+      }
+     },
+     {
+      "day": 27,
+      "money": 79987.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 29,
+      "mix": {
+       "WHEAT": 27,
+       "CARROT": 2,
+       "SHEEP": 4,
+       "COW": 12
+      }
+     },
+     {
+      "day": 28,
+      "money": 84033.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 16,
+      "plants": 16,
+      "mix": {
+       "WHEAT": 16,
+       "SHEEP": 4,
+       "COW": 12
+      }
+     },
+     {
+      "day": 29,
+      "money": 88232.0,
+      "q": 3,
+      "hands": 8,
+      "animals": 16,
+      "plants": 0,
+      "mix": {
+       "SHEEP": 4,
+       "COW": 12
+      }
+     }
+    ]
+   }
+  ],
+  "end_prices": {
+   "CARROT": 52,
+   "EGG": 66,
+   "FERTILIZER": 4,
+   "MELON": 133,
+   "MILK": 1,
+   "STRAWBERRY": 55,
+   "TOMATO": 100,
+   "WHEAT": 42,
+   "WOOL": 185
+  },
+  "shops": {
+   "SMOOTHIE_SHOP": 1,
+   "PIZZA_SHOP": 1,
+   "FARMERS_MARKET": 1,
+   "BAKERY": 1,
+   "BRUNCH_SPOT": 2,
+   "YARN_STORE": 1,
+   "PET_CAFE": 1
+  }
+ },
+ {
+  "episode": "94458182",
+  "seed": 1410675833,
+  "rewards": [
+   95553.0,
+   100863.0
+  ],
+  "agents": [
+   "\u30ab\u30ef\u30b7\u30ae",
+   "Ryo Hasegawa"
+  ],
+  "players": [
+   {
+    "name": "\u30ab\u30ef\u30b7\u30ae",
+    "days": [
+     {
+      "day": 0,
+      "money": 23.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 4,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 1,
+      "money": 178.0,
+      "q": 1,
+      "hands": 0,
+      "animals": 4,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 2,
+      "money": 51.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 4,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 3,
+      "money": 30.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 5,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 7,
+       "MELON": 12,
+       "SHEEP": 2,
+       "COW": 3
+      }
+     },
+     {
+      "day": 4,
+      "money": 146.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 5,
+      "plants": 15,
+      "mix": {
+       "MELON": 12,
+       "WHEAT": 3,
+       "SHEEP": 2,
+       "COW": 3
+      }
+     },
+     {
+      "day": 5,
+      "money": 293.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 6,
+      "plants": 19,
+      "mix": {
+       "STRAWBERRY": 4,
+       "MELON": 12,
+       "WHEAT": 3,
+       "COW": 4,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 6,
+      "money": 1895.0,
+      "q": 2,
+      "hands": 4,
+      "animals": 6,
+      "plants": 21,
+      "mix": {
+       "STRAWBERRY": 6,
+       "MELON": 12,
+       "WHEAT": 3,
+       "COW": 4,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 7,
+      "money": 22.0,
+      "q": 2,
+      "hands": 8,
+      "animals": 9,
+      "plants": 26,
+      "mix": {
+       "STRAWBERRY": 11,
+       "MELON": 12,
+       "WHEAT": 3,
+       "COW": 6,
+       "SHEEP": 3
+      }
+     },
+     {
+      "day": 8,
+      "money": 1345.0,
+      "q": 2,
+      "hands": 11,
+      "animals": 10,
+      "plants": 34,
+      "mix": {
+       "STRAWBERRY": 19,
+       "MELON": 12,
+       "WHEAT": 3,
+       "COW": 6,
+       "SHEEP": 4
+      }
+     },
+     {
+      "day": 9,
+      "money": 2479.0,
+      "q": 2,
+      "hands": 12,
+      "animals": 12,
+      "plants": 37,
+      "mix": {
+       "STRAWBERRY": 19,
+       "MELON": 12,
+       "WHEAT": 6,
+       "COW": 6,
+       "SHEEP": 6
+      }
+     },
+     {
+      "day": 10,
+      "money": 13019.0,
+      "q": 2,
+      "hands": 11,
+      "animals": 12,
+      "plants": 30,
+      "mix": {
+       "STRAWBERRY": 19,
+       "WHEAT": 11,
+       "COW": 6,
+       "SHEEP": 6
+      }
+     },
+     {
+      "day": 11,
+      "money": 9201.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 57,
+      "mix": {
+       "STRAWBERRY": 41,
+       "WHEAT": 16,
+       "COW": 6,
+       "SHEEP": 8
+      }
+     },
+     {
+      "day": 12,
+      "money": 6834.0,
+      "q": 4,
+      "hands": 10,
+      "animals": 16,
+      "plants": 65,
+      "mix": {
+       "STRAWBERRY": 41,
+       "WHEAT": 24,
+       "COW": 6,
+       "SHEEP": 10
+      }
+     },
+     {
+      "day": 13,
+      "money": 9515.0,
+      "q": 4,
+      "hands": 11,
+      "animals": 17,
+      "plants": 67,
+      "mix": {
+       "STRAWBERRY": 42,
+       "WHEAT": 25,
+       "COW": 6,
+       "SHEEP": 11
+      }
+     },
+     {
+      "day": 14,
+      "money": 12906.0,
+      "q": 4,
+      "hands": 8,
+      "animals": 17,
+      "plants": 65,
+      "mix": {
+       "STRAWBERRY": 42,
+       "WHEAT": 23,
+       "COW": 6,
+       "SHEEP": 11
+      }
+     },
+     {
+      "day": 15,
+      "money": 17340.0,
+      "q": 4,
+      "hands": 12,
+      "animals": 17,
+      "plants": 62,
+      "mix": {
+       "STRAWBERRY": 42,
+       "WHEAT": 20,
+       "COW": 6,
+       "SHEEP": 11
+      }
+     },
+     {
+      "day": 16,
+      "money": 24890.0,
+      "q": 4,
+      "hands": 9,
+      "animals": 17,
+      "plants": 61,
+      "mix": {
+       "STRAWBERRY": 42,
+       "WHEAT": 19,
+       "COW": 6,
+       "SHEEP": 11
+      }
+     },
+     {
+      "day": 17,
+      "money": 30726.0,
+      "q": 4,
+      "hands": 12,
+      "animals": 17,
+      "plants": 62,
+      "mix": {
+       "STRAWBERRY": 42,
+       "WHEAT": 20,
+       "COW": 6,
+       "SHEEP": 11
+      }
+     },
+     {
+      "day": 18,
+      "money": 37939.0,
+      "q": 4,
+      "hands": 12,
+      "animals": 17,
+      "plants": 68,
+      "mix": {
+       "STRAWBERRY": 42,
+       "WHEAT": 26,
+       "COW": 6,
+       "SHEEP": 11
+      }
+     },
+     {
+      "day": 19,
+      "money": 47297.0,
+      "q": 4,
+      "hands": 12,
+      "animals": 17,
+      "plants": 68,
+      "mix": {
+       "STRAWBERRY": 42,
+       "WHEAT": 26,
+       "COW": 6,
+       "SHEEP": 11
+      }
+     },
+     {
+      "day": 20,
+      "money": 53125.0,
+      "q": 4,
+      "hands": 12,
+      "animals": 17,
+      "plants": 63,
+      "mix": {
+       "STRAWBERRY": 42,
+       "WHEAT": 21,
+       "COW": 6,
+       "SHEEP": 11
+      }
+     },
+     {
+      "day": 21,
+      "money": 62040.0,
+      "q": 4,
+      "hands": 12,
+      "animals": 17,
+      "plants": 60,
+      "mix": {
+       "STRAWBERRY": 41,
+       "WHEAT": 19,
+       "COW": 6,
+       "SHEEP": 11
+      }
+     },
+     {
+      "day": 22,
+      "money": 65372.0,
+      "q": 4,
+      "hands": 12,
+      "animals": 17,
+      "plants": 51,
+      "mix": {
+       "WHEAT": 16,
+       "STRAWBERRY": 35,
+       "COW": 6,
+       "SHEEP": 11
+      }
+     },
+     {
+      "day": 23,
+      "money": 68799.0,
+      "q": 4,
+      "hands": 12,
+      "animals": 17,
+      "plants": 57,
+      "mix": {
+       "WHEAT": 27,
+       "STRAWBERRY": 30,
+       "COW": 6,
+       "SHEEP": 11
+      }
+     },
+     {
+      "day": 24,
+      "money": 72334.0,
+      "q": 4,
+      "hands": 11,
+      "animals": 17,
+      "plants": 58,
+      "mix": {
+       "WHEAT": 29,
+       "STRAWBERRY": 29,
+       "COW": 6,
+       "SHEEP": 11
+      }
+     },
+     {
+      "day": 25,
+      "money": 74694.0,
+      "q": 4,
+      "hands": 11,
+      "animals": 17,
+      "plants": 58,
+      "mix": {
+       "CARROT": 2,
+       "WHEAT": 35,
+       "COW": 6,
+       "SHEEP": 11,
+       "STRAWBERRY": 21
+      }
+     },
+     {
+      "day": 26,
+      "money": 78547.0,
+      "q": 4,
+      "hands": 11,
+      "animals": 17,
+      "plants": 57,
+      "mix": {
+       "CARROT": 2,
+       "WHEAT": 34,
+       "COW": 6,
+       "SHEEP": 11,
+       "STRAWBERRY": 21
+      }
+     },
+     {
+      "day": 27,
+      "money": 79908.0,
+      "q": 4,
+      "hands": 11,
+      "animals": 17,
+      "plants": 57,
+      "mix": {
+       "CARROT": 2,
+       "WHEAT": 39,
+       "COW": 6,
+       "SHEEP": 11,
+       "STRAWBERRY": 16
+      }
+     },
+     {
+      "day": 28,
+      "money": 86939.0,
+      "q": 4,
+      "hands": 10,
+      "animals": 17,
+      "plants": 19,
+      "mix": {
+       "WHEAT": 18,
+       "COW": 6,
+       "SHEEP": 11,
+       "STRAWBERRY": 1
+      }
+     },
+     {
+      "day": 29,
+      "money": 95553.0,
+      "q": 4,
+      "hands": 8,
+      "animals": 12,
+      "plants": 2,
+      "mix": {
+       "COW": 6,
+       "STRAWBERRY": 1,
+       "SHEEP": 6,
+       "WHEAT": 1
+      }
+     }
+    ]
+   },
+   {
+    "name": "Ryo Hasegawa",
+    "days": [
+     {
+      "day": 0,
+      "money": 139.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 4,
+      "plants": 17,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 6,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 1,
+      "money": 14.0,
+      "q": 1,
+      "hands": 1,
+      "animals": 4,
+      "plants": 18,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 7,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 2,
+      "money": 355.0,
+      "q": 1,
+      "hands": 3,
+      "animals": 4,
+      "plants": 21,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 10,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 3,
+      "money": 905.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 4,
+      "plants": 21,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 10,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 4,
+      "money": 398.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 4,
+      "plants": 15,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 4,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 5,
+      "money": 803.0,
+      "q": 1,
+      "hands": 3,
+      "animals": 6,
+      "plants": 14,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 3,
+       "COW": 3,
+       "SHEEP": 3
+      }
+     },
+     {
+      "day": 6,
+      "money": 425.0,
+      "q": 2,
+      "hands": 7,
+      "animals": 7,
+      "plants": 22,
+      "mix": {
+       "MELON": 11,
+       "STRAWBERRY": 11,
+       "COW": 4,
+       "SHEEP": 3
+      }
+     },
+     {
+      "day": 7,
+      "money": 654.0,
+      "q": 2,
+      "hands": 7,
+      "animals": 7,
+      "plants": 32,
+      "mix": {
+       "MELON": 11,
+       "STRAWBERRY": 18,
+       "WHEAT": 3,
+       "COW": 4,
+       "SHEEP": 3
+      }
+     },
+     {
+      "day": 8,
+      "money": 2111.0,
+      "q": 2,
+      "hands": 10,
+      "animals": 9,
+      "plants": 35,
+      "mix": {
+       "MELON": 11,
+       "STRAWBERRY": 21,
+       "WHEAT": 3,
+       "COW": 6,
+       "SHEEP": 3
+      }
+     },
+     {
+      "day": 9,
+      "money": 2480.0,
+      "q": 2,
+      "hands": 10,
+      "animals": 12,
+      "plants": 35,
+      "mix": {
+       "MELON": 11,
+       "STRAWBERRY": 21,
+       "WHEAT": 3,
+       "SHEEP": 6,
+       "COW": 6
+      }
+     },
+     {
+      "day": 10,
+      "money": 13520.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 13,
+      "plants": 26,
+      "mix": {
+       "STRAWBERRY": 23,
+       "WHEAT": 3,
+       "SHEEP": 7,
+       "COW": 6
+      }
+     },
+     {
+      "day": 11,
+      "money": 15494.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 15,
+      "plants": 46,
+      "mix": {
+       "WHEAT": 22,
+       "STRAWBERRY": 24,
+       "SHEEP": 9,
+       "COW": 6
+      }
+     },
+     {
+      "day": 12,
+      "money": 18079.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 15,
+      "plants": 56,
+      "mix": {
+       "WHEAT": 26,
+       "STRAWBERRY": 30,
+       "SHEEP": 9,
+       "COW": 6
+      }
+     },
+     {
+      "day": 13,
+      "money": 19021.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 15,
+      "plants": 60,
+      "mix": {
+       "WHEAT": 30,
+       "STRAWBERRY": 30,
+       "SHEEP": 9,
+       "COW": 6
+      }
+     },
+     {
+      "day": 14,
+      "money": 19658.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 15,
+      "plants": 60,
+      "mix": {
+       "WHEAT": 30,
+       "STRAWBERRY": 30,
+       "SHEEP": 9,
+       "COW": 6
+      }
+     },
+     {
+      "day": 15,
+      "money": 23277.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 15,
+      "plants": 52,
+      "mix": {
+       "WHEAT": 22,
+       "STRAWBERRY": 30,
+       "SHEEP": 9,
+       "COW": 6
+      }
+     },
+     {
+      "day": 16,
+      "money": 31597.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 58,
+      "mix": {
+       "WHEAT": 28,
+       "STRAWBERRY": 30,
+       "SHEEP": 10,
+       "COW": 6
+      }
+     },
+     {
+      "day": 17,
+      "money": 38281.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 59,
+      "mix": {
+       "WHEAT": 29,
+       "STRAWBERRY": 30,
+       "SHEEP": 10,
+       "COW": 6
+      }
+     },
+     {
+      "day": 18,
+      "money": 45111.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 59,
+      "mix": {
+       "WHEAT": 29,
+       "STRAWBERRY": 30,
+       "SHEEP": 10,
+       "COW": 6
+      }
+     },
+     {
+      "day": 19,
+      "money": 51867.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 56,
+      "mix": {
+       "WHEAT": 26,
+       "STRAWBERRY": 30,
+       "SHEEP": 10,
+       "COW": 6
+      }
+     },
+     {
+      "day": 20,
+      "money": 58479.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 53,
+      "mix": {
+       "WHEAT": 23,
+       "STRAWBERRY": 30,
+       "SHEEP": 10,
+       "COW": 6
+      }
+     },
+     {
+      "day": 21,
+      "money": 64456.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 57,
+      "mix": {
+       "WHEAT": 28,
+       "STRAWBERRY": 29,
+       "SHEEP": 10,
+       "COW": 6
+      }
+     },
+     {
+      "day": 22,
+      "money": 69562.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 58,
+      "mix": {
+       "WHEAT": 40,
+       "STRAWBERRY": 18,
+       "SHEEP": 10,
+       "COW": 6
+      }
+     },
+     {
+      "day": 23,
+      "money": 70805.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 53,
+      "mix": {
+       "WHEAT": 41,
+       "STRAWBERRY": 12,
+       "SHEEP": 10,
+       "COW": 6
+      }
+     },
+     {
+      "day": 24,
+      "money": 75670.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 52,
+      "mix": {
+       "WHEAT": 43,
+       "SHEEP": 10,
+       "COW": 6,
+       "STRAWBERRY": 9
+      }
+     },
+     {
+      "day": 25,
+      "money": 79165.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 56,
+      "mix": {
+       "WHEAT": 47,
+       "SHEEP": 10,
+       "COW": 6,
+       "STRAWBERRY": 9
+      }
+     },
+     {
+      "day": 26,
+      "money": 82368.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 57,
+      "mix": {
+       "WHEAT": 50,
+       "SHEEP": 10,
+       "COW": 6,
+       "STRAWBERRY": 7
+      }
+     },
+     {
+      "day": 27,
+      "money": 87891.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 45,
+      "mix": {
+       "WHEAT": 39,
+       "SHEEP": 10,
+       "COW": 6,
+       "STRAWBERRY": 6
+      }
+     },
+     {
+      "day": 28,
+      "money": 93463.0,
+      "q": 3,
+      "hands": 11,
+      "animals": 16,
+      "plants": 35,
+      "mix": {
+       "WHEAT": 29,
+       "SHEEP": 10,
+       "COW": 6,
+       "STRAWBERRY": 6
+      }
+     },
+     {
+      "day": 29,
+      "money": 100863.0,
+      "q": 3,
+      "hands": 8,
+      "animals": 16,
+      "plants": 8,
+      "mix": {
+       "WHEAT": 8,
+       "SHEEP": 10,
+       "COW": 6
+      }
+     }
+    ]
+   }
+  ],
+  "end_prices": {
+   "CARROT": 45,
+   "EGG": 66,
+   "FERTILIZER": 1,
+   "MELON": 133,
+   "MILK": 3,
+   "STRAWBERRY": 22,
+   "TOMATO": 68,
+   "WHEAT": 28,
+   "WOOL": 245
+  },
+  "shops": {
+   "YARN_STORE": 3,
+   "SMOOTHIE_SHOP": 1,
+   "BAKERY": 1,
+   "BRUNCH_SPOT": 1,
+   "PET_CAFE": 1,
+   "PIZZA_SHOP": 1
+  }
+ },
+ {
+  "episode": "97032982",
+  "seed": 770901935,
+  "rewards": [
+   102553.0,
+   101149.0
+  ],
+  "agents": [
+   "Subramanya N",
+   "Ryo Hasegawa"
+  ],
+  "players": [
+   {
+    "name": "Subramanya N",
+    "days": [
+     {
+      "day": 0,
+      "money": 42.0,
+      "q": 1,
+      "hands": 6,
+      "animals": 4,
+      "plants": 18,
+      "mix": {
+       "MELON": 8,
+       "CARROT": 7,
+       "WHEAT": 3,
+       "COW": 2,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 1,
+      "money": 42.0,
+      "q": 1,
+      "hands": 0,
+      "animals": 4,
+      "plants": 18,
+      "mix": {
+       "MELON": 8,
+       "CARROT": 7,
+       "WHEAT": 3,
+       "COW": 2,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 2,
+      "money": 317.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 4,
+      "plants": 19,
+      "mix": {
+       "MELON": 8,
+       "CARROT": 7,
+       "WHEAT": 3,
+       "STRAWBERRY": 1,
+       "COW": 2,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 3,
+      "money": 180.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 4,
+      "plants": 15,
+      "mix": {
+       "MELON": 8,
+       "STRAWBERRY": 4,
+       "WHEAT": 3,
+       "COW": 2,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 4,
+      "money": 71.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 5,
+      "plants": 16,
+      "mix": {
+       "MELON": 8,
+       "STRAWBERRY": 8,
+       "COW": 3,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 5,
+      "money": 346.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 6,
+      "plants": 16,
+      "mix": {
+       "MELON": 8,
+       "STRAWBERRY": 8,
+       "COW": 4,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 6,
+      "money": 65.0,
+      "q": 2,
+      "hands": 5,
+      "animals": 8,
+      "plants": 23,
+      "mix": {
+       "MELON": 8,
+       "STRAWBERRY": 14,
+       "COW": 6,
+       "WHEAT": 1,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 7,
+      "money": 168.0,
+      "q": 2,
+      "hands": 9,
+      "animals": 8,
+      "plants": 33,
+      "mix": {
+       "MELON": 8,
+       "STRAWBERRY": 20,
+       "COW": 6,
+       "WHEAT": 5,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 8,
+      "money": 2140.0,
+      "q": 2,
+      "hands": 10,
+      "animals": 8,
+      "plants": 41,
+      "mix": {
+       "MELON": 8,
+       "STRAWBERRY": 25,
+       "WHEAT": 8,
+       "COW": 6,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 9,
+      "money": 2661.0,
+      "q": 2,
+      "hands": 11,
+      "animals": 9,
+      "plants": 41,
+      "mix": {
+       "MELON": 8,
+       "STRAWBERRY": 25,
+       "WHEAT": 8,
+       "COW": 6,
+       "GOOSE": 1,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 10,
+      "money": 2711.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 11,
+      "plants": 50,
+      "mix": {
+       "MELON": 4,
+       "STRAWBERRY": 32,
+       "WHEAT": 14,
+       "COW": 6,
+       "GOOSE": 3,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 11,
+      "money": 8042.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 13,
+      "plants": 55,
+      "mix": {
+       "MELON": 7,
+       "GOOSE": 5,
+       "STRAWBERRY": 33,
+       "WHEAT": 15,
+       "COW": 6,
+       "SHEEP": 2
+      }
+     },
+     {
+      "day": 12,
+      "money": 6919.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 16,
+      "plants": 52,
+      "mix": {
+       "GOOSE": 5,
+       "STRAWBERRY": 33,
+       "WHEAT": 13,
+       "MELON": 6,
+       "COW": 6,
+       "SHEEP": 5
+      }
+     },
+     {
+      "day": 13,
+      "money": 9603.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 17,
+      "plants": 51,
+      "mix": {
+       "SHEEP": 6,
+       "GOOSE": 5,
+       "STRAWBERRY": 33,
+       "MELON": 6,
+       "WHEAT": 12,
+       "COW": 6
+      }
+     },
+     {
+      "day": 14,
+      "money": 16380.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 18,
+      "plants": 48,
+      "mix": {
+       "SHEEP": 7,
+       "GOOSE": 5,
+       "STRAWBERRY": 33,
+       "MELON": 6,
+       "WHEAT": 9,
+       "COW": 6
+      }
+     },
+     {
+      "day": 15,
+      "money": 21467.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 18,
+      "plants": 48,
+      "mix": {
+       "SHEEP": 7,
+       "GOOSE": 5,
+       "STRAWBERRY": 35,
+       "MELON": 6,
+       "COW": 6,
+       "WHEAT": 7
+      }
+     },
+     {
+      "day": 16,
+      "money": 27857.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 18,
+      "plants": 48,
+      "mix": {
+       "SHEEP": 7,
+       "GOOSE": 5,
+       "STRAWBERRY": 35,
+       "MELON": 6,
+       "COW": 6,
+       "WHEAT": 7
+      }
+     },
+     {
+      "day": 17,
+      "money": 29379.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 19,
+      "plants": 48,
+      "mix": {
+       "SHEEP": 9,
+       "GOOSE": 4,
+       "STRAWBERRY": 35,
+       "MELON": 6,
+       "COW": 6,
+       "WHEAT": 7
+      }
+     },
+     {
+      "day": 18,
+      "money": 38968.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 20,
+      "plants": 45,
+      "mix": {
+       "SHEEP": 9,
+       "GOOSE": 4,
+       "STRAWBERRY": 35,
+       "MELON": 6,
+       "COW": 7,
+       "WHEAT": 4
+      }
+     },
+     {
+      "day": 19,
+      "money": 44711.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 20,
+      "plants": 47,
+      "mix": {
+       "SHEEP": 9,
+       "GOOSE": 4,
+       "STRAWBERRY": 34,
+       "MELON": 6,
+       "WHEAT": 7,
+       "COW": 7
+      }
+     },
+     {
+      "day": 20,
+      "money": 49888.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 20,
+      "plants": 45,
+      "mix": {
+       "SHEEP": 9,
+       "GOOSE": 4,
+       "STRAWBERRY": 31,
+       "WHEAT": 11,
+       "COW": 7,
+       "MELON": 3
+      }
+     },
+     {
+      "day": 21,
+      "money": 59759.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 20,
+      "plants": 42,
+      "mix": {
+       "SHEEP": 9,
+       "GOOSE": 4,
+       "STRAWBERRY": 27,
+       "WHEAT": 15,
+       "COW": 7
+      }
+     },
+     {
+      "day": 22,
+      "money": 66543.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 20,
+      "plants": 42,
+      "mix": {
+       "SHEEP": 9,
+       "GOOSE": 4,
+       "STRAWBERRY": 27,
+       "WHEAT": 15,
+       "COW": 7
+      }
+     },
+     {
+      "day": 23,
+      "money": 71685.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 20,
+      "plants": 38,
+      "mix": {
+       "SHEEP": 9,
+       "GOOSE": 4,
+       "STRAWBERRY": 20,
+       "WHEAT": 18,
+       "COW": 7
+      }
+     },
+     {
+      "day": 24,
+      "money": 76385.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 20,
+      "plants": 40,
+      "mix": {
+       "SHEEP": 9,
+       "GOOSE": 4,
+       "STRAWBERRY": 14,
+       "WHEAT": 26,
+       "COW": 7
+      }
+     },
+     {
+      "day": 25,
+      "money": 79053.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 20,
+      "plants": 41,
+      "mix": {
+       "SHEEP": 9,
+       "GOOSE": 4,
+       "STRAWBERRY": 9,
+       "WHEAT": 32,
+       "COW": 7
+      }
+     },
+     {
+      "day": 26,
+      "money": 82318.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 20,
+      "plants": 40,
+      "mix": {
+       "SHEEP": 9,
+       "GOOSE": 4,
+       "STRAWBERRY": 9,
+       "WHEAT": 31,
+       "COW": 7
+      }
+     },
+     {
+      "day": 27,
+      "money": 88196.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 20,
+      "plants": 33,
+      "mix": {
+       "SHEEP": 9,
+       "GOOSE": 4,
+       "WHEAT": 31,
+       "STRAWBERRY": 2,
+       "COW": 7
+      }
+     },
+     {
+      "day": 28,
+      "money": 95847.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 20,
+      "plants": 23,
+      "mix": {
+       "SHEEP": 9,
+       "GOOSE": 4,
+       "WHEAT": 22,
+       "COW": 7,
+       "STRAWBERRY": 1
+      }
+     },
+     {
+      "day": 29,
+      "money": 102553.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 19,
+      "plants": 3,
+      "mix": {
+       "SHEEP": 8,
+       "GOOSE": 4,
+       "WHEAT": 2,
+       "COW": 7,
+       "STRAWBERRY": 1
+      }
+     }
+    ]
+   },
+   {
+    "name": "Ryo Hasegawa",
+    "days": [
+     {
+      "day": 0,
+      "money": 138.0,
+      "q": 1,
+      "hands": 5,
+      "animals": 4,
+      "plants": 17,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 6,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 1,
+      "money": 11.0,
+      "q": 1,
+      "hands": 1,
+      "animals": 4,
+      "plants": 18,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 7,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 2,
+      "money": 354.0,
+      "q": 1,
+      "hands": 3,
+      "animals": 4,
+      "plants": 21,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 10,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 3,
+      "money": 901.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 4,
+      "plants": 21,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 10,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 4,
+      "money": 566.0,
+      "q": 1,
+      "hands": 4,
+      "animals": 4,
+      "plants": 17,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 4,
+       "STRAWBERRY": 2,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 5,
+      "money": 174.0,
+      "q": 2,
+      "hands": 3,
+      "animals": 4,
+      "plants": 27,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 13,
+       "STRAWBERRY": 3,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 6,
+      "money": 1368.0,
+      "q": 2,
+      "hands": 7,
+      "animals": 4,
+      "plants": 38,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 14,
+       "STRAWBERRY": 13,
+       "SHEEP": 2,
+       "COW": 2
+      }
+     },
+     {
+      "day": 7,
+      "money": 512.0,
+      "q": 2,
+      "hands": 7,
+      "animals": 7,
+      "plants": 41,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 14,
+       "STRAWBERRY": 16,
+       "SHEEP": 2,
+       "COW": 5
+      }
+     },
+     {
+      "day": 8,
+      "money": 1960.0,
+      "q": 2,
+      "hands": 11,
+      "animals": 9,
+      "plants": 41,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 14,
+       "STRAWBERRY": 16,
+       "SHEEP": 2,
+       "COW": 7
+      }
+     },
+     {
+      "day": 9,
+      "money": 624.0,
+      "q": 3,
+      "hands": 10,
+      "animals": 10,
+      "plants": 40,
+      "mix": {
+       "MELON": 11,
+       "WHEAT": 7,
+       "STRAWBERRY": 22,
+       "SHEEP": 2,
+       "COW": 8
+      }
+     },
+     {
+      "day": 10,
+      "money": 16927.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 10,
+      "plants": 32,
+      "mix": {
+       "WHEAT": 7,
+       "STRAWBERRY": 25,
+       "SHEEP": 2,
+       "COW": 8
+      }
+     },
+     {
+      "day": 11,
+      "money": 15984.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 10,
+      "plants": 63,
+      "mix": {
+       "MELON": 12,
+       "WHEAT": 15,
+       "STRAWBERRY": 36,
+       "SHEEP": 2,
+       "COW": 8
+      }
+     },
+     {
+      "day": 12,
+      "money": 17842.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 12,
+      "plants": 63,
+      "mix": {
+       "MELON": 12,
+       "WHEAT": 15,
+       "STRAWBERRY": 36,
+       "SHEEP": 4,
+       "COW": 8
+      }
+     },
+     {
+      "day": 13,
+      "money": 17270.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 12,
+      "plants": 61,
+      "mix": {
+       "MELON": 12,
+       "WHEAT": 13,
+       "STRAWBERRY": 36,
+       "SHEEP": 4,
+       "COW": 8
+      }
+     },
+     {
+      "day": 14,
+      "money": 18198.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 61,
+      "mix": {
+       "MELON": 12,
+       "WHEAT": 13,
+       "STRAWBERRY": 36,
+       "SHEEP": 6,
+       "COW": 8
+      }
+     },
+     {
+      "day": 15,
+      "money": 22337.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 59,
+      "mix": {
+       "MELON": 12,
+       "WHEAT": 11,
+       "STRAWBERRY": 36,
+       "SHEEP": 6,
+       "COW": 8
+      }
+     },
+     {
+      "day": 16,
+      "money": 27791.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 61,
+      "mix": {
+       "MELON": 12,
+       "WHEAT": 13,
+       "STRAWBERRY": 36,
+       "SHEEP": 6,
+       "COW": 8
+      }
+     },
+     {
+      "day": 17,
+      "money": 32046.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 61,
+      "mix": {
+       "MELON": 12,
+       "WHEAT": 13,
+       "STRAWBERRY": 36,
+       "SHEEP": 6,
+       "COW": 8
+      }
+     },
+     {
+      "day": 18,
+      "money": 38013.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 61,
+      "mix": {
+       "MELON": 12,
+       "WHEAT": 13,
+       "STRAWBERRY": 36,
+       "SHEEP": 6,
+       "COW": 8
+      }
+     },
+     {
+      "day": 19,
+      "money": 44337.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 57,
+      "mix": {
+       "MELON": 12,
+       "STRAWBERRY": 36,
+       "WHEAT": 9,
+       "SHEEP": 6,
+       "COW": 8
+      }
+     },
+     {
+      "day": 20,
+      "money": 48671.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 59,
+      "mix": {
+       "MELON": 12,
+       "STRAWBERRY": 34,
+       "WHEAT": 13,
+       "SHEEP": 6,
+       "COW": 8
+      }
+     },
+     {
+      "day": 21,
+      "money": 62683.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 47,
+      "mix": {
+       "STRAWBERRY": 34,
+       "WHEAT": 13,
+       "SHEEP": 6,
+       "COW": 8
+      }
+     },
+     {
+      "day": 22,
+      "money": 67190.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 47,
+      "mix": {
+       "WHEAT": 23,
+       "STRAWBERRY": 24,
+       "SHEEP": 6,
+       "COW": 8
+      }
+     },
+     {
+      "day": 23,
+      "money": 71621.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 56,
+      "mix": {
+       "WHEAT": 37,
+       "STRAWBERRY": 19,
+       "SHEEP": 6,
+       "COW": 8
+      }
+     },
+     {
+      "day": 24,
+      "money": 74611.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 58,
+      "mix": {
+       "WHEAT": 39,
+       "STRAWBERRY": 19,
+       "SHEEP": 6,
+       "COW": 8
+      }
+     },
+     {
+      "day": 25,
+      "money": 77323.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 59,
+      "mix": {
+       "WHEAT": 46,
+       "STRAWBERRY": 13,
+       "SHEEP": 6,
+       "COW": 8
+      }
+     },
+     {
+      "day": 26,
+      "money": 80274.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 56,
+      "mix": {
+       "WHEAT": 45,
+       "STRAWBERRY": 11,
+       "SHEEP": 6,
+       "COW": 8
+      }
+     },
+     {
+      "day": 27,
+      "money": 86993.0,
+      "q": 3,
+      "hands": 12,
+      "animals": 14,
+      "plants": 28,
+      "mix": {
+       "WHEAT": 28,
+       "SHEEP": 6,
+       "COW": 8
+      }
+     },
+     {
+      "day": 28,
+      "money": 93934.0,
+      "q": 3,
+      "hands": 10,
+      "animals": 14,
+      "plants": 20,
+      "mix": {
+       "WHEAT": 20,
+       "SHEEP": 6,
+       "COW": 8
+      }
+     },
+     {
+      "day": 29,
+      "money": 101149.0,
+      "q": 3,
+      "hands": 8,
+      "animals": 14,
+      "plants": 3,
+      "mix": {
+       "WHEAT": 3,
+       "SHEEP": 6,
+       "COW": 8
+      }
+     }
+    ]
+   }
+  ],
+  "end_prices": {
+   "CARROT": 36,
+   "EGG": 62,
+   "FERTILIZER": 6,
+   "MELON": 16,
+   "MILK": 186,
+   "STRAWBERRY": 87,
+   "TOMATO": 72,
+   "WHEAT": 47,
+   "WOOL": 31
+  },
+  "shops": {
+   "ICE_CREAM_SHOP": 2,
+   "BAKERY": 2,
+   "BRUNCH_SPOT": 1,
+   "YARN_STORE": 1,
+   "SMOOTHIE_SHOP": 1,
+   "PIZZA_SHOP": 1
+  }
+ }
+]
