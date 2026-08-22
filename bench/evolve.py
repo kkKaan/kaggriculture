@@ -99,6 +99,7 @@ def _one(job):
     try:
         env.run(ag)
     except Exception:
+        _free_env(env)
         return (0.0, 0.0)
     r = [float(s["reward"] or 0) for s in env.steps[-1]]
     _free_env(env)
@@ -141,7 +142,7 @@ def main():
         log.write(msg + "\n"); log.flush()
 
     say("=== evolve start %s rounds=%d pop=%d ===" % (time.strftime("%H:%M:%S"), a.rounds, a.pop))
-    with ProcessPoolExecutor(max_workers=a.workers) as ex:
+    with ProcessPoolExecutor(max_workers=a.workers, max_tasks_per_child=40) as ex:
         for rd in range(a.rounds):
             base_seed = 30000 + rd * 977
             seeds = [base_seed + i for i in range(a.seeds)]

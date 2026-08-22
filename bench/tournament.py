@@ -43,7 +43,7 @@ def tournament(a, b, seeds=12, workers=8):
         jobs.append((a, b, 1000 + s, True))
     t0 = time.time()
     res = []
-    with ProcessPoolExecutor(max_workers=workers) as ex:
+    with ProcessPoolExecutor(max_workers=workers, max_tasks_per_child=40) as ex:
         for r in ex.map(_one, jobs):
             res.append(r)
     wins = losses = ties = 0

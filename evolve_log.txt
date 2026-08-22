@@ -55,3 +55,40 @@ round 13 (145s) best=91.7% {'disc_poor': 0.9586}
    confirm: 90.6% W58 L6 T0 mean=$103,808
    PROMOTED -> {'disc_poor': 0.9586}
 round 14 (146s) best=62.5% {'endgame_dump_day': 24, 'disc_rich': 0.9611}
+=== evolve start 11:42:06 rounds=40 pop=6 ===
+round 0 (155s) best=58.3% {'cap_mu': 2.2806, 'drop_threshold': 3}
+round 1 (157s) best=45.8% {'long_frac_min': 0.6518}
+round 2 (148s) best=66.7% {'long_frac_min': 0.8489}
+   confirm: 46.2% W34 L40 T6 mean=$96,646
+   rejected on confirmation
+round 3 (175s) best=66.7% {'long_frac_min': 0.753, 'fetch_value': 116.818, 'sell_orders_head': 5}
+   confirm: 68.8% W55 L25 T0 mean=$96,782
+   anchor:  58.8% W47 L33 T0
+   PROMOTED -> {'long_frac_min': 0.753, 'fetch_value': 116.818, 'sell_orders_head': 5}
+round 4 (169s) best=58.3% {'animal_target': 12}
+round 5 (164s) best=75.0% {'cap_mu_ref': 7.2539}
+   confirm: 61.3% W46 L28 T6 mean=$96,102
+   anchor:  60.0% W48 L32 T0
+   PROMOTED -> {'cap_mu_ref': 7.2539}
+round 6 (156s) best=70.8% {'dist_decay': 1.3095}
+   confirm: 52.5% W42 L38 T0 mean=$98,428
+   rejected on confirmation
+round 7 (144s) best=54.2% {'animal_target': 12, 'seed_cash_floor': 118.7308}
+round 8 (167s) best=62.5% {'mirror': 0.5136, 'rush_sell': 0}
+   confirm: 38.8% W28 L46 T6 mean=$95,882
+   rejected on confirmation
+round 9 (151s) best=54.2% {'hire_per_turn': 2, 'plant_min_value': 8.8271, 'wheat_buy_max': 52.5043}
+round 10 (151s) best=62.5% {'hire_per_turn': 2}
+   confirm: 35.0% W28 L52 T0 mean=$98,230
+   rejected on confirmation
+round 11 (149s) best=66.7% {'dist_decay': 0.6, 'rush_window': 4}
+   confirm: 71.2% W57 L23 T0 mean=$105,638
+   anchor:  71.2% W57 L23 T0
+   PROMOTED -> {'dist_decay': 0.6, 'rush_window': 4}
+round 12 (170s) best=50.0% {'wheat_buy_max': 54.0928}
+round 13 (153s) best=50.0% {'rush_window': 3, 'shed_soft_cap': 77}
+round 14 (147s) best=75.0% {'hire_per_turn': 2, 'land_buffer': 657.985}
+   confirm: 66.2% W53 L27 T0 mean=$101,242
+   anchor:  38.8% W31 L49 T0
+   rejected vs anchor (drift guard)
+round 15 (156s) best=54.2% {'max_hands': 11, 'cash_target': 2963.0513}

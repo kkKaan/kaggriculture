@@ -50,7 +50,7 @@ def main():
     t0 = time.time()
     agg = {c: [0, 0, 0, 0.0, 0.0, 1e18] for c in a.challengers}  # w,l,t,sumA,sumB,minA
     errs = []
-    with ProcessPoolExecutor(max_workers=a.workers) as ex:
+    with ProcessPoolExecutor(max_workers=a.workers, max_tasks_per_child=40) as ex:
         for name, ra, rb, err in ex.map(_one, jobs):
             if err:
                 errs.append((name, err)); continue

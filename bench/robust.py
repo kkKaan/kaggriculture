@@ -61,7 +61,7 @@ def main():
     jobs = [(o, 7000 + s, f) for o in a.opps for s in range(a.seeds) for f in (False, True)]
     t0 = time.time()
     res = []
-    with ProcessPoolExecutor(max_workers=a.workers) as ex:
+    with ProcessPoolExecutor(max_workers=a.workers, max_tasks_per_child=40) as ex:
         for r in ex.map(_one, jobs):
             res.append(r)
     by = {}
