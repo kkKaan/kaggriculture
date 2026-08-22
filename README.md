@@ -222,6 +222,30 @@ from animal density. Grafting one piece of theirs onto ours breaks the coherence
 Adopting it properly would mean rebuilding the allocator around animal density,
 not changing a parameter.
 
+### Stranded animals: a real inefficiency whose fix costs more
+
+The agent leaves bought animals sitting in the shed on 12-22 of 30 days (up to 3
+at once, $400-500 each of dead capital). Cause: `room` subtracts shed animals
+from `animal_target`, so once at target the allocator cannot select them and no
+housing is ever built.
+
+Two fixes implemented and measured against the unmodified agent:
+
+| change | winrate |
+|---|---|
+| house stranded animals regardless of target (`house_stranded`) | 29.2% |
+| raise build priority while animals wait (`build_urgent` 320) | 20.8% |
+| both | 37.5% |
+
+All lose. Housing a surplus animal costs an action and a tile that would
+otherwise grow strawberries, and pushes past the tuned `animal_target`. Both are
+kept as parameters, defaulted off, with the measurement in the code comment.
+
+Enabling them also allowed the first *valid* test of the top-agent opening (my
+earlier `early_animals` test was invalid — it never actually placed animals on
+day 0). Even with housing forced on, the agent places 0 animals on day 0 against
+their 4, and the variant still loses at 15%.
+
 **Always validate against `bench/pool.py`, not just the mirror.** Note that
 `nowheat` (never planting wheat, buying all feed) scores 27.5% — growing your own
 feed is still necessary; the error was the *degree*.

@@ -285,6 +285,8 @@ DEFAULTS = {
     "hold_bonus": 1.0,
     "final_run_slack": 3,
     "fert_fetch": 1,
+    "build_urgent": 100.0,   # tested: raising this to 320 loses 20.8%
+    "house_stranded": 0,     # tested: housing surplus shed animals loses 29.2%
     "dig_spent": 0,        # tested: clears rot but costs more than the tile returns
     "dig_spent_value": 45.0,
     "animal_mu_scale": 1.0,
@@ -597,7 +599,8 @@ class Brain:
         have_animals = scan["n_animals"] + sum(shed.get(a, 0) for a in ANIMALS)
         room = max(0, P["animal_target"] - have_animals - free_coop - free_past)
         room = max(room, P["early_animals"] - have_animals if day <= P["early_animal_day"] else 0)
-        pend = {a: shed.get(a, 0) for a in ANIMALS}
+        in_shed = {a: shed.get(a, 0) for a in ANIMALS}
+        pend = dict(in_shed)
 
         pipe = dict(my_pipe)
         crops_out, animals_out = [], []
@@ -687,6 +690,13 @@ class Brain:
         want_past = len(animals_out) - want_coop
         need_coop = max(0, want_coop - free_coop)
         need_past = max(0, want_past - free_past)
+        # An animal sitting in the shed is dead capital: it needs housing even if
+        # we are already at animal_target (which counts it as "have").
+        if P["house_stranded"]:
+            stranded_coop = in_shed.get("GOOSE", 0)
+            stranded_past = in_shed.get("COW", 0) + in_shed.get("SHEEP", 0)
+            need_coop = max(need_coop, stranded_coop - free_coop)
+            need_past = max(need_past, stranded_past - free_past)
         cap = len(scan["empty"])
         if need_coop + need_past > cap:
             if need_coop >= need_past:
@@ -967,9 +977,12 @@ class Brain:
         near_first = sorted(empties, key=lambda p: manhattan(p, center))
         reserved = set()
         if animal_gap > 0:
+            n_wait = sum(shed.get(a, 0) for a in ANIMALS) + sum(
+                iv.get(a, 0) for iv in invs for a in ANIMALS)
+            build_val = P["build_urgent"] if n_wait > 0 else 100.0
             todo = ["BUILD_COOP"] * need_coop + ["BUILD_PASTURE"] * need_past
             for (x, y), struct in zip(near_first[:animal_gap], todo):
-                tasks.append((100.0, x, y, struct, None))
+                tasks.append((build_val, x, y, struct, None))
                 reserved.add((x, y))
         held = {}
         for iv in invs:
