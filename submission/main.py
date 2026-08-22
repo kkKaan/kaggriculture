@@ -209,6 +209,12 @@ def watering_days(crop, fertilized=False):
 """Kaggriculture agent brain. Parameterised so variants can be benchmarked."""
 import math
 
+def get_cfg(cfg, key, default):
+    if isinstance(cfg, dict):
+        return cfg.get(key, default)
+    return getattr(cfg, key, default)
+
+
 SHOPS = {
     "BAKERY":         ["EGG", "WHEAT"],
     "PIZZA_SHOP":     ["MILK", "TOMATO", "WHEAT"],
@@ -309,8 +315,23 @@ class Brain:
             self.P.update(params)
         self.reset()
 
+    def configure(self, config):
+        """Season geometry from the episode configuration, with engine defaults."""
+        tpd, steps = 24, 720
+        if config is not None:
+            try:
+                tpd = int(get_cfg(config, "turnsPerDay", 24) or 24)
+                steps = int(get_cfg(config, "episodeSteps", 720) or 720)
+            except Exception:
+                tpd, steps = 24, 720
+        self.turns_per_day = max(1, tpd)
+        self.total_days = max(1, steps // self.turns_per_day)
+        self.last_day = self.total_days - 1
+
     def reset(self):
         clear_caches()
+        self.configure(None)
+        self._configured = False
         self.day_seen = -1
         self._plan_key = None
         self._plan = []
@@ -404,7 +425,10 @@ class Brain:
         return rev / max(1.0, actions + 2.0), rev, units, actions
 
     # -------------------------------------------------------------- main entry
-    def act(self, obs):
+    def act(self, obs, config=None):
+        if config is not None and not getattr(self, "_configured", False):
+            self.configure(config)
+            self._configured = True
         P = self.P
         player = obs.get("player", 0)
         farms = obs.get("farms") or []
@@ -429,8 +453,8 @@ class Brain:
             self.day_seen = day
             self.targets = {}
             self.sold_today = {}
-        days_left = max(0, 29 - day)
-        self._final_day = (day >= 29)
+        days_left = max(0, self.last_day - day)
+        self._final_day = (day >= self.last_day)
 
         units = [tuple(me["farmer"])] + [tuple(p) for p in me["hands"]]
         while len(invs) < len(units):
@@ -439,7 +463,7 @@ class Brain:
         shed_set = set(sheds)
 
         self._n_shops = len(shops)
-        drain = self.drain_rate(shops)
+        drain = self.drain_rate(shops, self.turns_per_day)
         scan = self._scan(tiles, n)
         opp_pipe = self._pipeline(opp["tiles"]) if opp else {}
         my_pipe = self._pipeline(tiles)
@@ -726,9 +750,10 @@ class Brain:
         P = self.P
         out = []
         total_shed = sum(shed.values())
-        dumping = day >= P["endgame_dump_day"]
+        dump_day = min(P["endgame_dump_day"], max(1, self.last_day - 4))
+        dumping = day >= dump_day
         keep = P["keep_frac"]
-        if day >= P["endgame_dump_day"] - 2:
+        if day >= dump_day - 2:
             keep *= 0.5
         pressure = total_shed > P["shed_soft_cap"]
         for item in PRODUCTS:
@@ -790,7 +815,7 @@ class Brain:
         work += min(len(scan["empty"]), plantable) * 1.6
         work += len(scan["weeds"]) * 0.5
         work += len(scan["empty_struct"]) * 1.0
-        need = int(math.ceil(work * P["hire_overhead"] / 24.0)) - 1
+        need = int(math.ceil(work * P["hire_overhead"] / float(self.turns_per_day))) - 1
         if work <= 0 and (scan["empty"] or scan["weeds"]):
             need = max(need, 2)
         cap_hands = P["max_hands"]
@@ -811,7 +836,7 @@ class Brain:
         animal_gap = need_coop + need_past
         P = self.P
         tasks = []
-        turns_left = 24 - hour
+        turns_left = self.turns_per_day - hour
         center = (n // 2, n // 2)
 
         for (x, y, t) in scan["plants"]:
@@ -1161,14 +1186,19 @@ class Brain:
 PARAMS = {'animal_target': 11, 'cap_lambda': 0.0, 'cap_mu': 2.1598, 'cap_mu_ref': 7.2539, 'disc_poor': 0.9586, 'dist_decay': 0.6, 'drop_threshold': 9, 'endgame_dump_day': 25, 'fert_min_gain': 1000000000.0, 'fetch_value': 116.818, 'final_run_slack': 6, 'future_shop_weight': 1.725, 'hire_overhead': 3.5, 'hire_per_turn': 3, 'hold_bonus': 0.75, 'keep_frac': 0.24, 'keep_frac_premium': 0.0516, 'land_buffer': 500, 'land_buffer_per_tile': 0.0, 'land_max': 2, 'long_frac_min': 0.753, 'max_hands': 12, 'mirror': 0.45, 'operating_per_tile': 8.0, 'opp_weight': 1.0, 'rush_window': 4, 'sell_orders_head': 5, 'sticky_bonus': 1.0, 'use_zones': 0, 'value_scaled_care': 1, 'wheat_reserve_days': 0.5}
 
 
-_BRAIN = Brain(PARAMS)
+# One planner per seat: Kaggle's validation episode plays this agent against a
+# copy of itself, which may share module state between both players.
+_BRAINS = {}
 
 
 def agent(obs, config=None):
     try:
-        if obs.get("day", 0) == 0 and obs.get("hour", 0) == 0:
-            _BRAIN.reset()
-        return _BRAIN.act(obs)
+        p = obs.get("player", 0)
+        b = _BRAINS.get(p)
+        if b is None or (obs.get("day", 0) == 0 and obs.get("hour", 0) == 0):
+            b = Brain(PARAMS)
+            _BRAINS[p] = b
+        return b.act(obs, config)
     except Exception:
         try:
             import traceback

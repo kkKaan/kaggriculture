@@ -7,6 +7,12 @@ from agent_core import (
     expected_units, harvest_day, watering_days, water_window, clear_caches,
 )
 
+def get_cfg(cfg, key, default):
+    if isinstance(cfg, dict):
+        return cfg.get(key, default)
+    return getattr(cfg, key, default)
+
+
 SHOPS = {
     "BAKERY":         ["EGG", "WHEAT"],
     "PIZZA_SHOP":     ["MILK", "TOMATO", "WHEAT"],
@@ -107,8 +113,23 @@ class Brain:
             self.P.update(params)
         self.reset()
 
+    def configure(self, config):
+        """Season geometry from the episode configuration, with engine defaults."""
+        tpd, steps = 24, 720
+        if config is not None:
+            try:
+                tpd = int(get_cfg(config, "turnsPerDay", 24) or 24)
+                steps = int(get_cfg(config, "episodeSteps", 720) or 720)
+            except Exception:
+                tpd, steps = 24, 720
+        self.turns_per_day = max(1, tpd)
+        self.total_days = max(1, steps // self.turns_per_day)
+        self.last_day = self.total_days - 1
+
     def reset(self):
         clear_caches()
+        self.configure(None)
+        self._configured = False
         self.day_seen = -1
         self._plan_key = None
         self._plan = []
@@ -202,7 +223,10 @@ class Brain:
         return rev / max(1.0, actions + 2.0), rev, units, actions
 
     # -------------------------------------------------------------- main entry
-    def act(self, obs):
+    def act(self, obs, config=None):
+        if config is not None and not getattr(self, "_configured", False):
+            self.configure(config)
+            self._configured = True
         P = self.P
         player = obs.get("player", 0)
         farms = obs.get("farms") or []
@@ -227,8 +251,8 @@ class Brain:
             self.day_seen = day
             self.targets = {}
             self.sold_today = {}
-        days_left = max(0, 29 - day)
-        self._final_day = (day >= 29)
+        days_left = max(0, self.last_day - day)
+        self._final_day = (day >= self.last_day)
 
         units = [tuple(me["farmer"])] + [tuple(p) for p in me["hands"]]
         while len(invs) < len(units):
@@ -237,7 +261,7 @@ class Brain:
         shed_set = set(sheds)
 
         self._n_shops = len(shops)
-        drain = self.drain_rate(shops)
+        drain = self.drain_rate(shops, self.turns_per_day)
         scan = self._scan(tiles, n)
         opp_pipe = self._pipeline(opp["tiles"]) if opp else {}
         my_pipe = self._pipeline(tiles)
@@ -524,9 +548,10 @@ class Brain:
         P = self.P
         out = []
         total_shed = sum(shed.values())
-        dumping = day >= P["endgame_dump_day"]
+        dump_day = min(P["endgame_dump_day"], max(1, self.last_day - 4))
+        dumping = day >= dump_day
         keep = P["keep_frac"]
-        if day >= P["endgame_dump_day"] - 2:
+        if day >= dump_day - 2:
             keep *= 0.5
         pressure = total_shed > P["shed_soft_cap"]
         for item in PRODUCTS:
@@ -588,7 +613,7 @@ class Brain:
         work += min(len(scan["empty"]), plantable) * 1.6
         work += len(scan["weeds"]) * 0.5
         work += len(scan["empty_struct"]) * 1.0
-        need = int(math.ceil(work * P["hire_overhead"] / 24.0)) - 1
+        need = int(math.ceil(work * P["hire_overhead"] / float(self.turns_per_day))) - 1
         if work <= 0 and (scan["empty"] or scan["weeds"]):
             need = max(need, 2)
         cap_hands = P["max_hands"]
@@ -609,7 +634,7 @@ class Brain:
         animal_gap = need_coop + need_past
         P = self.P
         tasks = []
-        turns_left = 24 - hour
+        turns_left = self.turns_per_day - hour
         center = (n // 2, n // 2)
 
         for (x, y, t) in scan["plants"]:

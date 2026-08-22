@@ -142,6 +142,32 @@ the competition rules on the website, then:
 kaggle competitions submit kaggriculture -f submission/main.py -m "v1"
 ```
 
+## Pre-submission checklist
+
+Run before every upload:
+
+```bash
+python build_submission.py && python bench/test_model.py
+```
+
+`build_submission.py` bundles and then plays a full episode, failing on any
+exception or a weak score. `bench/test_model.py` asserts the yield model still
+matches the engine.
+
+Two non-obvious things this bundle already handles:
+
+- **Kaggle's validation episode plays the agent against a copy of itself**, which
+  can share module state between both seats. The entry point keeps one planner
+  per `obs["player"]`; with a single shared planner the same episode dropped from
+  ~$96k to ~$87k.
+- **Season length comes from the configuration, not a constant.** With a
+  hardcoded 30-day season the agent scored $127 on a 240-step episode because it
+  planted 16-day crops that never matured and never reached its endgame dump.
+
+Verified across `boardSize` 8/12, `episodeSteps` 240/480/720, `turnsPerDay`
+12/24/48, starting money 500/3000/9000, `shedCapacity` 30, 10x weed rate,
+`maxMarketOrdersPerTurn` 3, and 50x hire cost — wins every one.
+
 ## Iterating from here
 
 The champion parameter vector lives in `champion.json` and is read by both

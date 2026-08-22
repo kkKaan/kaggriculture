@@ -26,14 +26,19 @@ def main():
         strip_local_imports(brain),
         "\nPARAMS = %r\n" % (params,),
         """
-_BRAIN = Brain(PARAMS)
+# One planner per seat: Kaggle's validation episode plays this agent against a
+# copy of itself, which may share module state between both players.
+_BRAINS = {}
 
 
 def agent(obs, config=None):
     try:
-        if obs.get("day", 0) == 0 and obs.get("hour", 0) == 0:
-            _BRAIN.reset()
-        return _BRAIN.act(obs)
+        p = obs.get("player", 0)
+        b = _BRAINS.get(p)
+        if b is None or (obs.get("day", 0) == 0 and obs.get("hour", 0) == 0):
+            b = Brain(PARAMS)
+            _BRAINS[p] = b
+        return b.act(obs, config)
     except Exception:
         try:
             import traceback
