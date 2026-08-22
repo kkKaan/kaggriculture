@@ -200,6 +200,28 @@ beats 2.16 by a wide margin:
 Animal tile-days rose 526 -> 640 and geese dropped to zero in favour of sheep and
 cows — the composition every strong opponent runs.
 
+### Land timing does not transfer
+
+High-Elo agents demonstrably stay on **one quadrant until day 10** with ~19 crop
+tiles and 11+ animals, then buy both remaining quadrants at once. Ours buys land
+on day 0 and runs ~65 crop tiles with ~9 animals.
+
+Tested as `land_min_day` at days 5, 8 and 10, alone and combined with forced
+early animals and a raised animal target. Every variant loses badly:
+
+| variant | winrate vs champion |
+|---|---|
+| land_min_day 5 | 72.5% (pool) |
+| land_min_day 5 + 4 early animals | 35.0% (pool) |
+| land_min_day 8 | 20.0% |
+| land_min_day 10 | 10.0% |
+| land_min_day 10 + animal_target 16 | 10.0% |
+
+These are two coherent economies: ours extracts value from crop tiles, theirs
+from animal density. Grafting one piece of theirs onto ours breaks the coherence.
+Adopting it properly would mean rebuilding the allocator around animal density,
+not changing a parameter.
+
 **Always validate against `bench/pool.py`, not just the mirror.** Note that
 `nowheat` (never planting wheat, buying all feed) scores 27.5% — growing your own
 feed is still necessary; the error was the *degree*.
