@@ -256,6 +256,7 @@ DEFAULTS = {
     "animal_target": 22,
     "land_buffer": 500,
     "land_min_day_left": 7,
+    "land_min_day": 0,      # never buy land before this day
     "land_free_gate": 26,
     "land_max": 3,
     "late_hands_day": 99,
@@ -483,6 +484,7 @@ class Brain:
         bought = len(me["unlocked_quadrants"]) - 1
         land_cost = 0
         if (not self._final_day and bought < P["land_max"]
+                and day >= P["land_min_day"]
                 and days_left >= P["land_min_day_left"] + 3 * bought):
             c = LAND_PRICES[bought]
             est = P["land_seed_per_tile"] * min(free + 25, 50)
