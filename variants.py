@@ -168,6 +168,10 @@ add("revC", value_scaled_care=1)
 add("revD", long_frac_min=0.7055, drop_threshold=9)
 add("revE", disc_poor=0.9297)
 add("aT14", animal_target=14)
+add("field2", house_stranded=1, animals_first=1, build_urgent=320.0,
+    early_animals=4, early_animal_day=1, land_min_day=5, animal_target=16)
+add("field", house_stranded=1, build_urgent=320.0, early_animals=4,
+    early_animal_day=1, land_min_day=5, animal_target=16)
 add("orig",   house_stranded=0, build_urgent=100.0)
 add("houseonly", build_urgent=100.0)
 add("urgentonly", house_stranded=0)

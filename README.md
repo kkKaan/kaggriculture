@@ -246,6 +246,41 @@ earlier `early_animals` test was invalid — it never actually placed animals on
 day 0). Even with housing forced on, the agent places 0 animals on day 0 against
 their 4, and the variant still loses at 15%.
 
+### The field's opening needs a redesign, not parameters
+
+A corpus of 16 top-agent games (`data/top_agent_summaries.json`) shows a
+remarkably uniform meta:
+
+| | field (16/16 games) | ours |
+|---|---|---|
+| animals placed on day 0 | **exactly 4, every game** | 1 |
+| 2nd quadrant | day 5-6 | day 0 |
+| 3rd quadrant | day 9-11 | day 11-15 |
+| peak animals | 14-23 | 10-11 |
+| idle turns | 3-11% | 15% |
+
+Five of those opponents share byte-identical statistics (6914 actions, land on
+[6,11]) — a widely-copied public baseline. The rank-1 agent runs the same
+template with better execution (land [5,10], ~7280 actions, 3-5% idle).
+
+Replicating it failed three times, each for a different concrete reason:
+
+1. Animals bought but never placed — `room` subtracts shed animals from
+   `animal_target`, so housing never gets built.
+2. Fixed that; still 2 animals by day 5 — `BUY_SEED` is emitted before
+   `BUY_ANIMAL`, so seeds consume the day-0 cash (`animals_first` param added).
+3. Fixed that; 3 animals placed by day 1, **down to 1 by day 3** — they starve.
+   Spending the full $3000 on animals and seeds leaves nothing for feed wheat,
+   and an animal escapes after two unfed days.
+
+Their opening budgets purchases, feed supply and placement speed *together*;
+our allocator optimises each independently. That is an allocator redesign.
+The best replica scores $77-87k against the champion's $100-117k.
+
+Raising `animal_target` 11 -> 14 is exactly 50.0% over 60 mirror games, and
+measurement shows why: peak animals barely move (11->12, 13->15, 8->8, 8->7)
+because the cap was never binding — cash and tiles are. Wool even drops 65 -> 58.
+
 **Always validate against `bench/pool.py`, not just the mirror.** Note that
 `nowheat` (never planting wheat, buying all feed) scores 27.5% — growing your own
 feed is still necessary; the error was the *degree*.

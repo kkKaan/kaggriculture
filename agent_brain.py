@@ -84,6 +84,7 @@ DEFAULTS = {
     "final_run_slack": 3,
     "fert_fetch": 1,
     "build_urgent": 100.0,   # tested: raising this to 320 loses 20.8%
+    "animals_first": 0,      # order BUY_ANIMAL ahead of BUY_SEED
     "house_stranded": 0,     # tested: housing surplus shed animals loses 29.2%
     "dig_spent": 0,        # tested: clears rot but costs more than the tile returns
     "dig_spent_value": 45.0,
@@ -538,14 +539,16 @@ class Brain:
         if not scan["plants"] and len(scan["empty"]) > 0:
             floor = 0.0
         budget = max(0.0, money - floor)
+        seed_orders = []
         for c, k in sorted(need.items(), key=lambda kv: -CROPS[kv[0]]["seed"]):
             k -= seeds.get(c, 0)
             cost = CROPS[c]["seed"]
             k = min(k, int(budget // cost))
             if k > 0:
-                tail.append(["BUY_SEED", c, k])
+                seed_orders.append(["BUY_SEED", c, k])
                 budget -= k * cost
 
+        animal_orders = []
         if buys and not self._final_day:
             want = {}
             for a in buys:
@@ -553,7 +556,11 @@ class Brain:
             for a, k in sorted(want.items(), key=lambda kv: -ANIMALS[kv[0]]["cost"]):
                 k = min(k - shed.get(a, 0), 4)
                 if k > 0:
-                    tail.append(["BUY_ANIMAL", a, k])
+                    animal_orders.append(["BUY_ANIMAL", a, k])
+        if P["animals_first"]:
+            tail.extend(animal_orders); tail.extend(seed_orders)
+        else:
+            tail.extend(seed_orders); tail.extend(animal_orders)
 
         n_animals = scan["n_animals"]
         if n_animals:
