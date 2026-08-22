@@ -286,6 +286,8 @@ DEFAULTS = {
     "fert_fetch": 1,
     "dig_spent": 0,        # tested: clears rot but costs more than the tile returns
     "dig_spent_value": 45.0,
+    "animal_mu_scale": 1.0,
+    "no_grow": (),          # crops to never plant (buy them instead)
     "early_animals": 0,    # tested: forcing day-0 animals loses badly (19-31%)
     "early_animal_day": 3,
     "early_harvest": 1,
@@ -614,6 +616,8 @@ class Brain:
             best_crop = None
             if tiles_left > 0:
                 for crop in CROPS:
+                    if crop in P["no_grow"]:
+                        continue
                     c = CROPS[crop]["seed"]
                     if c > budget:
                         continue
@@ -643,7 +647,7 @@ class Brain:
                         continue
                     setup = 1.0 if free_slot > 0 else 2.0
                     sc = (r[1] * (disc ** ANIMALS[a]["first_yield_day"])) / (
-                        r[3] + setup + mu * eff)
+                        r[3] + setup + mu * P["animal_mu_scale"] * eff)
                     if best_animal is None or sc > best_animal[0]:
                         best_animal = (sc, a, r[2], eff)
 
@@ -1203,7 +1207,7 @@ class Brain:
         return ["PASS"]
 
 
-PARAMS = {'animal_target': 11, 'cap_lambda': 0.0, 'cap_mu': 2.1598, 'cap_mu_ref': 7.2539, 'disc_poor': 0.9586, 'dist_decay': 0.6, 'drop_threshold': 9, 'endgame_dump_day': 25, 'fert_min_gain': 1000000000.0, 'fetch_value': 116.818, 'final_run_slack': 6, 'future_shop_weight': 1.725, 'hire_overhead': 3.5, 'hire_per_turn': 3, 'hold_bonus': 0.75, 'keep_frac': 0.24, 'keep_frac_premium': 0.0516, 'land_buffer': 500, 'land_buffer_per_tile': 0.0, 'land_max': 2, 'long_frac_min': 0.753, 'max_hands': 12, 'mirror': 0.45, 'operating_per_tile': 8.0, 'opp_weight': 1.0, 'rush_window': 4, 'sell_orders_head': 5, 'sticky_bonus': 1.0, 'use_zones': 0, 'value_scaled_care': 1, 'wheat_reserve_days': 0.5}
+PARAMS = {'animal_target': 11, 'cap_lambda': 0.0, 'cap_mu': 1.4, 'cap_mu_ref': 7.2539, 'disc_poor': 0.9586, 'dist_decay': 0.6, 'drop_threshold': 9, 'endgame_dump_day': 25, 'fert_min_gain': 1000000000.0, 'fetch_value': 116.818, 'final_run_slack': 6, 'future_shop_weight': 1.725, 'hire_overhead': 3.5, 'hire_per_turn': 3, 'hold_bonus': 0.75, 'keep_frac': 0.24, 'keep_frac_premium': 0.0516, 'land_buffer': 500, 'land_buffer_per_tile': 0.0, 'land_max': 2, 'long_frac_min': 0.753, 'max_hands': 12, 'mirror': 0.45, 'operating_per_tile': 8.0, 'opp_weight': 1.0, 'rush_window': 4, 'sell_orders_head': 5, 'sticky_bonus': 1.0, 'use_zones': 0, 'value_scaled_care': 1, 'wheat_reserve_days': 0.5}
 
 
 # One planner per seat: Kaggle's validation episode plays this agent against a

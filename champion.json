@@ -1,7 +1,7 @@
 {
  "animal_target": 11,
  "cap_lambda": 0.0,
- "cap_mu": 2.1598,
+ "cap_mu": 1.4,
  "cap_mu_ref": 7.2539,
  "disc_poor": 0.9586,
  "dist_decay": 0.6,

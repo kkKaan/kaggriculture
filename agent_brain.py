@@ -84,6 +84,8 @@ DEFAULTS = {
     "fert_fetch": 1,
     "dig_spent": 0,        # tested: clears rot but costs more than the tile returns
     "dig_spent_value": 45.0,
+    "animal_mu_scale": 1.0,
+    "no_grow": (),          # crops to never plant (buy them instead)
     "early_animals": 0,    # tested: forcing day-0 animals loses badly (19-31%)
     "early_animal_day": 3,
     "early_harvest": 1,
@@ -412,6 +414,8 @@ class Brain:
             best_crop = None
             if tiles_left > 0:
                 for crop in CROPS:
+                    if crop in P["no_grow"]:
+                        continue
                     c = CROPS[crop]["seed"]
                     if c > budget:
                         continue
@@ -441,7 +445,7 @@ class Brain:
                         continue
                     setup = 1.0 if free_slot > 0 else 2.0
                     sc = (r[1] * (disc ** ANIMALS[a]["first_yield_day"])) / (
-                        r[3] + setup + mu * eff)
+                        r[3] + setup + mu * P["animal_mu_scale"] * eff)
                     if best_animal is None or sc > best_animal[0]:
                         best_animal = (sc, a, r[2], eff)
 

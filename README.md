@@ -169,6 +169,41 @@ and our capital allocator has good reasons to buy animals later.
 
 The one gap still unexplained is idle time: they PASS 5-7% of turns, we PASS 15%.
 
+## The real finding: mirror self-play mis-tunes capital
+
+Three lost ladder games (episodes 96907293, 96911898, 96918784) showed our agent
+producing 2-7x more **wheat** than the winners while producing far less wool,
+milk and egg:
+
+| product | bsenst | us | Dread | us | Bushel | us |
+|---|---|---|---|---|---|---|
+| WHEAT | 121 | **223** | 186 | **300** | 38 | **275** |
+| MILK | 230 | 206 | 216 | **111** | 252 | 205 |
+| WOOL | 168 | **33** | 48 | 60 | 71 | **30** |
+| EGG | 0 | 42 | 171 | **0** | 0 | 39 |
+
+Wheat is the cheapest product in the game. The cause was `cap_mu`, the capital
+penalty that biases the allocator toward cheap seeds when cash is short — it had
+been tuned to 2.16 **in mirror self-play**, which is a biased instrument: when
+both sides build cows, milk crashes, so the mirror concludes cows are bad and
+wheat is safe. A real ladder is diverse and never floods uniformly.
+
+Re-tuned against a pool of dissimilar opponents (`bench/pool.py`), `cap_mu` 1.4
+beats 2.16 by a wide margin:
+
+| | pool base 8400 | pool base 9000 |
+|---|---|---|
+| cap_mu 2.16 (old) | 78.6% | 90.0% |
+| cap_mu 1.0 | 96.4% | 92.5% |
+| **cap_mu 1.4** | **97.5%** | **100.0%** |
+
+Animal tile-days rose 526 -> 640 and geese dropped to zero in favour of sheep and
+cows — the composition every strong opponent runs.
+
+**Always validate against `bench/pool.py`, not just the mirror.** Note that
+`nowheat` (never planting wheat, buying all feed) scores 27.5% — growing your own
+feed is still necessary; the error was the *degree*.
+
 ## Pre-submission checklist
 
 Run before every upload:
