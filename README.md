@@ -142,6 +142,33 @@ the competition rules on the website, then:
 kaggle competitions submit kaggriculture -f submission/main.py -m "v1"
 ```
 
+## Learned from a top-agent replay
+
+Episode 96870933, Ryo Hasegawa (rank 1) vs Subramanya N (rank 3), $99,534 vs
+$100,127. Our agent scores ~$95k in self-play on the same seed, so the same
+league — though not directly comparable, since the opponent and the random shop
+draw both differ.
+
+**Independently converged on the same answers.** Both leaders run exactly three
+quadrants, cap at exactly twelve hands, build on strawberry + wheat + cows and
+sheep, and neither uses geese at all. The land and hiring tuning here reached
+those numbers from measurement alone.
+
+**Three visible differences, all three tested, all three rejected:**
+
+| Their behaviour | Hypothesis | Result |
+|---|---|---|
+| WATER 16-17% vs our 13% | daily watering is safer than alternate-day | rejected before coding — neglect deaths are 3 for us, 0 and 6 for them |
+| 15-41 plants left to rot vs our 57 | clearing spent crops frees tiles | implemented; rot 56 -> 36/game, score *down* $89.8k -> $88.6k |
+| 4 animals on day 0 vs our 1 | animals should start compounding sooner | 18.8% (4 animals) and 31.2% (2 animals) winrate |
+
+Both features are kept in the code behind `dig_spent` and `early_animals`,
+defaulted off, so the measurement isn't repeated. The lesson: surface behaviour
+of a strong agent is not transferable — those choices work inside their strategy,
+and our capital allocator has good reasons to buy animals later.
+
+The one gap still unexplained is idle time: they PASS 5-7% of turns, we PASS 15%.
+
 ## Pre-submission checklist
 
 Run before every upload:

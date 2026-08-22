@@ -284,6 +284,10 @@ DEFAULTS = {
     "hold_bonus": 1.0,
     "final_run_slack": 3,
     "fert_fetch": 1,
+    "dig_spent": 0,        # tested: clears rot but costs more than the tile returns
+    "dig_spent_value": 45.0,
+    "early_animals": 0,    # tested: forcing day-0 animals loses badly (19-31%)
+    "early_animal_day": 3,
     "early_harvest": 1,
     "rush_window": 3,
     "rush_sell": 1,
@@ -588,6 +592,7 @@ class Brain:
 
         have_animals = scan["n_animals"] + sum(shed.get(a, 0) for a in ANIMALS)
         room = max(0, P["animal_target"] - have_animals - free_coop - free_past)
+        room = max(room, P["early_animals"] - have_animals if day <= P["early_animal_day"] else 0)
         pend = {a: shed.get(a, 0) for a in ANIMALS}
 
         pipe = dict(my_pipe)
@@ -642,7 +647,11 @@ class Brain:
                     if best_animal is None or sc > best_animal[0]:
                         best_animal = (sc, a, r[2], eff)
 
-            if best_animal and (best_crop is None or best_animal[0] > best_crop[0]):
+            force_animal = (P["early_animals"] > 0 and day <= P["early_animal_day"]
+                            and best_animal is not None
+                            and len(animals_out) + have_animals < P["early_animals"])
+            if best_animal and (force_animal or best_crop is None
+                                or best_animal[0] > best_crop[0]):
                 _, a, units, eff = best_animal
                 animals_out.append(a)
                 budget -= eff
@@ -930,6 +939,17 @@ class Brain:
             yu = t.get("yield_units", 0)
             if yu > 0 and (yu + gain > a["max_held"] or days_left <= 1 or days_left <= 0):
                 tasks.append((min(400.0, pprice * yu * 0.8), x, y, "HARVEST", None))
+
+        if P["dig_spent"]:
+            for (x, y, t) in scan["plants"]:
+                cd = CROPS[t["crop"]]
+                if not cd["ongoing"]:
+                    continue
+                if t.get("max_lifespan_step", -1) < 0 or t.get("yield_units", 0) > 0:
+                    continue
+                if days_left <= 3:
+                    continue
+                tasks.append((P["dig_spent_value"], x, y, "DIG", None))
 
         buy_pending = sum(shed.get(a, 0) for a in ANIMALS) > 0 or animal_gap > 0
         digval = 30.0 if (days_left > 4 and len(scan["empty"]) < 12) else 12.0
