@@ -92,3 +92,6 @@ round 14 (147s) best=75.0% {'hire_per_turn': 2, 'land_buffer': 657.985}
    anchor:  38.8% W31 L49 T0
    rejected vs anchor (drift guard)
 round 15 (156s) best=54.2% {'max_hands': 11, 'cash_target': 2963.0513}
+=== evolve start 12:48:38 rounds=40 pop=6 ===
+round 0 (307s) best=66.7% {'rush_sell': 1, 'cash_target': 4698.0102}
+   confirm: 60.0% W44 L28 T8 mean=$101,459
