@@ -176,6 +176,7 @@ add("rival",  wheat_cash_floor=20.0, animals_first=1, house_stranded=1,
 add("rival_nl", wheat_cash_floor=20.0, animals_first=1, house_stranded=1,
     build_urgent=320.0, early_animals=5, early_animal_day=1, animal_target=16)
 add("nofe",  fert_early=0)
+add("oldfetch", fetch_needs_home=0)
 add("wcf20", wheat_cash_floor=20.0)
 add("wcf40", wheat_cash_floor=40.0)
 add("nofe_wcf20", fert_early=0, wheat_cash_floor=20.0)

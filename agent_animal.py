@@ -49,6 +49,27 @@ ANIMAL_DEFAULTS.update({
     "fetch_animal_slots": 4,
     "fert_early": 1,
     "land_max": 2,
+    "use_zones": 0,      # DEFAULTS still has 1; the champion overrides it and the
+                         # zoning path is both slower and measurably worse
+    "dist_decay": 1.2,
+    "sticky_bonus": 1.0,
+    "cap_mu": 1.4,
+    "disc_poor": 0.9586,
+    "keep_frac": 0.24,
+    "keep_frac_premium": 0.0516,
+    "future_shop_weight": 1.725,
+    "hire_overhead": 3.5,
+    "hire_per_turn": 3,
+    "long_frac_min": 0.7145,
+    "endgame_dump_day": 25,
+    "final_run_slack": 6,
+    "mirror": 0.45,
+    "opp_weight": 1.0,
+    "drop_threshold": 9,
+    "wheat_reserve_days": 0.5,
+    "hold_bonus": 0.75,
+    "value_scaled_care": 1,
+    "max_hands": 12,
 })
 
 
@@ -110,8 +131,12 @@ class AnimalBrain(Brain):
             i += 1
 
         # Fill the rest of the quadrant with fast, cheap crops; melon for the
-        # one big payday, wheat because the animals eat it.
-        slots = max(0, len(scan["empty"]) - len(animals_out))
+        # one big payday, wheat because the animals eat it. Reserve tiles for
+        # every animal still needing a home, including any already in the shed,
+        # or the whole quadrant gets planted and they can never be placed.
+        homes_needed = (len(animals_out) + shed.get("COW", 0)
+                        + shed.get("SHEEP", 0) + shed.get("GOOSE", 0))
+        slots = max(0, len(scan["empty"]) - homes_needed)
         crops_out = []
         for _ in range(slots):
             pick = None
