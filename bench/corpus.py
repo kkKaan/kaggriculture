@@ -49,7 +49,7 @@ for path in sorted(glob.glob("replays/raw/*.json")):
         del d; gc.collect(); continue
     me = names.index(ME); opp = 1 - me
     rows.append(dict(
-        ep=os.path.basename(path).split(".")[0],
+        ep=os.path.basename(path).split(".")[0].replace("episode-", "").replace("-replay", ""),
         opponent=names[opp],
         us=d["rewards"][me], them=d["rewards"][opp],
         win=d["rewards"][me] > d["rewards"][opp],
