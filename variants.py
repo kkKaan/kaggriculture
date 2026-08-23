@@ -169,6 +169,18 @@ add("revD", long_frac_min=0.7055, drop_threshold=9)
 add("revE", disc_poor=0.9297)
 add("aT14", animal_target=14)
 add("fieldmix", no_animal=("GOOSE",), animal_target=16)
+# full replica of the rival's coherent opening, now that animals can survive it
+add("rival",  wheat_cash_floor=20.0, animals_first=1, house_stranded=1,
+    build_urgent=320.0, early_animals=5, early_animal_day=1,
+    land_min_day=5, animal_target=16)
+add("rival_nl", wheat_cash_floor=20.0, animals_first=1, house_stranded=1,
+    build_urgent=320.0, early_animals=5, early_animal_day=1, animal_target=16)
+add("nofe",  fert_early=0)
+add("wcf20", wheat_cash_floor=20.0)
+add("wcf40", wheat_cash_floor=40.0)
+add("nofe_wcf20", fert_early=0, wheat_cash_floor=20.0)
+add("fe_wcf20", wheat_cash_floor=20.0)
+add("fe_wcf20_T16", wheat_cash_floor=20.0, animal_target=16)
 add("fieldmix14", no_animal=("GOOSE",), animal_target=14)
 for _cm in (1.4, 1.0, 0.7, 0.4):
     VARIANTS["cm%d_T16" % round(_cm*10)] = d(cap_mu=_cm, animal_target=16)

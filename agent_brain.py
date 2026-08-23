@@ -7,6 +7,10 @@ from agent_core import (
     expected_units, harvest_day, watering_days, water_window, clear_caches,
 )
 
+def a_fyd(animal):
+    return ANIMALS[animal]["first_yield_day"]
+
+
 def get_cfg(cfg, key, default):
     if isinstance(cfg, dict):
         return cfg.get(key, default)
@@ -85,6 +89,9 @@ DEFAULTS = {
     "fert_fetch": 1,
     "build_urgent": 100.0,   # tested: raising this to 320 loses 20.8%
     "feed_days": 0.0,       # cash withheld per animal to buy feed wheat
+    "fert_early": 0,        # tested: discounting fertiliser from day 1 loses 45.8%
+                            # in mirror despite being what the rival does
+    "wheat_cash_floor": 150.0,  # cash kept back when buying feed wheat
     "animals_first": 0,      # order BUY_ANIMAL ahead of BUY_SEED
     "house_stranded": 0,     # tested: housing surplus shed animals loses 29.2%
     "dig_spent": 0,        # tested: clears rot but costs more than the tile returns
@@ -228,11 +235,12 @@ class Brain:
         fert_price = self._batch_price("FERTILIZER", fert_units, minv, drain, 1,
                                        pipe.get("FERTILIZER", 0))
         wheat_price = self._price_at("WHEAT", minv, drain, 0)
-        rev = (units * price + fert_units * fert_price * 0.85
+        fert_rev = fert_units * fert_price * 0.85
+        rev = (units * price + fert_rev
                - (days_left - 1) * wheat_price - a["cost"])
         actions = ((days_left - 1) * (3.0 + rate / a["max_held"] * a["interval"])
                    * self.P["animal_move_mult"])
-        return rev / max(1.0, actions + 2.0), rev, units, actions
+        return rev / max(1.0, actions + 2.0), rev, units, actions, fert_rev
 
     # -------------------------------------------------------------- main entry
     def act(self, obs, config=None):
@@ -455,8 +463,15 @@ class Brain:
                     if r is None or r[1] <= 0:
                         continue
                     setup = 1.0 if free_slot > 0 else 2.0
-                    sc = (r[1] * (disc ** ANIMALS[a]["first_yield_day"])) / (
-                        r[3] + setup + mu * P["animal_mu_scale"] * eff)
+                    if P["fert_early"]:
+                        # Fertiliser is collected daily from day 1; only the milk /
+                        # wool / egg stream waits for first_yield_day.
+                        fert_rev = r[4]
+                        disc_rev = ((r[1] - fert_rev) * (disc ** a_fyd(a))
+                                    + fert_rev * disc)
+                    else:
+                        disc_rev = r[1] * (disc ** a_fyd(a))
+                    sc = disc_rev / (r[3] + setup + mu * P["animal_mu_scale"] * eff)
                     if best_animal is None or sc > best_animal[0]:
                         best_animal = (sc, a, r[2], eff)
 
@@ -575,7 +590,7 @@ class Brain:
             wprice = market_price("WHEAT", minv.get("WHEAT", 10000) - 1)
             if wheat_have < wheat_reserve and wprice <= P["wheat_buy_max"]:
                 k = wheat_reserve - wheat_have
-                k = min(k, int(max(0.0, money - 150) // max(1, wprice)))
+                k = min(k, int(max(0.0, money - P["wheat_cash_floor"]) // max(1, wprice)))
                 if k > 0:
                     tail.append(["BUY_PRODUCT", "WHEAT", k])
         return head + tail + spill
