@@ -69,6 +69,7 @@ DEFAULTS = {
     "mirror": 0.0,
     "fetch_value": 130.0,
     "fetch_animal_value": 190.0,   # collecting a bought animal from the shed
+    "place_value": 220.0,          # putting a carried animal onto its structure
     "fetch_animal_slots": 2,       # how many units may be sent on that errand
     "fetch_needs_home": 1,         # only fetch an animal if a structure is ready
     "fert_min_gain": 15.0,
@@ -829,14 +830,17 @@ class Brain:
                     held[a] = held.get(a, 0) + iv[a]
         idle_struct = 0
         for (x, y, kind) in scan["empty_struct"]:
+            # Prefer a species a unit is actually carrying: emitting PLACE_COW
+            # while the nearby unit holds a sheep leaves both stuck.
             best = None
-            for aname, ad in ANIMALS.items():
-                if ad["structure"] != kind:
-                    continue
-                if not (held.get(aname, 0) or shed.get(aname, 0)):
-                    continue
-                if best is None or ad["cost"] > ANIMALS[best]["cost"]:
-                    best = aname
+            for src in (held, shed):
+                for aname, ad in ANIMALS.items():
+                    if ad["structure"] != kind or not src.get(aname, 0):
+                        continue
+                    if best is None or ad["cost"] > ANIMALS[best]["cost"]:
+                        best = aname
+                if best is not None:
+                    break
             if best is None:
                 idle_struct += 1
             else:

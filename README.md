@@ -4,6 +4,29 @@ Agent for the Kaggle [Kaggriculture](https://www.kaggle.com/competitions/kaggric
 simulation competition: a two-player, 720-turn farming/market game where the
 winner is whoever has the most coins after 30 in-game days.
 
+## Where this actually stands
+
+Six submissions, six ratings: 836.5, 822.8, 816.2, 810.4, 804.2, 799.2. Crop
+economy, animal economy, retuned capital, no geese - all land in the same
+30-point band while rank 1 sits at 3135. **No offline improvement has ever moved
+the ladder rating.**
+
+Margin analysis over 209 of our games against 29 of rank 1's and 51 of Crop
+Dusta's:
+
+| agent | win% | median margin | sd | p10 |
+|---|---|---|---|---|
+| us | 56.0% | +$3,979 | 26,760 | -$24,176 |
+| Crop Dusta | 80.4% | +$9,198 | 23,006 | -$4,837 |
+| Ryo (rank 1) | 93.1% | +$11,437 | 24,833 | +$548 |
+
+Variance is the same for everyone. The gap is purely mean margin, and rank 1's
+own score ($104k) is only ~9% above ours ($95k). The target is about **$9-10k
+more output per game**, not a different game.
+
+Note winrate converges to 50% by construction as Elo raises you to your level -
+compare submissions by *rating*, or by winrate over the same early game count.
+
 ## Timeline
 
 - 2026-09-23 — entry and team-merger deadline (rules must be accepted by then)

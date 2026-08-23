@@ -304,7 +304,22 @@ for v in (0.9, 1.6, 2.2, 3.0, 5.0, 9.0):
 _SUB = None
 
 
-ANIMAL_VARIANTS = {"animal": {}}
+ANIMAL_VARIANTS = {
+    "animal": {},
+    "animal_w8":  {"wheat_tiles": 8},
+    "animal_w14": {"wheat_tiles": 14},
+    "animal_w20": {"wheat_tiles": 20},
+    "a_lc50":  {"land_min_cash": 50.0},
+    "a_lc0":   {"land_min_cash": 0.0},
+    "a_open4": {"open_animals": 4},
+    "a_open6": {"open_animals": 6},
+    "a_open7": {"open_animals": 7},
+    "a_T18":   {"animal_target": 18},
+    "a_T12":   {"animal_target": 12},
+    "a_T10":   {"animal_target": 10},
+    "a_oldplace": {"place_value": 220.0, "fetch_needs_home": 0},
+    "a_T14":   {"animal_target": 14},
+}
 
 
 def make_animal(name):

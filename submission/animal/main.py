@@ -271,6 +271,7 @@ DEFAULTS = {
     "mirror": 0.0,
     "fetch_value": 130.0,
     "fetch_animal_value": 190.0,   # collecting a bought animal from the shed
+    "place_value": 220.0,          # putting a carried animal onto its structure
     "fetch_animal_slots": 2,       # how many units may be sent on that errand
     "fetch_needs_home": 1,         # only fetch an animal if a structure is ready
     "fert_min_gain": 15.0,
@@ -1031,14 +1032,17 @@ class Brain:
                     held[a] = held.get(a, 0) + iv[a]
         idle_struct = 0
         for (x, y, kind) in scan["empty_struct"]:
+            # Prefer a species a unit is actually carrying: emitting PLACE_COW
+            # while the nearby unit holds a sheep leaves both stuck.
             best = None
-            for aname, ad in ANIMALS.items():
-                if ad["structure"] != kind:
-                    continue
-                if not (held.get(aname, 0) or shed.get(aname, 0)):
-                    continue
-                if best is None or ad["cost"] > ANIMALS[best]["cost"]:
-                    best = aname
+            for src in (held, shed):
+                for aname, ad in ANIMALS.items():
+                    if ad["structure"] != kind or not src.get(aname, 0):
+                        continue
+                    if best is None or ad["cost"] > ANIMALS[best]["cost"]:
+                        best = aname
+                if best is not None:
+                    break
             if best is None:
                 idle_struct += 1
             else:
@@ -1309,11 +1313,14 @@ ANIMAL_DEFAULTS.update({
     "land_min_cash": 200.0,   # cash to keep back after buying land
     # steady state
     "animal_target": 15,
+    "wheat_tiles": 0,   # tiles reserved for wheat: feed we grow is feed we do not
+                        # buy, and buying drives the scarcity price up on ourselves
     "wheat_cash_floor": 10.0,
     "animals_first": 1,
     "house_stranded": 1,
     "build_urgent": 340.0,
     "fetch_animal_value": 460.0,   # an unplaced animal is $400-500 doing nothing
+    "place_value": 700.0,          # and it earns nothing until it is on a tile
     "fetch_animal_slots": 4,
     "fert_early": 1,
     "land_max": 2,
@@ -1374,8 +1381,19 @@ class AnimalBrain(Brain):
                     day, hour, money, shed):
         P = self.P
         if day >= P["open_days"]:
-            return Brain._alloc_farm(self, scan, minv, drain, days_left,
-                                     my_pipe, opp_pipe, day, hour, money, shed)
+            res = Brain._alloc_farm(self, scan, minv, drain, days_left,
+                                    my_pipe, opp_pipe, day, hour, money, shed)
+            n_wheat = P["wheat_tiles"]
+            if n_wheat and days_left > harvest_day("WHEAT"):
+                crops, animals, nc, npa = res
+                growing = scan["crop_counts"].get("WHEAT", 0)
+                short = n_wheat - growing
+                if short > 0 and crops:
+                    # replace the lowest-priority planned crops with wheat
+                    keep = max(0, len(crops) - short)
+                    crops = crops[:keep] + ["WHEAT"] * min(short, len(crops) - keep)
+                    res = (crops, animals, nc, npa)
+            return res
 
         # --- forced opening: animals first, then whatever seeds the rest buys
         free_coop = sum(1 for _, _, k in scan["empty_struct"] if k == "COOP")
