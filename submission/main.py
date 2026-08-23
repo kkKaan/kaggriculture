@@ -286,6 +286,7 @@ DEFAULTS = {
     "final_run_slack": 3,
     "fert_fetch": 1,
     "build_urgent": 100.0,   # tested: raising this to 320 loses 20.8%
+    "feed_days": 0.0,       # cash withheld per animal to buy feed wheat
     "animals_first": 0,      # order BUY_ANIMAL ahead of BUY_SEED
     "house_stranded": 0,     # tested: housing surplus shed animals loses 29.2%
     "dig_spent": 0,        # tested: clears rot but costs more than the tile returns
@@ -600,6 +601,7 @@ class Brain:
         have_animals = scan["n_animals"] + sum(shed.get(a, 0) for a in ANIMALS)
         room = max(0, P["animal_target"] - have_animals - free_coop - free_past)
         room = max(room, P["early_animals"] - have_animals if day <= P["early_animal_day"] else 0)
+        wheat_px = market_price("WHEAT", minv.get("WHEAT", 10000) - 1)
         in_shed = {a: shed.get(a, 0) for a in ANIMALS}
         pend = dict(in_shed)
 
@@ -664,7 +666,9 @@ class Brain:
                                 or best_animal[0] > best_crop[0]):
                 _, a, units, eff = best_animal
                 animals_out.append(a)
-                budget -= eff
+                # An unfed animal escapes after two days, so reserve its feed
+                # money at purchase time rather than discovering the shortfall later.
+                budget -= eff + P["feed_days"] * wheat_px
                 if pend.get(a, 0) > 0:
                     pend[a] -= 1
                 prod = ANIMALS[a]["product"]
