@@ -281,6 +281,35 @@ Raising `animal_target` 11 -> 14 is exactly 50.0% over 60 mirror games, and
 measurement shows why: peak animals barely move (11->12, 13->15, 8->8, 8->7)
 because the cap was never binding — cash and tiles are. Wool even drops 65 -> 58.
 
+### The benchmark cannot discriminate — this is the real blocker
+
+Seven v2 ladder losses against opponents at our own rating (~830 Elo):
+
+| | opponents (7) | us (v2) |
+|---|---|---|
+| animals on day 0 | 3-6 | **1** |
+| peak animals | 9-18 (median 14) | 9-12 (median 10) |
+| land bought | day 6-11 | **day 0** |
+| geese | **none, all seven** | 24-50 tile-days |
+
+Every one of those field-consensus behaviours measures neutral or negative here:
+
+| change | local measurement |
+|---|---|
+| exclude geese (`no_animal`) | 47.5% over 40 games |
+| animal_target 11 -> 14 | 50.0% over 60 games |
+| delay land to day 5 / 8 / 10 | 72.5% / 20.0% / 10.0% |
+| 4 animals on day 0 | 15-35% |
+| reserve feed cash (`feed_days`) | loses, fewer animals |
+
+v2 measured **+79%** over v1 head-to-head and +19 points on the pool, yet the
+ladder shows it still losing to ~830-rated opponents. The local environment
+(mirror + synthetic archetypes) reaches a different market equilibrium from the
+real ladder, so local winrate is not predicting ladder winrate.
+
+Further parameter tuning against this benchmark is not expected to help. The
+prerequisite is an opponent model calibrated to real replays.
+
 **Always validate against `bench/pool.py`, not just the mirror.** Note that
 `nowheat` (never planting wheat, buying all feed) scores 27.5% — growing your own
 feed is still necessary; the error was the *degree*.

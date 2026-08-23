@@ -91,6 +91,7 @@ DEFAULTS = {
     "dig_spent_value": 45.0,
     "animal_mu_scale": 1.0,
     "no_grow": (),          # crops to never plant (buy them instead)
+    "no_animal": (),        # animal species to never buy
     "early_animals": 0,    # tested: forcing day-0 animals loses badly (19-31%)
     "early_animal_day": 3,
     "early_harvest": 1,
@@ -440,6 +441,8 @@ class Brain:
             best_animal = None
             if room + open_coop + open_past > len(animals_out):
                 for a in ANIMALS:
+                    if a in P["no_animal"]:
+                        continue
                     cost = ANIMALS[a]["cost"]
                     struct = ANIMALS[a]["structure"]
                     free_slot = open_coop if struct == "COOP" else open_past

@@ -168,6 +168,8 @@ add("revC", value_scaled_care=1)
 add("revD", long_frac_min=0.7055, drop_threshold=9)
 add("revE", disc_poor=0.9297)
 add("aT14", animal_target=14)
+add("nogoose", no_animal=("GOOSE",))
+add("nogoose_aT14", no_animal=("GOOSE",), animal_target=14)
 for _fd in (2.0, 4.0, 6.0):
     VARIANTS["fd%d" % _fd] = d(feed_days=_fd)
 # animal-first opening: buy animals before seeds, house them fast, hold feed cash
