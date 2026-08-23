@@ -27,23 +27,21 @@ def main():
               "~/.kaggle/access_token (chmod 600).")
         return 1
     os.makedirs(RAW, exist_ok=True)
-    subs = run("competitions", "submissions", COMP)
-    print(subs.stdout or subs.stderr)
-    ids = []
-    for line in subs.stdout.splitlines():
-        tok = line.split()
-        if tok and tok[0].isdigit():
-            ids.append(tok[0])
+    ids = sys.argv[1:]
     if not ids:
-        print("Could not parse submission ids; paste them as arguments instead.")
-        ids = sys.argv[1:]
+        subs = run("competitions", "submissions", COMP)
+        for line in subs.stdout.splitlines():
+            tok = line.split()
+            if tok and tok[0].isdigit() and len(tok[0]) >= 8:
+                ids.append(tok[0])
+    print("submissions:", ids)
     have = {os.path.basename(p).split(".")[0] for p in glob.glob(RAW + "/*.json")}
     fetched = 0
     for sid in ids:
-        eps = run("competitions", "episodes", sid, "-v")
+        eps = run("competitions", "episodes", sid)
         for line in eps.stdout.splitlines():
-            tok = line.split(",")
-            if tok and tok[0].isdigit():
+            tok = line.split()
+            if tok and tok[0].isdigit() and len(tok[0]) >= 8:
                 eid = tok[0]
                 if eid in have:
                     continue

@@ -281,6 +281,39 @@ Raising `animal_target` 11 -> 14 is exactly 50.0% over 60 mirror games, and
 measurement shows why: peak animals barely move (11->12, 13->15, 8->8, 8->7)
 because the cap was never binding — cash and tiles are. Wool even drops 65 -> 58.
 
+### Ground truth from 145 real ladder games
+
+`fetch_replays.py` pulls every episode for every submission; `bench/corpus.py`
+reduces them to `data/corpus.json`. As of 2026-08-23:
+
+**Record: 81W 64L = 55.9%**, mean $94,773 against $88,233. Rank 2795 / 5959.
+
+All four submissions score within noise of each other (836.5, 822.8, 821.8,
+799.2) despite v2 measuring **+79%** over v1 locally. Local winrate has not
+predicted ladder rating even once.
+
+Our behaviour is **identical in wins and losses** — peak animals 9.5 vs 9.4,
+peak plants 65.5 vs 65.5, actions 6999 vs 6982, same land days, same crop mix.
+We play one game and win when the opponent is weak:
+
+| | opponents we beat | opponents who beat us | us |
+|---|---|---|---|
+| peak animals | 12.8 | 13.8 | **9.4** |
+| peak plants | 49.0 | 56.0 | **65.5** |
+| animal tile-days | 286 | 318 | **224** |
+| geese share | 3% | 3% | **13%** |
+
+Animal markets are **not** saturated in real games (median end price: milk $172,
+wool $199; floored in only 16% and 33% of games), so the extra animals the field
+runs are genuinely profitable. Yet every configuration that reproduces the field
+profile loses locally:
+
+| variant | local mirror | animals produced |
+|---|---|---|
+| champion | — | 9.2 |
+| cap_mu 1.4 + target 16 | 40.0% (40 games) | 14.2 |
+| no geese + target 16 | 37.5% (40 games) | 14.2 |
+
 ### The benchmark cannot discriminate — this is the real blocker
 
 Seven v2 ladder losses against opponents at our own rating (~830 Elo):

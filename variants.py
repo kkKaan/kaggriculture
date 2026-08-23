@@ -168,6 +168,10 @@ add("revC", value_scaled_care=1)
 add("revD", long_frac_min=0.7055, drop_threshold=9)
 add("revE", disc_poor=0.9297)
 add("aT14", animal_target=14)
+add("fieldmix", no_animal=("GOOSE",), animal_target=16)
+add("fieldmix14", no_animal=("GOOSE",), animal_target=14)
+for _cm in (1.4, 1.0, 0.7, 0.4):
+    VARIANTS["cm%d_T16" % round(_cm*10)] = d(cap_mu=_cm, animal_target=16)
 add("nogoose", no_animal=("GOOSE",))
 add("nogoose_aT14", no_animal=("GOOSE",), animal_target=14)
 for _fd in (2.0, 4.0, 6.0):
