@@ -68,6 +68,8 @@ DEFAULTS = {
     "wheat_reserve_days": 2.5,
     "mirror": 0.0,
     "fetch_value": 130.0,
+    "fetch_animal_value": 190.0,   # collecting a bought animal from the shed
+    "fetch_animal_slots": 2,       # how many units may be sent on that errand
     "fert_min_gain": 15.0,
     "future_shop_weight": 1.0,
     "drop_threshold": 9,
@@ -293,14 +295,7 @@ class Brain:
 
         free = len(scan["empty"])
         bought = len(me["unlocked_quadrants"]) - 1
-        land_cost = 0
-        if (not self._final_day and bought < P["land_max"]
-                and day >= P["land_min_day"]
-                and days_left >= P["land_min_day_left"] + 3 * bought):
-            c = LAND_PRICES[bought]
-            est = P["land_seed_per_tile"] * min(free + 25, 50)
-            if money >= c + est + P["land_buffer"] and free <= P["land_free_gate"]:
-                land_cost = c
+        land_cost = self.land_decision(bought, free, money, day, days_left, scan)
         avail = money - land_cost
 
         alloc, buys, need_coop, need_past = self._alloc_farm(
@@ -316,6 +311,21 @@ class Brain:
                             minv, drain, days_left, shed_set, money, alloc,
                             need_coop, need_past)
         return {"farmer": acts[0], "hands": acts[1:], "market": orders[:10]}
+
+    def land_decision(self, bought, free, money, day, days_left, scan):
+        """Cost of the land to buy this turn (0 for none). Overridable."""
+        P = self.P
+        if self._final_day or bought >= P["land_max"]:
+            return 0
+        if day < P["land_min_day"]:
+            return 0
+        if days_left < P["land_min_day_left"] + 3 * bought:
+            return 0
+        c = LAND_PRICES[bought]
+        est = P["land_seed_per_tile"] * min(free + 25, 50)
+        if money >= c + est + P["land_buffer"] and free <= P["land_free_gate"]:
+            return c
+        return 0
 
     # ---------------------------------------------------------------- scanning
     def _scan(self, tiles, n):
@@ -880,8 +890,8 @@ class Brain:
         if pending_animals > 0 and len(scan["empty_struct"]) > 0:
             held_any = sum(iv.get(a, 0) for iv in invs for a in ANIMALS)
             if held_any < pending_animals:
-                for (sx, sy) in list(shed_set)[:min(2, pending_animals)]:
-                    tasks.append((190.0, sx, sy, "FETCH_ANIMAL", None))
+                for (sx, sy) in list(shed_set)[:min(P["fetch_animal_slots"], pending_animals)]:
+                    tasks.append((P["fetch_animal_value"], sx, sy, "FETCH_ANIMAL", None))
         animals_pending = sum(shed.get(a, 0) for a in ANIMALS)
         open_structs = len(scan["empty_struct"])
 

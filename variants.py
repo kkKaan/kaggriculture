@@ -303,7 +303,27 @@ for v in (0.9, 1.6, 2.2, 3.0, 5.0, 9.0):
 _SUB = None
 
 
+ANIMAL_VARIANTS = {"animal": {}}
+
+
+def make_animal(name):
+    from agent_animal import AnimalBrain
+    brain = AnimalBrain(ANIMAL_VARIANTS.get(name) or {})
+
+    def agent(obs, config=None):
+        try:
+            if obs.get("day", 0) == 0 and obs.get("hour", 0) == 0:
+                brain.reset()
+            return brain.act(obs, config)
+        except Exception:
+            import traceback; traceback.print_exc()
+            return {"farmer": ["PASS"], "hands": [], "market": []}
+    return agent
+
+
 def make_agent(name):
+    if name in ANIMAL_VARIANTS:
+        return make_animal(name)
     if name in ("pass", "random", "starter"):
         return name
     if name == "sub":
