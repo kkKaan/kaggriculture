@@ -318,6 +318,9 @@ ANIMAL_VARIANTS = {
     "a_T12":   {"animal_target": 12},
     "a_T10":   {"animal_target": 10},
     "a_oldplace": {"place_value": 220.0, "fetch_needs_home": 0},
+    "a_nogoose":  {"no_animal": ("GOOSE",)},
+    "a_ng_T14":   {"no_animal": ("GOOSE",), "animal_target": 14},
+    "a_ng_lf":    {"no_animal": ("GOOSE",), "long_frac_min": 0.55},
     "a_T14":   {"animal_target": 14},
 }
 

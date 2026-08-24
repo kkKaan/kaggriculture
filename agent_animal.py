@@ -40,7 +40,7 @@ ANIMAL_DEFAULTS.update({
     "land_days": (5, 8),      # days the 2nd and 3rd quadrants are bought
     "land_min_cash": 200.0,   # cash to keep back after buying land
     # steady state
-    "animal_target": 15,
+    "animal_target": 14,   # rank 1 runs 14; 19 overshoots and floods milk/wool
     "wheat_tiles": 0,   # tiles reserved for wheat: feed we grow is feed we do not
                         # buy, and buying drives the scarcity price up on ourselves
     "wheat_cash_floor": 10.0,
@@ -52,6 +52,8 @@ ANIMAL_DEFAULTS.update({
     "fetch_animal_slots": 4,
     "fert_early": 1,
     "land_max": 2,
+    "no_animal": ("GOOSE",),  # eggs are $50 where milk is $170 and wool $200;
+                              # rank 1 and Crop Dusta both use zero geese
     "use_zones": 0,      # DEFAULTS still has 1; the champion overrides it and the
                          # zoning path is both slower and measurably worse
     "dist_decay": 1.2,

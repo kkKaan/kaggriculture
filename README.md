@@ -6,10 +6,13 @@ winner is whoever has the most coins after 30 in-game days.
 
 ## Where this actually stands
 
-Six submissions, six ratings: 836.5, 822.8, 816.2, 810.4, 804.2, 799.2. Crop
-economy, animal economy, retuned capital, no geese - all land in the same
-30-point band while rank 1 sits at 3135. **No offline improvement has ever moved
-the ladder rating.**
+The animal-centric allocator (`agent_animal.py`) is the first change that moved
+the ladder rating. Ratings: **animal v2 898.1**, animal v1 844.6, then the whole
+crop-economy fleet at 799-836. Note ratings converge slowly - animal v1 read
+810 at 33 games and 845 at 41, so early readings understate.
+
+Compare submissions by **rating**, not winrate: Elo raises you until you are even
+with your opponents, so winrate tends to 50% by construction.
 
 Margin analysis over 209 of our games against 29 of rank 1's and 51 of Crop
 Dusta's:
