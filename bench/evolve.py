@@ -3,10 +3,24 @@ import gc, os, sys, json, time, random, argparse, copy
 from concurrent.futures import ProcessPoolExecutor
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
-CJ = os.path.join(ROOT, "champion.json")
+BRAIN = os.environ.get("BRAIN", "crop")     # "crop" or "animal"
+CJ = os.path.join(ROOT, "champion.json" if BRAIN == "crop" else "champion_animal.json")
 LOG = os.path.join(ROOT, "evolve_log.txt")
 
 # name -> (low, high, kind)  kind: f=float, i=int, b=bool
+ANIMAL_EXTRA = {
+    "open_animals":     (3, 7, "i"),
+    "open_days":        (1, 4, "i"),
+    "open_seed_cash":   (200.0, 900.0, "f"),
+    "open_hands":       (3, 8, "i"),
+    "land_min_cash":    (0.0, 600.0, "f"),
+    "place_value":      (300.0, 900.0, "f"),
+    "fetch_animal_value": (250.0, 700.0, "f"),
+    "wheat_tiles":      (0, 20, "i"),
+    "wheat_cash_floor": (0.0, 120.0, "f"),
+    "build_urgent":     (150.0, 500.0, "f"),
+}
+
 SPACE = {
     "hire_overhead":      (2.4, 5.2, "f"),
     "max_hands":          (8, 16, "i"),
@@ -50,9 +64,12 @@ SPACE = {
 def mutate(base, rng, n=None):
     p = dict(base)
     keys = list(SPACE)
+    if BRAIN == "animal":
+        keys = keys + list(ANIMAL_EXTRA)
     n = n or rng.choice([1, 1, 2, 2, 3])
     for k in rng.sample(keys, n):
-        lo, hi, kind = SPACE[k]
+        lo, hi, kind = (ANIMAL_EXTRA[k] if k in ANIMAL_EXTRA and BRAIN == "animal"
+                        else SPACE[k])
         cur = p.get(k, (lo + hi) / 2.0)
         span = (hi - lo)
         if kind == "i":
@@ -79,10 +96,13 @@ def _one(job):
     cand, champ, seed, flip = job
     sys.path.insert(0, ROOT)
     from kaggle_environments import make
-    from agent_brain import Brain
+    if BRAIN == "animal":
+        from agent_animal import AnimalBrain as _B
+    else:
+        from agent_brain import Brain as _B
 
     def mk(params):
-        b = Brain(params)
+        b = _B(params)
 
         def a(obs, config=None):
             try:

@@ -95,3 +95,15 @@ round 15 (156s) best=54.2% {'max_hands': 11, 'cash_target': 2963.0513}
 === evolve start 12:48:38 rounds=40 pop=6 ===
 round 0 (307s) best=66.7% {'rush_sell': 1, 'cash_target': 4698.0102}
    confirm: 60.0% W44 L28 T8 mean=$101,459
+=== evolve start 00:19:23 rounds=2 pop=4 ===
+round 0 (63s) best=50.0% {'open_seed_cash': 396.4746}
+round 1 (52s) best=58.3% {'open_hands': 6, 'value_scaled_care': 1}
+=== done ===
+=== evolve start 00:21:30 rounds=45 pop=6 ===
+round 0 (119s) best=55.0% {'open_animals': 4, 'wheat_cash_floor': 18.6079, 'shed_soft_cap': 68}
+round 1 (126s) best=70.0% {'hire_overhead': 3.6586, 'long_hd': 6, 'seed_cash_floor': 238.3045}
+   confirm: 50.8% W32 L31 T1 mean=$87,146
+   rejected on confirmation
+=== evolve start 01:22:29 rounds=60 pop=4 ===
+round 0 (96s) best=68.8% {'disc_rich': 0.9394}
+   confirm: 60.0% W24 L16 T0 mean=$85,830

@@ -320,7 +320,11 @@ ANIMAL_VARIANTS = {
     "a_oldplace": {"place_value": 220.0, "fetch_needs_home": 0},
     "a_nogoose":  {"no_animal": ("GOOSE",)},
     "a_ng_T14":   {"no_animal": ("GOOSE",), "animal_target": 14},
-    "a_ng_lf":    {"no_animal": ("GOOSE",), "long_frac_min": 0.55},
+    "a_lf55":  {"long_frac_min": 0.55},
+    "a_lf90":  {"long_frac_min": 0.90},
+    "a_lc50b": {"land_min_cash": 50.0},
+    "a_op6":   {"open_animals": 6},
+    "a_dr94":  {"disc_rich": 0.9394},
     "a_T14":   {"animal_target": 14},
 }
 
