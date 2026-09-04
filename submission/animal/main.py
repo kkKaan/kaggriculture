@@ -1356,6 +1356,10 @@ class AnimalBrain(Brain):
         if params:
             p.update(params)
         Brain.__init__(self)
+        # champion_animal.json round-trips through JSON, so tuple params arrive as lists
+        for k in ("no_animal", "no_grow", "land_days"):
+            if k in p and isinstance(p[k], list):
+                p[k] = tuple(p[k])
         self.P = p
 
     def _hands_wanted(self, scan, money, n, plantable=0):

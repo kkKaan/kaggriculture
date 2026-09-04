@@ -1,4 +1,0 @@
-=== evolve start 14:49:04 rounds=26 pop=8 ===
-round 0 (1084s) best=80.0% {'cap_mu': 2.1598}
-   confirm: 66.7% W32 L16 T0 mean=$92,779
-   PROMOTED -> {'cap_mu': 2.1598}
