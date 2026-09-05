@@ -39,14 +39,25 @@ compare submissions by *rating*, or by winrate over the same early game count.
 5 submissions/day; only the **latest 2** are played and scored, so the last
 uploads before the deadline are the ones that count.
 
+## Setup
+
+```bash
+python3.11 -m venv .venv && .venv/bin/pip install -r requirements.txt
+```
+
+Everything below assumes `.venv/bin/python`. The agent that gets submitted is a
+single stdlib-only file - `kaggle-environments` is only needed to run episodes
+offline, and `kaggle` only to talk to the API.
+
 ## Layout
 
 | Path | Purpose |
 |---|---|
 | `agent_core.py` | Game constants mirrored from the environment, market price model, yield/watering math |
-| `agent_brain.py` | The agent: economic planner + per-turn task assignment |
+| `agent_brain.py` | The crop agent: economic planner + per-turn task assignment |
+| `agent_animal.py` | `AnimalBrain(Brain)` - replaces only the economic layer with the animal/fertiliser opening. Best rated agent |
 | `variants.py` | Named parameter variants for benchmarking; loads `champion.json` |
-| `champion.json` | Current best parameter vector |
+| `champion.json` / `champion_animal.json` | Current best parameter vector per brain |
 | `build_submission.py` | Bundles everything into a standalone `submission/main.py` and self-tests it |
 | `bench/tournament.py` | Head-to-head A vs B over N seeds, both sides |
 | `bench/sweep.py` | Many challengers vs the champion in one parallel run |
@@ -54,6 +65,14 @@ uploads before the deadline are the ones that count.
 | `bench/diag2.py` | Per-day farm/market trace + action breakdown |
 | `bench/revenue.py` | Revenue and spend attribution by product |
 | `bench/robust.py` | Multi-opponent robustness + per-turn latency check |
+| `fetch_replays.py` / `status.py` | Pull every ladder episode via the Kaggle API and report each submission's real record |
+| `bench/corpus.py` | Rebuild `data/corpus.json` from downloaded replays |
+| `analyze_replay.py` | Day-by-day trace of a single downloaded episode |
+| `data/top_agent_summaries.json` | Curated summaries of 16 top-agent games. Kept in git because rebuilding it means re-downloading ~11 GB of replays |
+
+Not in git, all regenerable: `.venv/`, `replays/` (downloaded episodes, ~11 GB),
+`data/corpus.json` and `data/episode_submission.json` (rebuilt by `bench/corpus.py`
+and `status.py`), and the `*.tar.gz` submission archives.
 
 ## How the agent works
 
@@ -136,37 +155,43 @@ around $125-133k versus ~$3.5k.
 ## Benchmarking
 
 ```bash
-python bench/tournament.py champ starter -n 20
+.venv/bin/python bench/tournament.py champ starter -n 20
 ```
 
 ```bash
-python bench/test_model.py
+.venv/bin/python bench/test_model.py
 ```
 
 ```bash
-python bench/sweep.py champ variantA variantB -n 14
+.venv/bin/python bench/sweep.py champ variantA variantB -n 14
 ```
 
 ```bash
-python bench/robust.py -n 25
+.venv/bin/python bench/robust.py -n 25
 ```
 
 ## Building and submitting
 
 ```bash
-python build_submission.py
+.venv/bin/python build_submission.py            # crop agent  -> submission/main.py
+VARIANT=animal .venv/bin/python build_submission.py   # animal agent -> submission/animal/main.py
 ```
 
-This writes `submission/main.py` (single self-contained file) and runs a full
-episode against `starter`, failing loudly on any exception or a weak score.
+Each writes one self-contained file and runs a full episode against `starter`,
+failing loudly on any exception or a weak score. The bundles are committed, so
+a fresh clone plus a rebuild produces no diff — that is the reproducibility
+check.
 
 Submitting needs a Kaggle API token — generate one at
 https://www.kaggle.com/settings/api, save it to `~/.kaggle/access_token`, accept
 the competition rules on the website, then:
 
 ```bash
-kaggle competitions submit kaggriculture -f submission/main.py -m "v1"
+VARIANT=animal ./submit.sh "animal v3"
 ```
+
+See [SUBMIT.md](SUBMIT.md) for which file to upload and how ratings behave
+afterwards.
 
 ## Learned from a top-agent replay
 
@@ -407,7 +432,7 @@ The champion parameter vector lives in `champion.json` and is read by both
 **Hand-testing one idea:** add a named variant in `variants.py`, then
 
 ```bash
-python bench/sweep.py champ myvariant -n 40
+.venv/bin/python bench/sweep.py champ myvariant -n 40
 ```
 
 40 seeds = 80 games = about 1 sigma of 5.6% on winrate. Anything under 60% at
@@ -419,7 +444,7 @@ before promoting it to `champion.json`. The two-stage design is what keeps it
 from chasing noise.
 
 ```bash
-python bench/evolve.py --rounds 40 --pop 6 --seeds 12 --confirm 32 --workers 4
+.venv/bin/python bench/evolve.py --rounds 40 --pop 6 --seeds 12 --confirm 32 --workers 4
 ```
 
 **Do not exceed 4 workers on this machine.** It has 4 performance cores and

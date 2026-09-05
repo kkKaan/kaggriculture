@@ -4,11 +4,12 @@
 
 Safe to re-run; only downloads episodes not already present.
 """
-import os, sys, json, subprocess, collections
+import os, sys, json, shutil, subprocess, collections
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-KAGGLE = os.path.join(ROOT, ".venv", "bin", "kaggle")
-PY = os.path.join(ROOT, ".venv", "bin", "python")
+PY = sys.executable
+_VENV = os.path.join(ROOT, ".venv", "bin", "kaggle")
+KAGGLE = _VENV if os.path.exists(_VENV) else (shutil.which("kaggle") or "")
 
 
 def sh(*a):
@@ -16,6 +17,9 @@ def sh(*a):
 
 
 def main():
+    if not KAGGLE:
+        print("kaggle CLI not on PATH - pip install -r requirements.txt")
+        return 1
     subs = sh(KAGGLE, "competitions", "submissions", "kaggriculture")
     print(subs.stdout or subs.stderr)
     ids, desc = [], {}
@@ -37,7 +41,11 @@ def main():
             tok = line.split()
             if tok and tok[0].isdigit() and len(tok[0]) >= 8:
                 m[tok[0]] = sid
-    rows = json.load(open(os.path.join(ROOT, "data", "corpus.json")))
+    corpus = os.path.join(ROOT, "data", "corpus.json")
+    if not os.path.exists(corpus):
+        print("no replays downloaded yet - nothing to report")
+        return 1
+    rows = json.load(open(corpus))
     agg = collections.defaultdict(lambda: [0, 0, 0.0, 0.0])
     for r in rows:
         sid = m.get(r["ep"])

@@ -1,13 +1,22 @@
 # How to submit
 
-**Upload this one file:** `submission/main.py` (50 KB)
+**Upload one file.** Which one:
 
-It is fully self-contained — no imports beyond `math`, no data files, no
+| File | Agent | Ladder rating |
+|---|---|---|
+| `submission/animal/main.py` | animal/fertiliser economy (`AnimalBrain`) | **904** — best measured |
+| `submission/main.py` | crop economy (`Brain`) | 799-836 |
+
+Both are fully self-contained — no imports beyond `math`, no data files, no
 network. The `agent` function is the last callable in the file, which is what
-kaggle-environments looks for.
+kaggle-environments looks for. Rebuild either with:
 
-`submission/kaggriculture-agent.tar.gz` is the same file packaged as an archive
-with `main.py` at the root. Only use it if the upload form rejects a bare `.py`.
+```bash
+VARIANT=animal .venv/bin/python build_submission.py   # or omit VARIANT for the crop agent
+```
+
+The build runs a full episode against `starter` and fails loudly on any
+exception or a weak score, so a file that got written is a file that ran.
 
 ## Before the first submission
 
@@ -19,8 +28,15 @@ open https://www.kaggle.com/competitions/kaggriculture and click
 
 1. Go to https://www.kaggle.com/competitions/kaggriculture
 2. Click **Submit Agent** (top right)
-3. Upload `submission/main.py`
-4. Description: `v1 - task-assignment planner, 75 tiles, 11 animals`
+3. Upload `submission/animal/main.py`
+4. Give it a description that names the variant, so `status.py` can attribute
+   episodes to it later
+
+If the upload form rejects a bare `.py`, package it:
+
+```bash
+tar -czf submission/kaggriculture-agent.tar.gz -C submission/animal main.py
+```
 
 ## Option B — command line
 
@@ -28,23 +44,28 @@ Generate a token at https://www.kaggle.com/settings/api ("Create New Token"),
 save the token string to `~/.kaggle/access_token`, then:
 
 ```bash
-chmod 600 ~/.kaggle/access_token && ./submit.sh "v1 - task-assignment planner"
+chmod 600 ~/.kaggle/access_token && VARIANT=animal ./submit.sh "animal v3"
 ```
 
 ## After submitting
 
 A validation episode runs first — the agent plays a copy of itself. If it errors
 the submission is marked Error and agent logs can be downloaded. This case is
-tested locally and passes.
+covered by the build's self-test.
 
-Then it joins the ladder at rating 600.
+Then it joins the ladder at rating 600 and climbs.
 
 - ~15 games/hour for the first 4-5 hours, then 1-2/hour
-- **Do not judge it before ~60 games (~5 hours).** At 20-40 games the opponent
-  draw alone moves it 100-200 points
-- Treat gaps under ~50 points as noise even at 200 games
+- Ratings converge slowly upward: animal v1 read 810 at 33 games and 845 at 41.
+  Early readings *understate* a good agent, so a low number at 30 games is not
+  yet evidence against it
+- Compare submissions by **rating**, not winrate — matchmaking pulls winrate to
+  50% by construction
+- A strong agent still wins its early games outright: the rank-1 agent went
+  21W-1L over its first 22
 
-Check progress with `./results.sh`, or the Submissions tab on the site.
+Check progress with `./results.sh`, or `.venv/bin/python status.py` for a
+per-submission record with error bars.
 
 ## Submission budget
 

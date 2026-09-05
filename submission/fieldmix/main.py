@@ -209,6 +209,10 @@ def watering_days(crop, fertilized=False):
 """Kaggriculture agent brain. Parameterised so variants can be benchmarked."""
 import math
 
+def a_fyd(animal):
+    return ANIMALS[animal]["first_yield_day"]
+
+
 def get_cfg(cfg, key, default):
     if isinstance(cfg, dict):
         return cfg.get(key, default)
@@ -266,6 +270,10 @@ DEFAULTS = {
     "wheat_reserve_days": 2.5,
     "mirror": 0.0,
     "fetch_value": 130.0,
+    "fetch_animal_value": 190.0,   # collecting a bought animal from the shed
+    "place_value": 220.0,          # putting a carried animal onto its structure
+    "fetch_animal_slots": 2,       # how many units may be sent on that errand
+    "fetch_needs_home": 1,         # only fetch an animal if a structure is ready
     "fert_min_gain": 15.0,
     "future_shop_weight": 1.0,
     "drop_threshold": 9,
@@ -287,6 +295,9 @@ DEFAULTS = {
     "fert_fetch": 1,
     "build_urgent": 100.0,   # tested: raising this to 320 loses 20.8%
     "feed_days": 0.0,       # cash withheld per animal to buy feed wheat
+    "fert_early": 0,        # tested: discounting fertiliser from day 1 loses 45.8%
+                            # in mirror despite being what the rival does
+    "wheat_cash_floor": 150.0,  # cash kept back when buying feed wheat
     "animals_first": 0,      # order BUY_ANIMAL ahead of BUY_SEED
     "house_stranded": 0,     # tested: housing surplus shed animals loses 29.2%
     "dig_spent": 0,        # tested: clears rot but costs more than the tile returns
@@ -430,11 +441,12 @@ class Brain:
         fert_price = self._batch_price("FERTILIZER", fert_units, minv, drain, 1,
                                        pipe.get("FERTILIZER", 0))
         wheat_price = self._price_at("WHEAT", minv, drain, 0)
-        rev = (units * price + fert_units * fert_price * 0.85
+        fert_rev = fert_units * fert_price * 0.85
+        rev = (units * price + fert_rev
                - (days_left - 1) * wheat_price - a["cost"])
         actions = ((days_left - 1) * (3.0 + rate / a["max_held"] * a["interval"])
                    * self.P["animal_move_mult"])
-        return rev / max(1.0, actions + 2.0), rev, units, actions
+        return rev / max(1.0, actions + 2.0), rev, units, actions, fert_rev
 
     # -------------------------------------------------------------- main entry
     def act(self, obs, config=None):
@@ -487,14 +499,7 @@ class Brain:
 
         free = len(scan["empty"])
         bought = len(me["unlocked_quadrants"]) - 1
-        land_cost = 0
-        if (not self._final_day and bought < P["land_max"]
-                and day >= P["land_min_day"]
-                and days_left >= P["land_min_day_left"] + 3 * bought):
-            c = LAND_PRICES[bought]
-            est = P["land_seed_per_tile"] * min(free + 25, 50)
-            if money >= c + est + P["land_buffer"] and free <= P["land_free_gate"]:
-                land_cost = c
+        land_cost = self.land_decision(bought, free, money, day, days_left, scan)
         avail = money - land_cost
 
         alloc, buys, need_coop, need_past = self._alloc_farm(
@@ -510,6 +515,21 @@ class Brain:
                             minv, drain, days_left, shed_set, money, alloc,
                             need_coop, need_past)
         return {"farmer": acts[0], "hands": acts[1:], "market": orders[:10]}
+
+    def land_decision(self, bought, free, money, day, days_left, scan):
+        """Cost of the land to buy this turn (0 for none). Overridable."""
+        P = self.P
+        if self._final_day or bought >= P["land_max"]:
+            return 0
+        if day < P["land_min_day"]:
+            return 0
+        if days_left < P["land_min_day_left"] + 3 * bought:
+            return 0
+        c = LAND_PRICES[bought]
+        est = P["land_seed_per_tile"] * min(free + 25, 50)
+        if money >= c + est + P["land_buffer"] and free <= P["land_free_gate"]:
+            return c
+        return 0
 
     # ---------------------------------------------------------------- scanning
     def _scan(self, tiles, n):
@@ -657,8 +677,15 @@ class Brain:
                     if r is None or r[1] <= 0:
                         continue
                     setup = 1.0 if free_slot > 0 else 2.0
-                    sc = (r[1] * (disc ** ANIMALS[a]["first_yield_day"])) / (
-                        r[3] + setup + mu * P["animal_mu_scale"] * eff)
+                    if P["fert_early"]:
+                        # Fertiliser is collected daily from day 1; only the milk /
+                        # wool / egg stream waits for first_yield_day.
+                        fert_rev = r[4]
+                        disc_rev = ((r[1] - fert_rev) * (disc ** a_fyd(a))
+                                    + fert_rev * disc)
+                    else:
+                        disc_rev = r[1] * (disc ** a_fyd(a))
+                    sc = disc_rev / (r[3] + setup + mu * P["animal_mu_scale"] * eff)
                     if best_animal is None or sc > best_animal[0]:
                         best_animal = (sc, a, r[2], eff)
 
@@ -777,7 +804,7 @@ class Brain:
             wprice = market_price("WHEAT", minv.get("WHEAT", 10000) - 1)
             if wheat_have < wheat_reserve and wprice <= P["wheat_buy_max"]:
                 k = wheat_reserve - wheat_have
-                k = min(k, int(max(0.0, money - 150) // max(1, wprice)))
+                k = min(k, int(max(0.0, money - P["wheat_cash_floor"]) // max(1, wprice)))
                 if k > 0:
                     tail.append(["BUY_PRODUCT", "WHEAT", k])
         return head + tail + spill
@@ -1005,14 +1032,17 @@ class Brain:
                     held[a] = held.get(a, 0) + iv[a]
         idle_struct = 0
         for (x, y, kind) in scan["empty_struct"]:
+            # Prefer a species a unit is actually carrying: emitting PLACE_COW
+            # while the nearby unit holds a sheep leaves both stuck.
             best = None
-            for aname, ad in ANIMALS.items():
-                if ad["structure"] != kind:
-                    continue
-                if not (held.get(aname, 0) or shed.get(aname, 0)):
-                    continue
-                if best is None or ad["cost"] > ANIMALS[best]["cost"]:
-                    best = aname
+            for src in (held, shed):
+                for aname, ad in ANIMALS.items():
+                    if ad["structure"] != kind or not src.get(aname, 0):
+                        continue
+                    if best is None or ad["cost"] > ANIMALS[best]["cost"]:
+                        best = aname
+                if best is not None:
+                    break
             if best is None:
                 idle_struct += 1
             else:
@@ -1064,11 +1094,17 @@ class Brain:
             for (sx, sy) in list(shed_set)[:nf]:
                 tasks.append((100.0, sx, sy, "FETCH_FERT", None))
         pending_animals = sum(shed.get(a, 0) for a in ANIMALS)
-        if pending_animals > 0 and len(scan["empty_struct"]) > 0:
+        open_structs = len(scan["empty_struct"])
+        if pending_animals > 0 and open_structs > 0:
             held_any = sum(iv.get(a, 0) for iv in invs for a in ANIMALS)
-            if held_any < pending_animals:
-                for (sx, sy) in list(shed_set)[:min(2, pending_animals)]:
-                    tasks.append((190.0, sx, sy, "FETCH_ANIMAL", None))
+            # Only fetch as many animals as there are homes ready for them, or the
+            # carriers wander the farm holding livestock they cannot put down.
+            room = (min(pending_animals, open_structs) if P["fetch_needs_home"]
+                    else pending_animals) - held_any
+            if room > 0:
+                n = min(P["fetch_animal_slots"], room, len(shed_set))
+                for (sx, sy) in list(shed_set)[:n]:
+                    tasks.append((P["fetch_animal_value"], sx, sy, "FETCH_ANIMAL", None))
         animals_pending = sum(shed.get(a, 0) for a in ANIMALS)
         open_structs = len(scan["empty_struct"])
 
@@ -1080,7 +1116,8 @@ class Brain:
                 xs = range(n) if yy % 2 == 0 else range(n - 1, -1, -1)
                 for xx in xs:
                     order[(xx, yy)] = len(order)
-            idx = sorted(range(len(tasks)), key=lambda i: order[(tasks[i][1], tasks[i][2])])
+            idx = sorted(range(len(tasks)),
+                         key=lambda i: order.get((tasks[i][1], tasks[i][2]), len(order)))
             k = len(units)
             per = max(1, int(math.ceil(len(idx) / float(k))))
             chunks = [idx[i * per:(i + 1) * per] for i in range(k)]
@@ -1236,12 +1273,14 @@ class Brain:
         return ["PASS"]
 
 
+
 PARAMS = {'animal_target': 16, 'cap_lambda': 0.0, 'cap_mu': 1.4, 'cap_mu_ref': 7.2539, 'disc_poor': 0.9586, 'dist_decay': 0.6, 'drop_threshold': 9, 'endgame_dump_day': 25, 'fert_min_gain': 1000000000.0, 'fetch_value': 116.818, 'final_run_slack': 6, 'future_shop_weight': 1.725, 'hire_overhead': 3.5, 'hire_per_turn': 3, 'hold_bonus': 0.75, 'keep_frac': 0.24, 'keep_frac_premium': 0.0516, 'land_buffer': 500, 'land_buffer_per_tile': 0.0, 'land_max': 2, 'long_frac_min': 0.753, 'max_hands': 12, 'mirror': 0.45, 'operating_per_tile': 8.0, 'opp_weight': 1.0, 'rush_window': 4, 'sell_orders_head': 5, 'sticky_bonus': 1.0, 'use_zones': 0, 'value_scaled_care': 1, 'wheat_reserve_days': 0.5, 'no_animal': ('GOOSE',)}
 
 
 # One planner per seat: Kaggle's validation episode plays this agent against a
 # copy of itself, which may share module state between both players.
 _BRAINS = {}
+_CLS = AnimalBrain if "AnimalBrain" in dir() else Brain
 
 
 def agent(obs, config=None):
@@ -1249,7 +1288,7 @@ def agent(obs, config=None):
         p = obs.get("player", 0)
         b = _BRAINS.get(p)
         if b is None or (obs.get("day", 0) == 0 and obs.get("hour", 0) == 0):
-            b = Brain(PARAMS)
+            b = _CLS(PARAMS)
             _BRAINS[p] = b
         return b.act(obs, config)
     except Exception:
