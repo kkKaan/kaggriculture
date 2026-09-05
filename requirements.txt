@@ -1,0 +1,5 @@
+# Local dev/benchmark environment (Python 3.11).
+# The submitted agent itself is a single stdlib-only file - these are only
+# needed to run episodes offline and to talk to the Kaggle API.
+kaggle-environments==1.32.7
+kaggle==2.2.4

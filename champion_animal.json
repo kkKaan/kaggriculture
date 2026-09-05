@@ -1,0 +1,28 @@
+{
+ "animal_target": 14,
+ "build_urgent": 340.0,
+ "cap_mu": 1.4,
+ "disc_poor": 0.9586,
+ "dist_decay": 1.2,
+ "endgame_dump_day": 25,
+ "fetch_animal_value": 460.0,
+ "future_shop_weight": 1.725,
+ "hire_overhead": 3.5,
+ "keep_frac": 0.24,
+ "keep_frac_premium": 0.0516,
+ "land_min_cash": 200.0,
+ "long_frac_min": 0.7145,
+ "max_hands": 12,
+ "mirror": 0.45,
+ "no_animal": [
+  "GOOSE"
+ ],
+ "open_animals": 5,
+ "open_days": 2,
+ "open_hands": 5,
+ "open_seed_cash": 500.0,
+ "opp_weight": 1.0,
+ "place_value": 700.0,
+ "wheat_cash_floor": 10.0,
+ "wheat_tiles": 0
+}

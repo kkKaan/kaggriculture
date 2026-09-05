@@ -1,0 +1,25 @@
+# environment
+.venv/
+__pycache__/
+*.pyc
+
+# downloaded replays (11GB of Kaggle episode JSON; refetch with fetch_replays.py)
+replays/
+
+# generated analysis artifacts (rebuild with bench/corpus.py and status.py)
+data/corpus.json
+data/episode_submission.json
+
+# search logs
+evolve_log.txt
+evolve_run1.log
+
+# build artifacts
+submission/**/*.tar.gz
+
+# macOS
+.DS_Store
+
+# spent one-off patch scripts (their edits are already in agent_brain.py)
+patch2.py
+patch_perf.py
